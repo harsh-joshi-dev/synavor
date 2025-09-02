@@ -1,6 +1,5 @@
 import React from "react";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
-
 export default function Footer() {
     return (
         <footer className="bg-gray-900 text-gray-300">
@@ -11,11 +10,11 @@ export default function Footer() {
                     <div className="lg:col-span-2">
                         <div className="flex items-center mb-6">
                             <img
-                                src="/assets/logo.png"
+                                src="/try.png"
                                 alt="Synavor"
                                 className="h-12 w-auto mr-4"
                             />
-                            <span className="text-2xl font-bold text-white">Synavor</span>
+                            {/* <span className="text-2xl font-bold text-white">Synavor</span> */}
                         </div>
                         <p className="text-lg leading-relaxed text-gray-400 mb-6 max-w-md">
                             We empower businesses with innovative AI/ML technology solutions, 

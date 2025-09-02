@@ -5,36 +5,52 @@ import { ArrowRight, Users, Handshake, TrendingUp, Target } from "lucide-react";
 const data = [
     {
         title: "Procurement & Sourcing",
-        description: "Empower sourcing teams to negotiate better deals and manage procurement processes seamlessly with AI-driven insights.",
+        description: "Supplier life cycle management using digital solutions to institutionalize analytics and strategic frameworks.",
         img: "./assets/tier1.jpg",
         bg: "bg-orange-100",
         icon: Target,
-        benefits: ["Better negotiations", "Process automation", "AI insights", "Cost optimization"]
+        benefits: ["Proactive risk monetization",
+            "Life cycle cost advantage",
+            "Supply continuity",
+            "Innovation excellence",
+            "Analytics guided strategic sourcing"]
     },
     {
-        title: "Finance Leaders & Analysts",
-        description: "Get real-time insights to make faster and smarter financial decisions with predictive analytics.",
+        title: "Supply Chain & Inventory",
+        description: "Integrated supply chain management anchored on analytics driven inventory controls.",
         img: "./assets/tier2.jpg",
         bg: "bg-green-100",
         icon: TrendingUp,
-        benefits: ["Real-time insights", "Predictive analytics", "Smart decisions", "Risk management"]
+        benefits: [
+            "Inventory optimization",
+            "Portfolio segmentation",
+            "Embedded tools for efficiency and value creation",
+            "Resilience management",
+            "Value chain cost advantage"
+        ]
     },
     {
-        title: "Spend & Supply Chain Stakeholders",
-        description: "Optimize your supply chain and reduce risks with better collaboration and intelligent monitoring.",
+        title: "Finance & Treasury",
+        description: "Seamless connectivity improves compliance, enables savings, and elevates governance for timely actions.",
         img: "./assets/tier3.jpg",
         bg: "bg-purple-100",
         icon: Handshake,
-        benefits: ["Supply optimization", "Risk reduction", "Smart collaboration", "Intelligent monitoring"]
+        benefits: [
+            "Working capital gains",
+            "Optimize cycle counts",
+            "Hedge P&L controls",
+            "Audit support",
+            "Scenario modelling and impact analysis"
+        ]
     },
-    {
-        title: "Private Equity",
-        description: "Unlock new opportunities by driving efficiency across portfolio companies with data-driven insights.",
-        img: "./assets/tier4.jpg",
-        bg: "bg-blue-100",
-        icon: Users,
-        benefits: ["Portfolio efficiency", "Opportunity identification", "Data insights", "Value creation"]
-    },
+    // {
+    //     title: "Private Equity",
+    //     description: "Unlock new opportunities by driving efficiency across portfolio companies with data-driven insights.",
+    //     img: "./assets/tier4.jpg",
+    //     bg: "bg-blue-100",
+    //     icon: Users,
+    //     benefits: ["Portfolio efficiency", "Opportunity identification", "Data insights", "Value creation"]
+    // },
 ];
 
 export default function CollaborationSection() {
@@ -48,23 +64,23 @@ export default function CollaborationSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200 mb-6"
+                        className="inline-flex items-center px-4 py-4 text-xl bg-blue-50 text-blue-700 rounded-full font-medium border border-blue-200 mb-6"
                     >
                         <Users className="w-4 h-4 mr-2" />
-                        Cross-Functional Collaboration
+                        Teams We Help
                     </motion.div>
-                    
+
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                        Built for <span className="text-gradient">Seamless Collaboration</span>
+                        <span className="text-gradient">Simplify complexity </span>and gain competitive advantage
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Seamlessly collaborate across the business to drive savings, reduce risk, 
-                        manage compliance, track progress, and identify new opportunities.
+                        Simplify complexity and gain competitive advantage
+                        Pragmatic solutions that use generative, predictive and agentic AI tools to gain transparency, speed decision making and take timely actions.
                     </p>
                 </div>
 
                 {/* Enhanced Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {data.map((item, index) => (
                         <motion.div
                             key={index}
@@ -82,10 +98,10 @@ export default function CollaborationSection() {
                                         alt={item.title}
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
-                                    
+
                                     {/* Gradient Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                                    
+
                                     {/* Icon Badge */}
                                     <div className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-medium">
                                         {(() => {
@@ -103,7 +119,7 @@ export default function CollaborationSection() {
                                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                                         {item.description}
                                     </p>
-                                    
+
                                     {/* Benefits List */}
                                     <div className="space-y-2 mb-4">
                                         {item.benefits.map((benefit, idx) => (
@@ -113,7 +129,7 @@ export default function CollaborationSection() {
                                             </div>
                                         ))}
                                     </div>
-                                    
+
                                     {/* Action Button */}
                                     <button className="w-full flex items-center justify-center text-blue-600 hover:text-blue-700 font-medium text-sm py-2 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
                                         <span>Learn More</span>
@@ -131,7 +147,7 @@ export default function CollaborationSection() {
                 </div>
 
                 {/* Call to Action */}
-                <motion.div 
+                {/* <motion.div 
                     className="text-center mt-16"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +160,7 @@ export default function CollaborationSection() {
                     <button className="btn-primary">
                         Start Your Free Trial
                     </button>
-                </motion.div>
+                </motion.div> */}
             </div>
         </section>
     );

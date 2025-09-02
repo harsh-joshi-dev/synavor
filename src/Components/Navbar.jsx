@@ -24,26 +24,28 @@ export default function Navbar() {
                 : 'bg-white/80 backdrop-blur-custom'
         }`}>
             <div className="max-w-7xl mx-auto container-padding">
-                <div className="flex justify-between h-20 items-center">
+                <div className="flex h-20 justify-between">
                     {/* Logo */}
-                    <div className="flex items-center">
+                    <div className="flex items-center w-[150px] ">
                         <NavLink to="/" className="group">
                             <div className="flex items-center space-x-3">
                                 <img 
-                                    src="/assets/logo.png" 
+                                    src="/logot.png"
                                     alt="Synavor" 
-                                    className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
+                                    className="h-12 transition-transform duration-300 group-hover:scale-105" 
                                 />
-                                <span className="text-xl font-bold text-gray-900 hidden sm:block">
+                                {/* <span className="text-xl font-bold text-gray-900 hidden sm:block">
                                     Synavor
-                                </span>
+                                </span> */}
                             </div>
                         </NavLink>
                     </div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden lg:flex items-center space-x-8">
-                        <NavLink to="/" className={`${activeClass} transition-colors duration-200`}>
+                    <div className="hidden lg:flex justify-between items-center   space-x-40">
+                      
+                      <div className="hidden lg:flex space-x-8 ">
+                          <NavLink to="/" className={`${activeClass} transition-colors duration-200`}>
                             Home
                         </NavLink>
                         <NavLink to="/solutions" className={`${activeClass} transition-colors duration-200`}>
@@ -55,8 +57,9 @@ export default function Navbar() {
                         <NavLink to="/AboutUs" className={`${activeClass} transition-colors duration-200`}>
                             About Us
                         </NavLink>
+                      </div>
                         
-                        <div className="flex items-center space-x-4">
+                        <div className="flex space-x-4 items-center">
                             <NavLink 
                                 to="/login" 
                                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
@@ -70,11 +73,14 @@ export default function Navbar() {
                             >
                                 Support
                             </a>
-                        </div>
 
-                        <button className="btn-primary">
+
+                             <button className="btn-primary ">
                             Request Demo
                         </button>
+                        </div>
+
+                       
                     </div>
 
                     {/* Mobile Menu Button */}
