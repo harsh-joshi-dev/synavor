@@ -12,7 +12,7 @@ import WhoWeHelp from './Pages/WhoWeHelp'
 import ContactUs from './Pages/ContactUs'
 import AboutUs from './Pages/AboutUs'
 import Home from "./Pages/Home";
-
+import  Leadership  from "./Pages/Leadership";
 export default function App() {
     return (
         <Router>
@@ -26,6 +26,7 @@ export default function App() {
                         <Route path="/who-we-help" element={<WhoWeHelp />} />
                         <Route path="/ContactUs" element={<ContactUs />} />
                         <Route path="/AboutUs" element={<AboutUs />} />
+                        <Route path="/Leadership" element={<Leadership/>}/>
                     </Routes>
                 </main>
                 <Footer />

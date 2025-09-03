@@ -18,7 +18,7 @@ const data = [
     {
         title: "Supply Chain & Inventory",
         description: "Integrated supply chain management anchored on analytics driven inventory controls.",
-        img: "./assets/tier2.jpg",
+       img: "./assets/tier3.jpg",
         bg: "bg-green-100",
         icon: TrendingUp,
         benefits: [
@@ -32,7 +32,8 @@ const data = [
     {
         title: "Finance & Treasury",
         description: "Seamless connectivity improves compliance, enables savings, and elevates governance for timely actions.",
-        img: "./assets/tier3.jpg",
+        img: "./assets/tier2.jpg",
+        
         bg: "bg-purple-100",
         icon: Handshake,
         benefits: [
@@ -70,17 +71,16 @@ export default function CollaborationSection() {
                         Teams We Help
                     </motion.div>
 
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                        <span className="text-gradient">Simplify complexity </span>and gain competitive advantage
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 content ">
+                        <span className="text-gradient">Simplify Complexity </span>and Gain Competitive Advantage
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Simplify complexity and gain competitive advantage
                         Pragmatic solutions that use generative, predictive and agentic AI tools to gain transparency, speed decision making and take timely actions.
                     </p>
                 </div>
 
                 {/* Enhanced Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
                     {data.map((item, index) => (
                         <motion.div
                             key={index}
@@ -90,7 +90,7 @@ export default function CollaborationSection() {
                             viewport={{ once: true }}
                             className="group"
                         >
-                            <div className="relative rounded-3xl overflow-hidden shadow-medium hover:shadow-large transition-all duration-300 bg-white border border-gray-100">
+                            <div className="relative rounded-3xl overflow-hidden shadow-medium hover:shadow-large transition-all duration-300  border border-gray-100">
                                 {/* Image Container */}
                                 <div className="relative h-64 overflow-hidden">
                                     <img
@@ -112,11 +112,11 @@ export default function CollaborationSection() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6">
+                                <div className="p-6 mb-2 h-[380px]">
                                     <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
                                         {item.title}
                                     </h3>
-                                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                                    <p className="text-gray-600 text-l leading-relaxed mb-4">
                                         {item.description}
                                     </p>
 
@@ -125,7 +125,7 @@ export default function CollaborationSection() {
                                         {item.benefits.map((benefit, idx) => (
                                             <div key={idx} className="flex items-center space-x-2">
                                                 <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                                                <span className="text-xs text-gray-600">{benefit}</span>
+                                                <span className="text-l text-gray-600">{benefit}</span>
                                             </div>
                                         ))}
                                     </div>

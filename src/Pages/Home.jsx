@@ -10,9 +10,9 @@
         return (
             <div>
                 {/* Hero Section */}
-                <section className="gradient-bg section-padding">
+                <section className="gradient-bg section-padding h-[100vh]">
                     <div className="max-w-7xl mx-auto container-padding">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-16 items-center">
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@
                                     AI-Powered Procurement Solutions
                                 </div> */}
 
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                                <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight">
                                     Optimizing {" "}
                                     <span className="text-gradient">Procurement & Supply Chain</span>{" "}
                                     through Advanced Digital and AI/ML Solutions
@@ -41,7 +41,7 @@
                                     </Link>
                                     <button className="btn-secondary group">
                                         <Play className="w-4 h-4 mr-2" />
-                                        Watch Demo
+                                        Request Demo
                                     </button>
                                 </div>
 

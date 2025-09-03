@@ -10,20 +10,20 @@ export default function Footer() {
                     <div className="lg:col-span-2">
                         <div className="flex items-center mb-6">
                             <img
-                                src="/try.png"
+                                src="/logotry.png"
                                 alt="Synavor"
-                                className="h-12 w-auto mr-4"
+                                className="h-12 w-auto mr-2"
                             />
-                            {/* <span className="text-2xl font-bold text-white">Synavor</span> */}
+                            <span className="text-2xl font-bold text-white">Synavor</span>
                         </div>
-                        <p className="text-lg leading-relaxed text-gray-400 mb-6 max-w-md">
-                            We empower businesses with innovative AI/ML technology solutions, 
-                            driving transformation and efficiency across industries through 
+                        <p className="text-base leading-relaxed text-gray-400 mb-6 max-w-md">
+                            We empower businesses with innovative AI/ML technology solutions,
+                            driving transformation and efficiency across industries through
                             intelligent procurement and supply chain optimization.
                         </p>
-                        
+
                         {/* Contact Info */}
-                        <div className="space-y-3">
+                        {/* <div className="space-y-3">
                             <div className="flex items-center space-x-3">
                                 <Mail className="w-5 h-5 text-blue-400" />
                                 <span className="text-gray-300">contact@synavor.com</span>
@@ -36,74 +36,61 @@ export default function Footer() {
                                 <MapPin className="w-5 h-5 text-blue-400" />
                                 <span className="text-gray-300">San Francisco, CA</span>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Column 2 - Solutions */}
                     <div>
-                        <h3 className="text-lg font-semibold text-white mb-6">Solutions</h3>
-                        <ul className="space-y-3">
-                            <li>
-                                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center group">
-                                    <span>Procurement Optimization</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center group">
-                                    <span>Supply Chain Analytics</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center group">
-                                    <span>AI-Powered Forecasting</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center group">
-                                    <span>Risk Management</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-                                </a>
-                            </li>
+                        <h3 className="text-lg font-semibold text-white mb-6 tracking-wide">Solutions</h3>
+                        <ul className="space-y-3 text-sm">
+                            {[
+                                "Inventory Controls & Management",
+                                "Commodities Risk Management",
+                                "Supplier Segmentation & SRM Support",
+                                "Tariff Impact Management",
+                            ].map((item, index) => (
+                                <li key={index}>
+                                    <a
+                                        href="#"
+                                        className="flex items-center justify-between text-gray-400 hover:text-blue-400 transition-colors duration-300 group"
+                                    >
+                                        <span className="relative after:block after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
+                                            {item}
+                                        </span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 transform translate-x-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300" />
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Column 3 - Company */}
                     <div>
-                        <h3 className="text-lg font-semibold text-white mb-6">Company</h3>
-                        <ul className="space-y-3">
-                            <li>
-                                <a href="/AboutUs" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center group">
-                                    <span>About Us</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center group">
-                                    <span>Careers</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center group">
-                                    <span>Newsroom</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/ContactUs" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center group">
-                                    <span>Contact</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-1" />
-                                </a>
-                            </li>
+                        <h3 className="text-lg font-semibold text-white mb-6 tracking-wide">Company</h3>
+                        <ul className="space-y-3 text-sm">
+                            {[
+                                { name: "About Us", link: "/AboutUs" },
+                                { name: "Leadership Team", link: "#" },
+                                { name: "Contact Us", link: "#" },
+                            ].map((item, index) => (
+                                <li key={index}>
+                                    <a
+                                        href={item.link}
+                                        className="flex items-center justify-between text-gray-400 hover:text-blue-400 transition-colors duration-300 group"
+                                    >
+                                        <span className="relative after:block after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
+                                            {item.name}
+                                        </span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 transform translate-x-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300" />
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
 
                 {/* Newsletter Section */}
-                <div className="mt-16 pt-12 border-t border-gray-800">
+                {/* <div className="mt-16 pt-12 border-t border-gray-800">
                     <div className="max-w-2xl">
                         <h3 className="text-xl font-semibold text-white mb-4">
                             Stay Updated with Industry Insights
@@ -122,7 +109,7 @@ export default function Footer() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             {/* Bottom Bar */}
@@ -132,10 +119,10 @@ export default function Footer() {
                         <div className="text-sm text-gray-400">
                             © {new Date().getFullYear()} Synavor. All rights reserved.
                         </div>
-                        
+
                         {/* Social Media & Legal Links */}
                         <div className="flex items-center space-x-6">
-                            <div className="flex space-x-4">
+                            {/* <div className="flex space-x-4">
                                 <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 p-2 hover:bg-gray-800 rounded-lg">
                                     <Linkedin size={20} />
                                 </a>
@@ -145,10 +132,10 @@ export default function Footer() {
                                 <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200 p-2 hover:bg-gray-800 rounded-lg">
                                     <Facebook size={20} />
                                 </a>
-                            </div>
-                            
-                            <div className="w-px h-6 bg-gray-700"></div>
-                            
+                            </div> */}
+
+                            {/* <div className="w-px h-6 bg-gray-700"></div> */}
+
                             <div className="flex space-x-6 text-sm">
                                 <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
                                     Privacy Policy

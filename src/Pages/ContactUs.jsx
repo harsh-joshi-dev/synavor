@@ -2,6 +2,33 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Linkedin, Twitter, Instagram, Mail, Phone, MapPin, Send, Building, Users, Globe } from "lucide-react"
 
+const contacts = [
+    {
+        title: "Sales",
+        description:
+            "For sales inquiries, demo requests and product information, please email us.",
+        email: "sales@synavor.com",
+        image:
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+    },
+    {
+        title: "Careers",
+        description:
+            "We’re not hiring right now, but we're always open to connecting with talented individuals who share our passion.",
+        email: "careers@synavor.com",
+        image:
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+    },
+    {
+        title: "Support",
+        description:
+            "For technical or account support, please email us.",
+        email: "support@synavor.com",
+        image:
+            "https://plus.unsplash.com/premium_photo-1661763506803-cb753ed9a074?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+];
+
 export default function ContactUs() {
     const [formData, setFormData] = useState({
         name: "",
@@ -36,14 +63,55 @@ export default function ContactUs() {
                         <Mail className="w-4 h-4 mr-2" />
                         Get In Touch
                     </motion.div>
-                    
+
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                         Let's <span className="text-gradient">Connect</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Ready to transform your procurement operations? Our team of experts is here to help 
+                        Ready to transform your procurement operations? Our team of experts is here to help
                         you unlock the full potential of AI-powered supply chain solutions.
                     </p>
+                </div>
+            </section>
+
+            <section className="bg-white text-gray-900 py-16">
+                <div className="max-w-7xl mx-auto px-6">
+                    {/* Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {contacts.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition"
+                            >
+                                {/* Image */}
+                                <div className="h-52 overflow-hidden">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                </div>
+
+                                {/* Content */}
+                                <div className="p-6">
+                                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-600 mb-4">{item.description}</p>
+                                    <a
+                                        href={`mailto:${item.email}`}
+                                        className="inline-flex items-center gap-2 text-blue-600 font-medium hover:underline"
+                                    >
+                                        <Mail className="w-5 h-5" />
+                                        {item.email}
+                                    </a>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
@@ -63,7 +131,7 @@ export default function ContactUs() {
                                     Get Started Today
                                 </h2>
                                 <p className="text-lg text-gray-600 leading-relaxed">
-                                    Whether you have questions about our solutions, want to schedule a demo, 
+                                    Whether you have questions about our solutions, want to schedule a demo,
                                     or need technical support, we're here to help you succeed.
                                 </p>
                             </div>
@@ -105,7 +173,7 @@ export default function ContactUs() {
                             </div>
 
                             {/* Social Links */}
-                            <div>
+                            {/* <div>
                                 <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
                                 <div className="flex space-x-4">
                                     <a href="#" className="w-10 h-10 bg-blue-100 hover:bg-blue-200 rounded-lg flex items-center justify-center text-blue-600 transition-colors duration-200">
@@ -118,7 +186,7 @@ export default function ContactUs() {
                                         <Instagram size={20} />
                                     </a>
                                 </div>
-                            </div>
+                            </div> */}
                         </motion.div>
 
                         {/* Right Side - Enhanced Form */}
@@ -245,11 +313,12 @@ export default function ContactUs() {
                 </div>
             </section>
 
+
             {/* Stats Section */}
             <section className="bg-gray-50 section-padding">
                 <div className="max-w-7xl mx-auto container-padding">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <motion.div 
+                        <motion.div
                             className="text-center"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -262,8 +331,8 @@ export default function ContactUs() {
                             <h3 className="text-3xl font-bold text-gray-900 mb-2">500+</h3>
                             <p className="text-gray-600">Companies Served</p>
                         </motion.div>
-                        
-                        <motion.div 
+
+                        <motion.div
                             className="text-center"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -276,8 +345,8 @@ export default function ContactUs() {
                             <h3 className="text-3xl font-bold text-gray-900 mb-2">24/7</h3>
                             <p className="text-gray-600">Customer Support</p>
                         </motion.div>
-                        
-                        <motion.div 
+
+                        <motion.div
                             className="text-center"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
