@@ -8,6 +8,9 @@ import {
     Monitor,
     Bot,
 } from "lucide-react";
+import Leadership from "./Leadership";
+import ContactUs from "./ContactUs"
+
 
 const aboutUsData = [
     {
@@ -78,8 +81,9 @@ const aboutUsData = [
 const solutionDetails = [
     {
         title: "Ecosystem and Integrations",
+        strong: "Our solution is built to fit,",
         description:
-            "Our solution is built to fit, not force. With robust API frameworks and connectors, it integrates effortlessly with leading ERP, SCM, CRM, and analytics platforms. This flexible architecture ensures fast adoption and zero disruption-maximizing the value of your existing tools while extending their capabilities.",
+            " not force. With robust API frameworks and connectors, it integrates effortlessly with leading ERP, SCM, CRM, and analytics platforms. This flexible architecture ensures fast adoption and zero disruption-maximizing the value of your existing tools while extending their capabilities.",
         bullets: [
             "Seamless integration with internal systems and third-party platforms",
             "Modular design for flexible deployment across business functions",
@@ -89,8 +93,10 @@ const solutionDetails = [
     },
     {
         title: "Data Integrity",
+        strong: "At the heart of our platform is uncompromised data accuracy and reliability.",
+
         description:
-            "At the heart of our platform is uncompromised data accuracy and reliability. We ensure a single source of truth by unifying fragmented data streams and applying rigorous validation checks at every touchpoint.",
+            " We ensure a single source of truth by unifying fragmented data streams and applying rigorous validation checks at every touchpoint.",
         bullets: [
             "End-to-end data lineage and traceability",
             "Automated data validation and anomaly detection",
@@ -100,8 +106,10 @@ const solutionDetails = [
     },
     {
         title: "Secure by Design",
+        strong: "Security is not an afterthought-it’s built into the foundation.",
+
         description:
-            "Security is not an afterthought-it’s built into the foundation. From encryption protocols to compliance frameworks, every layer of our solution is designed to protect your most sensitive information.",
+            "From encryption protocols to compliance frameworks, every layer of our solution is designed to protect your most sensitive information.",
         bullets: [
             "End-to-end encryption and role-based access control",
             "Compliance with global standards",
@@ -111,8 +119,10 @@ const solutionDetails = [
     },
     {
         title: "Easy to Use",
+        strong: "Technology should empower, not overwhelm.",
+
         description:
-            "Technology should empower, not overwhelm. Our platform is designed for real users-intuitive interfaces, streamlined workflows, and personalized dashboards make complex operations simple and accessible.",
+            "Our platform is designed for real users-intuitive interfaces, streamlined workflows, and personalized dashboards make complex operations simple and accessible.",
         bullets: [
             "Clean, responsive UI with a focus on usability",
             "Intuitive tools for configuration and automation",
@@ -122,12 +132,27 @@ const solutionDetails = [
     },
     {
         title: "AI/ML with Impact",
+        strong: "We move beyond buzzwords-our AI and machine learning capabilities drive real outcomes. ",
+
         description:
-            "We move beyond buzzwords-our AI and machine learning capabilities drive real outcomes. From predictive analytics to intelligent recommendations, our models learn, adapt, and deliver insights that matter.",
+            "From predictive analytics to intelligent recommendations, our models learn, adapt, and deliver insights that matter.",
         bullets: [
             "Real-time anomaly detection and proactive alerts",
             "Forecasting models for demand, inventory, and supply chain risks",
             "Natural language processing for smarter search and data exploration",
+        ],
+        icon: Bot,
+    },
+    {
+        title: "High Availability and Performance",
+        strong: "Downtime is not an option.",
+
+        description:
+            "Our platform is built for mission-critical environments-engineered for resilience, fault tolerance, and consistent performance, no matter the load or conditions.",
+        bullets: [
+            "Architected for fault tolerance and redundancy",
+            "Continuous monitoring, backup, and disaster recovery built in",
+            "Elastic architecture that supports on-demand scaling for high-volume workloads",
         ],
         icon: Bot,
     },
@@ -150,11 +175,11 @@ const AboutUs = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50" id="about">
             {/* Hero Section */}
             <section className="gradient-bg section-padding">
                 <div className="max-w-7xl mx-auto container-padding text-center">
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -162,10 +187,10 @@ const AboutUs = () => {
                     >
                         <Users className="w-4 h-4 mr-2" />
                         About Synavor
-                    </motion.div>
+                    </motion.div> */}
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Driving <span className="text-gradient">Innovation</span> in Procurement
+                        Driving Innovation in<br /><span className="text-gradient">Procurement & Supply Chain</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
                         At Synavor, we enable procurement and supply-chain functions to be smarter, speeder and smaller by driving transformative change through technology enablement.
@@ -174,7 +199,7 @@ const AboutUs = () => {
             </section>
 
             {/* Stats Section */}
-            <section className="bg-white section-padding">
+            {/* <section className="bg-white section-padding">
                 <div className="max-w-7xl mx-auto container-padding">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <motion.div
@@ -222,7 +247,7 @@ const AboutUs = () => {
                         </motion.div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* About Grid Section */}
             <section className="bg-gray-50 section-padding">
@@ -235,57 +260,6 @@ const AboutUs = () => {
                             Synavor gives you freedom to focus on insights, strategy and impact.
                         </p>
                     </div>
-
-                    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {aboutUsData.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                className="group"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className="relative overflow-hidden rounded-2xl shadow-medium hover:shadow-large transition-all duration-300 bg-white border border-gray-100">
-                                    <div className="relative h-64 overflow-hidden">
-                                        <motion.img
-                                            src={item.image}
-                                            alt={item.title}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        />
-
-                                        <div className={`absolute top-4 right-4 w-12 h-12 ${getColorClasses(item.color)} rounded-xl flex items-center justify-center shadow-medium`}>
-                                            {(() => {
-                                                const IconComponent = item.icon;
-                                                return <IconComponent className="w-6 h-6" />;
-                                            })()}
-                                        </div>
-
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    </div>
-
-                                    <div className="p-6">
-                                        <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            {item.description}
-                                        </p>
-                                    </div>
-
-                                    <motion.div
-                                        className="absolute inset-0 bg-blue-600/90 flex flex-col justify-center items-center text-center text-white p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        initial={{ opacity: 0 }}
-                                        whileHover={{ opacity: 1 }}
-                                    >
-                                        <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                                        <p className="text-sm leading-relaxed">{item.description}</p>
-                                    </motion.div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div> */}
-
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                             {aboutUsData.map((item, index) => (
@@ -387,7 +361,7 @@ const AboutUs = () => {
 
                                 {/* Description */}
                                 <p className="text-gray-700 text-sm mb-4 leading-relaxed">
-                                    {item.description}
+                                    <span className="font-bold text-gray-700  text-sm ">{item.strong}</span> {item.description}
                                 </p>
 
                                 {/* Bullets */}
@@ -410,7 +384,7 @@ const AboutUs = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="bg-white section-padding">
+            {/* <section className="bg-white section-padding">
                 <div className="max-w-4xl mx-auto container-padding text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -435,7 +409,11 @@ const AboutUs = () => {
                         </div>
                     </motion.div>
                 </div>
-            </section>
+            </section> */}
+
+            <div id="leadership"><Leadership /></div>
+
+            <div id="contact"><ContactUs /></div>
         </div>
     );
 };

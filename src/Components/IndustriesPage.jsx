@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import {
   ArrowRight,
   Building2,
@@ -371,7 +373,7 @@ export default function IndustriesPage() {
                   <div className=" p-10 items-center justify-center flex  flex-col flex-grow">
                     <div className="flex items-center justify-center  gap-3 mb-4">
                       <Icon className="w-8 h-8 " />
-                      <div className="text-center " >
+                      <div className="text-center ">
                         <h3 className="text-xl font-semibold leading-5">
                           {industry.title}
                         </h3>
@@ -380,11 +382,11 @@ export default function IndustriesPage() {
                     </div>
 
                     <p className=" text-l mb-5">{industry.description1}</p>
-                   
-                    <button className=" group border-2 rounded-full hover:border-blue-700 hover:text-blue-50 py-1 w-[200px]">
-                      
-                      Explore Solutions 
-                    </button>
+
+                    <Link to="/solutions" className="btn-primary group">
+                      Explore Solutions
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    </Link>
                     {/* <p className="text-gray-600 text-sm mb-4">{industry.description2}</p> */}
                     {/* <div className="flex flex-wrap gap-2 mt-auto">
                                             {industry.stats.map((stat, i) => (

@@ -9,7 +9,7 @@ const contacts = [
             "For sales inquiries, demo requests and product information, please email us.",
         email: "sales@synavor.com",
         image:
-            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+            "./public/assets/Contact/sale.jpg",
     },
     {
         title: "Careers",
@@ -17,7 +17,7 @@ const contacts = [
             "We’re not hiring right now, but we're always open to connecting with talented individuals who share our passion.",
         email: "careers@synavor.com",
         image:
-            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+            "./public/assets/Contact/car.jpg",
     },
     {
         title: "Support",
@@ -25,7 +25,7 @@ const contacts = [
             "For technical or account support, please email us.",
         email: "support@synavor.com",
         image:
-            "https://plus.unsplash.com/premium_photo-1661763506803-cb753ed9a074?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "./public/assets/Contact/sup.jpg",
     },
 ];
 
@@ -39,22 +39,22 @@ export default function ContactUs() {
         interest: "general"
     });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    // const handleChange = (e) => {
+    //     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert(`Thank you, ${formData.name}! Your message has been sent.`);
-        setFormData({ name: "", email: "", company: "", phone: "", message: "", interest: "general" });
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     alert(`Thank you, ${formData.name}! Your message has been sent.`);
+    //     setFormData({ name: "", email: "", company: "", phone: "", message: "", interest: "general" });
+    // };
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="bg-gray-50">
             {/* Hero Section */}
             <section className="gradient-bg section-padding">
                 <div className="max-w-7xl mx-auto container-padding text-center">
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -62,7 +62,7 @@ export default function ContactUs() {
                     >
                         <Mail className="w-4 h-4 mr-2" />
                         Get In Touch
-                    </motion.div>
+                    </motion.div> */}
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                         Let's <span className="text-gradient">Connect</span>
@@ -116,10 +116,9 @@ export default function ContactUs() {
             </section>
 
             {/* Contact Form Section */}
-            <section className="bg-white section-padding">
+            {/* <section className="bg-white section-padding">
                 <div className="max-w-6xl mx-auto container-padding">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                        {/* Left Side - Contact Information */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -136,7 +135,6 @@ export default function ContactUs() {
                                 </p>
                             </div>
 
-                            {/* Contact Methods */}
                             <div className="space-y-6">
                                 <div className="flex items-start space-x-4">
                                     <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -171,25 +169,8 @@ export default function ContactUs() {
                                     </div>
                                 </div>
                             </div>
-
-                            {/* Social Links */}
-                            {/* <div>
-                                <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
-                                <div className="flex space-x-4">
-                                    <a href="#" className="w-10 h-10 bg-blue-100 hover:bg-blue-200 rounded-lg flex items-center justify-center text-blue-600 transition-colors duration-200">
-                                        <Linkedin size={20} />
-                                    </a>
-                                    <a href="#" className="w-10 h-10 bg-blue-100 hover:bg-blue-200 rounded-lg flex items-center justify-center text-blue-600 transition-colors duration-200">
-                                        <Twitter size={20} />
-                                    </a>
-                                    <a href="#" className="w-10 h-10 bg-blue-100 hover:bg-blue-200 rounded-lg flex items-center justify-center text-blue-600 transition-colors duration-200">
-                                        <Instagram size={20} />
-                                    </a>
-                                </div>
-                            </div> */}
                         </motion.div>
 
-                        {/* Right Side - Enhanced Form */}
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -311,11 +292,11 @@ export default function ContactUs() {
                         </motion.div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
 
             {/* Stats Section */}
-            <section className="bg-gray-50 section-padding">
+            {/* <section className="bg-gray-50 section-padding">
                 <div className="max-w-7xl mx-auto container-padding">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <motion.div
@@ -361,7 +342,7 @@ export default function ContactUs() {
                         </motion.div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 }

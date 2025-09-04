@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown, User, Users, Phone } from "lucide-react";
+import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +33,9 @@ export default function Navbar() {
                         <img
                             src="/logotry.png"
                             alt="Synavor"
-                            className="h-10 transition-transform duration-300 group-hover:scale-105"
+                            className="h-13 transition-transform duration-300 group-hover:scale-105"
                         />
-                        <span className="text-2xl font-semibold block sm:text-2xl sm:font-bold" style={{ color: "#052840" }}>
+                        <span className="text-2xl font-semibold block sm:text-3xl sm:font-bold" style={{ color: "#052840" }}>
                             Synavor
                         </span>
                     </NavLink>
@@ -51,7 +52,7 @@ export default function Navbar() {
                             <NavLink to="/who-we-help" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
                                 Who We Help
                             </NavLink>
-                            <NavLink to="/AboutUs" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
+                            <NavLink to="" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
                                 Why Synavor
                             </NavLink>
                             <div
@@ -60,9 +61,9 @@ export default function Navbar() {
                                 onMouseLeave={() => setOpenMenu(false)}
                             >
                                 {/* Company Link */}
-                                <span className="cursor-pointer text-gray-700 hover:text-blue-600 font-medium">
+                                <NavLink to="AboutUs" className="cursor-pointer text-gray-700 hover:text-blue-600 font-medium">
                                     Company
-                                </span>
+                                </NavLink>
 
                                 {/* Submenu */}
                                 {openMenu && (
@@ -71,44 +72,50 @@ export default function Navbar() {
              transition-all duration-300 ease-out opacity-100 scale-100"
                                         style={{ transformOrigin: "top" }}
                                     >
-                                        {/* About */}
-                                        <NavLink
-                                            to="/aboutUs"
+                                        <HashLink
+                                            smooth
+                                            to="/AboutUs#about"
                                             onClick={() => setOpenMenu(false)}
                                             className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                                         >
                                             <User className="w-5 h-5 text-blue-600 mt-1" />
                                             <div>
                                                 <p className="text-gray-900 font-semibold text-sm">About</p>
-                                                <p className="text-gray-500 text-xs">Learn more about our company and mission.</p>
+                                                <p className="text-gray-500 text-xs">
+                                                    Learn more about our company and mission.
+                                                </p>
                                             </div>
-                                        </NavLink>
+                                        </HashLink>
 
-                                        {/* Leadership */}
-                                        <NavLink
-                                            to="/Leadership"
+                                        <HashLink
+                                            smooth
+                                            to="/AboutUs#leadership"
                                             onClick={() => setOpenMenu(false)}
                                             className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                                         >
                                             <Users className="w-5 h-5 text-blue-600 mt-1" />
                                             <div>
                                                 <p className="text-gray-900 font-semibold text-sm">Leadership</p>
-                                                <p className="text-gray-500 text-xs">Meet our executive team and key leaders.</p>
+                                                <p className="text-gray-500 text-xs">
+                                                    Meet our executive team and key leaders.
+                                                </p>
                                             </div>
-                                        </NavLink>
+                                        </HashLink>
 
-                                        {/* Contact */}
-                                        <NavLink
-                                            to="/contactUs"
+                                        <HashLink
+                                            smooth
+                                            to="/AboutUs#contact"
                                             onClick={() => setOpenMenu(false)}
                                             className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                                         >
                                             <Phone className="w-5 h-5 text-blue-600 mt-1" />
                                             <div>
                                                 <p className="text-gray-900 font-semibold text-sm">Contact</p>
-                                                <p className="text-gray-500 text-xs">Get in touch with our team for support or inquiries.</p>
+                                                <p className="text-gray-500 text-xs">
+                                                    Get in touch with our team for support or inquiries.
+                                                </p>
                                             </div>
-                                        </NavLink>
+                                        </HashLink>
                                     </div>
                                 )}
                             </div>
@@ -179,10 +186,10 @@ export default function Navbar() {
                                 className="block py-2 text-gray-700 hover:text-blue-600"
                                 onClick={() => setIsOpen(false)}
                             >
-                                About Us
+                                Why Synavor
                             </NavLink>
                             <NavLink
-                                to="/company"
+                                to="/AboutUs"
                                 className="block py-2 text-gray-700 hover:text-blue-600"
                                 onClick={() => setIsOpen(false)}
                             >

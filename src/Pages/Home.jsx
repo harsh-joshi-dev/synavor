@@ -10,7 +10,7 @@
         return (
             <div>
                 {/* Hero Section */}
-                <section className="gradient-bg section-padding h-[100vh]">
+                <section className="gradient-bg section-padding">
                     <div className="max-w-7xl mx-auto container-padding">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-16 items-center">
                             <motion.div
@@ -124,7 +124,7 @@
                                 <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                     <TrendingUp className="w-8 h-8 text-green-600" />
                                 </div>
-                                <h3 className="text-3xl font-bold text-gray-900 mb-2">30%</h3>
+                                <h3 className="text-3xl font-bold text-gray- 900 mb-2">30%</h3>
                                 <p className="text-gray-600">Average Cost Reduction</p>
                             </motion.div>
 
