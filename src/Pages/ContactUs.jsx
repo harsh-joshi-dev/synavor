@@ -9,7 +9,7 @@ const contacts = [
             "For sales inquiries, demo requests and product information, please email us.",
         email: "sales@synavor.com",
         image:
-            "./public/assets/Contact/sale.jpg",
+            "/assets/Contact/sale.jpg",
     },
     {
         title: "Careers",
@@ -17,7 +17,7 @@ const contacts = [
             "We’re not hiring right now, but we're always open to connecting with talented individuals who share our passion.",
         email: "careers@synavor.com",
         image:
-            "./public/assets/Contact/car.jpg",
+            "/assets/Contact/car.jpg",
     },
     {
         title: "Support",
@@ -25,7 +25,7 @@ const contacts = [
             "For technical or account support, please email us.",
         email: "support@synavor.com",
         image:
-            "./public/assets/Contact/sup.jpg",
+            "/assets/Contact/sup.jpg",
     },
 ];
 
