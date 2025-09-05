@@ -118,7 +118,7 @@ const SolutionsPage = () => {
                     </motion.div>
                     
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Complete <span className="text-gradient">Procurement</span> Solutions
+                        Complete <span className="">Procurement</span> Solutions
                     </h1>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
                         Discover our comprehensive suite of AI-powered solutions designed to transform 

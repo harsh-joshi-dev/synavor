@@ -175,7 +175,7 @@ const AboutUs = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50" id="about">
+        <div className="min-h-screen scroll-mt-20 bg-gray-50" id="about">
             {/* Hero Section */}
             <section className="gradient-bg section-padding">
                 <div className="max-w-7xl mx-auto container-padding text-center">
@@ -190,7 +190,7 @@ const AboutUs = () => {
                     </motion.div> */}
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Driving Innovation in<br /><span className="text-gradient">Procurement & Supply Chain</span>
+                        Driving Innovation in<br /><span className="">Procurement & Supply Chain</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
                         At Synavor, we enable procurement and supply-chain functions to be smarter, speeder and smaller by driving transformative change through technology enablement.
@@ -254,7 +254,7 @@ const AboutUs = () => {
                 <div className="max-w-7xl mx-auto container-padding">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                            Our <span className="text-gradient">Approach</span>
+                            Our <span className="">Approach</span>
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Synavor gives you freedom to focus on insights, strategy and impact.
@@ -330,7 +330,7 @@ const AboutUs = () => {
                 {/* Section Header */}
                 <div className="max-w-5xl mx-auto text-center mb-16 px-6">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        Our <span className="text-gradient">Technology</span>
+                        Our <span className="">Technology</span>
                     </h2>
                     <p className="text-gray-700 text-base">
                         Our enterprise solution is a cutting-edge digital platform built for scale, intelligence, and trust. Designed with a modern enterprise in mind, it seamlessly integrates into your existing ecosystem while delivering best-in-class user experience, data security, and AI-powered insights. Here’s how we deliver across the core pillars:
@@ -411,9 +411,9 @@ const AboutUs = () => {
                 </div>
             </section> */}
 
-            <div id="leadership"><Leadership /></div>
+            <div id="leadership" className="scroll-mt-20"><Leadership /></div>
 
-            <div id="contact"><ContactUs /></div>
+            <div id="contact" className="scroll-mt-20"><ContactUs /></div>
         </div>
     );
 };

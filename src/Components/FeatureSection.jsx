@@ -102,14 +102,14 @@ export default function FeatureSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-4 text-xl bg-blue-50 text-blue-700 rounded-full font-medium border border-blue-200 mb-6"
+            className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200 mb-6"
           >
             <CheckCircle className="w-4 h-4 mr-2" />
             Core Features
           </motion.div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Transform Your{" "}
-            <span className="text-gradient">Procurement & Supply Chain </span>{" "}
+            <span className="">Procurement & Supply Chain </span>{" "}
             Operations
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">

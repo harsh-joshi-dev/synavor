@@ -26,7 +26,7 @@
 
                                 <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight">
                                     Optimizing {" "}
-                                    <span className="text-gradient">Procurement & Supply Chain</span>{" "}
+                                    <span className="">Procurement & Supply Chain</span>{" "}
                                     through Advanced Digital and AI/ML Solutions
                                 </h1>
 

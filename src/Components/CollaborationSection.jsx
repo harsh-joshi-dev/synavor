@@ -7,7 +7,7 @@ const data = [
         title: "Procurement & Sourcing",
         description: "Supplier life cycle management using digital solutions to institutionalize analytics and strategic frameworks.",
         img: "./assets/tier1.jpg",
-        bg: "bg-orange-100",
+        bg: "bg-blue-50",
         icon: Target,
         benefits: ["Proactive risk monetization",
             "Life cycle cost advantage",
@@ -19,7 +19,7 @@ const data = [
         title: "Supply Chain & Inventory",
         description: "Integrated supply chain management anchored on analytics driven inventory controls.",
        img: "./assets/tier3.jpg",
-        bg: "bg-green-100",
+        bg: "bg-blue-50",
         icon: TrendingUp,
         benefits: [
             "Inventory optimization",
@@ -34,7 +34,7 @@ const data = [
         description: "Seamless connectivity improves compliance, enables savings, and elevates governance for timely actions.",
         img: "./assets/tier2.jpg",
         
-        bg: "bg-purple-100",
+        bg: "bg-blue-50",
         icon: Handshake,
         benefits: [
             "Working capital gains",
@@ -65,14 +65,14 @@ export default function CollaborationSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center px-4 py-4 text-xl bg-blue-50 text-blue-700 rounded-full font-medium border border-blue-200 mb-6"
+                        className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200 mb-6"
                     >
                         <Users className="w-4 h-4 mr-2" />
                         Teams We Help
                     </motion.div>
 
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 content ">
-                        <span className="text-gradient">Simplify Complexity </span>and Gain Competitive Advantage
+                        <span className="">Simplify Complexity </span>and Gain Competitive Advantage
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                         Pragmatic solutions that use generative, predictive and agentic AI tools to gain transparency, speed decision making and take timely actions.
@@ -139,7 +139,7 @@ export default function CollaborationSection() {
 
                                 {/* Bottom Label */}
                                 <div className={`${item.bg} px-6 py-3 text-center`}>
-                                    <span className="text-sm font-medium text-gray-800">{item.title}</span>
+                                    <span className="text-sm font-bold text-gray-800">{item.title}</span>
                                 </div>
                             </div>
                         </motion.div>

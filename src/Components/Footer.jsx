@@ -57,7 +57,7 @@ export default function Footer() {
                                         <span className="relative after:block after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
                                             {item}
                                         </span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 transform translate-x-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300" />
+                                        {/* <ArrowRight className="w-4 h-4 opacity-0 transform translate-x-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300" /> */}
                                     </a>
                                 </li>
                             ))}
@@ -81,7 +81,7 @@ export default function Footer() {
                                         <span className="relative after:block after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
                                             {item.name}
                                         </span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 transform translate-x-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300" />
+                                        {/* <ArrowRight className="w-4 h-4 opacity-0 transform translate-x-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300" /> */}
                                     </a>
                                 </li>
                             ))}

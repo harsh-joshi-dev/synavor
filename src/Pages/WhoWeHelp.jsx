@@ -94,7 +94,7 @@ const WhoWeHelpPage = () => {
                     </motion.div>
                     
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Empowering <span className="text-gradient">Organizations</span> Worldwide
+                        Empowering <span className="">Organizations</span> Worldwide
                     </h1>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
                         Discover how we help businesses across industries transform their operations 

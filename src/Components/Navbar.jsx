@@ -52,7 +52,7 @@ export default function Navbar() {
                             <NavLink to="/who-we-help" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
                                 Who We Help
                             </NavLink>
-                            <NavLink to="" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
+                            <NavLink to="/about" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
                                 Why Synavor
                             </NavLink>
                             <div

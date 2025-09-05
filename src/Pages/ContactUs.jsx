@@ -65,7 +65,7 @@ export default function ContactUs() {
                     </motion.div> */}
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Let's <span className="text-gradient">Connect</span>
+                        Let's <span className="">Connect</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                         Ready to transform your procurement operations? Our team of experts is here to help

@@ -15,6 +15,33 @@ import {
   FlaskConical,
 } from "lucide-react";
 
+// const contacts = [
+//     {
+//         title: "Sales",
+//         description:
+//             "For sales inquiries, demo requests and product information, please email us.",
+//         email: "sales@synavor.com",
+//         image:
+//             "/assets/Contact/sale.jpg",
+//     },
+//     {
+//         title: "Careers",
+//         description:
+//             "We’re not hiring right now, but we're always open to connecting with talented individuals who share our passion.",
+//         email: "careers@synavor.com",
+//         image:
+//             "/assets/Contact/car.jpg",
+//     },
+//     {
+//         title: "Support",
+//         description:
+//             "For technical or account support, please email us.",
+//         email: "support@synavor.com",
+//         image:
+//             "/assets/Contact/sup.jpg",
+//     },
+// ];
+
 const industries = {
   "Food & Beverage": {
     title: "Food & Beverage",
@@ -331,14 +358,75 @@ export default function IndustriesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-10 inline-flex items-center px-4 py-4 text-xl bg-blue-50 text-blue-700 rounded-full font-medium border border-blue-200 "
+          className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200 mb-6"
         >
           <Users className="w-4 h-4 mr-2" />
           Industries We Serve
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <section className="bg-white text-gray-900 mb-3">
+          <div className="max-w-7xl mx-auto px-6">
+            {/* Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {filteredIndustries.map((industries, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col"
+                >
+                  {/* Image */}
+                  <div className="h-52 overflow-hidden">
+                    <img
+                      src={industries.image}
+                      alt={industries.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition">
+                      {industries.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 flex-1">
+                      {industries.description1}
+                    </p>
+
+                    {/* Learn More - Centered */}
+                    <div className="mt-auto flex justify-center">
+                      <a
+                        href="/solution"
+                        className="inline-flex items-center text-blue-600 font-medium group"
+                      >
+                        Learn More
+                        <svg
+                          className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
             {filteredIndustries.map((industry) => {
               const Icon = industry.icon;
@@ -355,7 +443,7 @@ export default function IndustriesPage() {
                   exit="exit"
                   layout
                   whileHover={{
-                    scale: 1.03,
+                   
                     boxShadow: "0 12px 24px rgba(0, 0, 0, 0.15)",
                     transition: {
                       duration: 0.3,
@@ -363,22 +451,22 @@ export default function IndustriesPage() {
                     },
                   }}
                   whileTap={{ scale: 0.97 }}
-                >
-                  {/* <img
+                > */}
+        {/* <img
                                         src={industry.image}
                                         alt={industry.title}
                                         className="h-40 w-full object-cover"
                                     /> */}
 
-                  <div className=" p-10 items-center justify-center flex  flex-col flex-grow">
+        {/* <div className=" p-10 items-center justify-center flex  flex-col flex-grow">
                     <div className="flex items-center justify-center  gap-3 mb-4">
                       <Icon className="w-8 h-8 " />
                       <div className="text-center ">
                         <h3 className="text-xl font-semibold leading-5">
                           {industry.title}
-                        </h3>
-                        {/* <p className="text-l">{industry.subtitle}</p> */}
-                      </div>
+                        </h3> */}
+        {/* <p className="text-l">{industry.subtitle}</p> */}
+        {/* </div>
                     </div>
 
                     <p className=" text-l mb-5">{industry.description1}</p>
@@ -386,9 +474,9 @@ export default function IndustriesPage() {
                     <Link to="/solutions" className="btn-primary group">
                       Explore Solutions
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                    {/* <p className="text-gray-600 text-sm mb-4">{industry.description2}</p> */}
-                    {/* <div className="flex flex-wrap gap-2 mt-auto">
+                    </Link> */}
+        {/* <p className="text-gray-600 text-sm mb-4">{industry.description2}</p> */}
+        {/* <div className="flex flex-wrap gap-2 mt-auto">
                                             {industry.stats.map((stat, i) => (
                                                 <span
                                                     key={i}
@@ -398,12 +486,12 @@ export default function IndustriesPage() {
                                                 </span>
                                             ))}
                                         </div> */}
-                  </div>
+        {/* </div>
                 </motion.div>
               );
             })}
           </AnimatePresence>
-        </div>
+        </div> */}
       </div>
     </section>
   );

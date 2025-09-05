@@ -46,8 +46,8 @@ const Leadership = () => {
     <section className="gradient-bg section-padding ">
       <div className="max-w-7xl mx-auto container-padding">
         <motion.div className="text-center mb-10">
-          <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-            Leadership
+          <h2 className="text-5xl font-bold text-black">
+            Leadership Team
           </h2>
         </motion.div>
 
