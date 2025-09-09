@@ -246,7 +246,7 @@ export default function FeatureSection() {
                   className="relative w-full h-[500px] object-cover mx-auto rounded-3xl shadow-2xl border border-gray-100 transition-all duration-500 ease-in-out"
                 />
 
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-large p-6 border border-gray-100 max-w-sm">
+                {/* <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-large p-6 border border-gray-100 max-w-sm">
                   <h4 className="font-semibold text-gray-900 mb-2">
                     {features[activeIndex]?.title ||
                       "Smart Supply Chain Transformation"}
@@ -260,7 +260,7 @@ export default function FeatureSection() {
                     <span>Explore Feature</span>
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </div>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           </div>

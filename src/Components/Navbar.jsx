@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X, ChevronDown, User, Users, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, User, Users, Phone, Package, TrendingDown, User2, FileBarChart } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [openMenu, setOpenMenu] = useState(false);
+    const [openSolution, setOpenSolution] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,8 +17,7 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const activeClass = ({ isActive }) =>
-        isActive ? "text-blue-600 font-medium" : "text-gray-700 hover:text-blue-600 font-medium";
+    const activeClass = "text-blue-600 font-bold";
 
     return (
         <nav
@@ -42,26 +42,97 @@ export default function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden lg:flex items-center gap-10">
-                        <div className="flex gap-6 mr-24">
+                        <div className="flex gap-6 mr-32">
                             <NavLink to="/" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
                                 Home
                             </NavLink>
-                            <NavLink to="/solutions" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
-                                Solutions
-                            </NavLink>
+                            <div
+                                className="relative"
+                                onMouseEnter={() => setOpenSolution(true)}
+                                onMouseLeave={() => setOpenSolution(false)}
+                            >
+                                {/* Company Link */}
+                                <NavLink to="/solutions" className={({ isActive }) => isActive ? activeClass : "cursor-pointer text-gray-700 hover:text-blue-600 font-medium"}>
+                                    Solution
+                                </NavLink>
+
+                                {/* Submenu */}
+                                {openSolution && (
+                                    <div
+                                        className="absolute -mb-1 left-[-70px] bg-white shadow-xl rounded-xl py-4 w-64 z-50
+             transition-all duration-300 ease-out opacity-100 scale-100"
+                                        style={{ transformOrigin: "top" }}
+                                    >
+                                        <HashLink
+                                            smooth
+                                            to="/AboutUs#about"
+                                            onClick={() => setOpenSolution(false)}
+                                            className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                                        >
+                                            <Package className="w-5 h-5 text-blue-600 mt-1" />
+                                            <div>
+                                                <p className="text-gray-900 font-semibold text-sm">Inventory Controls & Management</p>
+                                                <p className="text-gray-500 text-xs">
+                                                </p>
+                                            </div>
+                                        </HashLink>
+
+                                        <HashLink
+                                            smooth
+                                            to="/AboutUs#leadership"
+                                            onClick={() => setOpenSolution(false)}
+                                            className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                                        >
+                                            <TrendingDown className="w-5 h-5 text-blue-600 mt-1" />
+                                            <div>
+                                                <p className="text-gray-900 font-semibold text-sm">Commodities Risk Management</p>
+                                                <p className="text-gray-500 text-xs">
+                                                </p>
+                                            </div>
+                                        </HashLink>
+
+                                        <HashLink
+                                            smooth
+                                            to="/AboutUs#contact"
+                                            onClick={() => setOpenSolution(false)}
+                                            className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                                        >
+                                            <User2 className="w-5 h-5 text-blue-600 mt-1" />
+                                            <div>
+                                                <p className="text-gray-900 font-semibold text-sm">Supplier Segmentation & SRM Support</p>
+                                                <p className="text-gray-500 text-xs">
+                                                </p>
+                                            </div>
+                                        </HashLink>
+                                        <HashLink
+                                            smooth
+                                            to="/AboutUs#contact"
+                                            onClick={() => setOpenSolution(false)}
+                                            className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                                        >
+                                            <FileBarChart className="w-5 h-5 text-blue-600 mt-1" />
+                                            <div>
+                                                <p className="text-gray-900 font-semibold text-sm">Tariff Impact Management</p>
+                                                <p className="text-gray-500 text-xs">
+                                                </p>
+                                            </div>
+                                        </HashLink>
+                                    </div>
+                                )}
+                            </div>
                             <NavLink to="/who-we-help" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
                                 Who We Help
                             </NavLink>
-                            <NavLink to="/about" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
+                            {/* <NavLink to="/about" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
                                 Why Synavor
-                            </NavLink>
+                            </NavLink> */}
                             <div
                                 className="relative"
                                 onMouseEnter={() => setOpenMenu(true)}
                                 onMouseLeave={() => setOpenMenu(false)}
                             >
                                 {/* Company Link */}
-                                <NavLink to="AboutUs" className="cursor-pointer text-gray-700 hover:text-blue-600 font-medium">
+                                <NavLink to="AboutUs" className={({ isActive }) => isActive ? activeClass : "cursor-pointer text-gray-700 hover:text-blue-600 font-medium"}>
                                     Company
                                 </NavLink>
 

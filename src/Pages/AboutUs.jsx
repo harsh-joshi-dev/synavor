@@ -1,45 +1,58 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-    Users, Target, Eye, Heart, Clock, Award, Building, Zap, Shield,
+    Users,
+    Target,
+    Eye,
+    Heart,
+    Clock,
+    Award,
+    Building,
+    Zap,
+    Shield,
     Cpu,
     Database,
+    Scaling,
     ShieldCheck,
     Monitor,
+    MonitorCheck,
     Bot,
 } from "lucide-react";
 import Leadership from "./Leadership";
-import ContactUs from "./ContactUs"
-
+import ContactUs from "./ContactUs";
 
 const aboutUsData = [
     {
         title: "Best-in-class Industry Solutions",
         image: "/assets/about/ourmission.jpg",
-        description: "Our built-in frameworks and models empower your functional teams with readily available analytics and information for strategic decision-making and efficient execution.",
+        description:
+            "Our built-in frameworks and models empower your functional teams with readily available analytics and information for strategic decision-making and efficient execution.",
         icon: Target,
-        color: "blue"
+        color: "blue",
     },
     {
         title: "Analytics & Automation First",
         image: "/assets/about/vision.jpg",
-        description: "We embed data and automation into the heart of every process-empowering teams to shift away from low-value manual work and focus on strategic, high-return tasks.",
+        description:
+            "We embed data and automation into the heart of every process-empowering teams to shift away from low-value manual work and focus on strategic, high-return tasks.",
         icon: Eye,
-        color: "green"
+        color: "green",
     },
     {
         title: "Smart Solutions, Delivered Fast",
         image: "/assets/about/team.jpg",
-        description: "We rapidly implement intelligent solutions with agility and precision-bringing actionable insights and measurable results.",
+        description:
+            "We rapidly implement intelligent solutions with agility and precision-bringing actionable insights and measurable results.",
         icon: Users,
-        color: "purple"
+        color: "purple",
     },
     {
         title: "Data-Driven Decision Making",
         image: "/assets/about/values.jpg",
-        description: "Through intuitive dashboards, KPIs, proactive alerts, and workflow automation, we put real-time insights in the hands of decision-makers, enabling optimized resource allocation and continuous value creation.",
+        description:
+            "Through intuitive dashboards, KPIs, proactive alerts, and workflow automation, we put real-time insights in the hands of decision-makers, enabling optimized resource allocation and continuous value creation.",
         icon: Heart,
-        color: "red"
+        color: "red",
     },
     // {
     //     title: "Our History",
@@ -93,7 +106,8 @@ const solutionDetails = [
     },
     {
         title: "Data Integrity",
-        strong: "At the heart of our platform is uncompromised data accuracy and reliability.",
+        strong:
+            "At the heart of our platform is uncompromised data accuracy and reliability.",
 
         description:
             " We ensure a single source of truth by unifying fragmented data streams and applying rigorous validation checks at every touchpoint.",
@@ -132,7 +146,8 @@ const solutionDetails = [
     },
     {
         title: "AI/ML with Impact",
-        strong: "We move beyond buzzwords-our AI and machine learning capabilities drive real outcomes. ",
+        strong:
+            "We move beyond buzzwords-our AI and machine learning capabilities drive real outcomes. ",
 
         description:
             "From predictive analytics to intelligent recommendations, our models learn, adapt, and deliver insights that matter.",
@@ -144,7 +159,7 @@ const solutionDetails = [
         icon: Bot,
     },
     {
-        title: "High Availability and Performance",
+        title: "High Availability and Reliability",
         strong: "Downtime is not an option.",
 
         description:
@@ -155,6 +170,32 @@ const solutionDetails = [
             "Elastic architecture that supports on-demand scaling for high-volume workloads",
         ],
         icon: Bot,
+    },
+    {
+        title: "Scalability",
+        strong: "Grow without limits.",
+
+        description:
+            "Our platform scales effortlessly with your business—whether you're adding users, expanding to new regions, or processingmore data, performance stays consistent and dependable",
+        bullets: [
+            "Elastic architecture that supports on-demand scaling",
+            "Optimized for high-volume workloads and global deployments",
+            "Built to evolve with your business",
+        ],
+        icon: Scaling,
+    },
+    {
+        title: "High Availability and Performance",
+        strong: "Downtime is not an option.",
+
+        description:
+            "Our platform is built for mission-critical environments—engineered for resilience, fault tolerance, and consistent performance, no matter the load or conditions",
+        bullets: [
+            "Architected for fault tolerance and redundancy",
+            "Continuous monitoring, backup, and disaster recovery built in",
+            "Elastic architecture that supports on-demand scaling for high-volume workloads",
+        ],
+        icon: MonitorCheck,
     },
 ];
 
@@ -169,7 +210,7 @@ const AboutUs = () => {
             indigo: "bg-indigo-100 text-indigo-600",
             orange: "bg-orange-100 text-orange-600",
             teal: "bg-teal-100 text-teal-600",
-            pink: "bg-pink-100 text-pink-600"
+            pink: "bg-pink-100 text-pink-600",
         };
         return colors[color] || colors.blue;
     };
@@ -190,10 +231,14 @@ const AboutUs = () => {
                     </motion.div> */}
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Driving Innovation in<br /><span className="">Procurement & Supply Chain</span>
+                        Driving Innovation in
+                        <br />
+                        <span className="">Procurement & Supply Chain</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                        At Synavor, we enable procurement and supply-chain functions to be smarter, speeder and smaller by driving transformative change through technology enablement.
+                        At Synavor, we enable procurement and supply-chain functions to be
+                        smarter, speeder and smaller by driving transformative change
+                        through technology enablement.
                     </p>
                 </div>
             </section>
@@ -257,7 +302,8 @@ const AboutUs = () => {
                             Our <span className="">Approach</span>
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Synavor gives you freedom to focus on insights, strategy and impact.
+                            Synavor gives you freedom to focus on insights, strategy and
+                            impact.
                         </p>
                     </div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -272,7 +318,6 @@ const AboutUs = () => {
                                     viewport={{ once: true }}
                                 >
                                     <div className="relative overflow-hidden rounded-2xl shadow-medium hover:shadow-large transition-all duration-300 bg-white border border-gray-100 flex flex-col h-full">
-
                                         {/* Image */}
                                         <div className="relative h-64 overflow-hidden">
                                             <motion.img
@@ -314,14 +359,15 @@ const AboutUs = () => {
                                             whileHover={{ opacity: 1 }}
                                         >
                                             <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                                            <p className="text-sm leading-relaxed">{item.description}</p>
+                                            <p className="text-sm leading-relaxed">
+                                                {item.description}
+                                            </p>
                                         </motion.div>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -333,53 +379,120 @@ const AboutUs = () => {
                         Our <span className="">Technology</span>
                     </h2>
                     <p className="text-gray-700 text-base">
-                        Our enterprise solution is a cutting-edge digital platform built for scale, intelligence, and trust. Designed with a modern enterprise in mind, it seamlessly integrates into your existing ecosystem while delivering best-in-class user experience, data security, and AI-powered insights. Here’s how we deliver across the core pillars:
+                        Our enterprise solution is a cutting-edge digital platform built for
+                        scale, intelligence, and trust. Designed with a modern enterprise in
+                        mind, it seamlessly integrates into your existing ecosystem while
+                        delivering best-in-class user experience, data security, and
+                        AI-powered insights. Here’s how we deliver across the core pillars:
                     </p>
                 </div>
 
                 {/* Cards */}
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
-                    {solutionDetails.map((item, index) => {
-                        const Icon = item.icon;
-                        return (
-                            <div
-                                key={index}
-                                className="group relative bg-white border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-lg hover:border-blue-400 transition-all duration-300"
-                            >
-                                {/* Icon + Title side by side */}
-                                <div className="flex items-center gap-3 mb-4">
-                                    {/* Icon */}
-                                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 shadow-md">
-                                        <Icon className="text-blue-600 w-6 h-6" />
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                        {solutionDetails.map((item, index) => {
+                            const Icon = item.icon;
+
+                            // Detect last 2 cards when total % 3 === 2
+                            const isLastTwoRow =
+                                solutionDetails.length % 3 === 2 &&
+                                index === solutionDetails.length - 2;
+
+                            if (isLastTwoRow) {
+                                return (
+                                    <div
+                                        key={index}
+                                        className="lg:col-span-3 flex justify-center gap-10"
+                                    >
+                                        {[solutionDetails[index], solutionDetails[index + 1]].map(
+                                            (card, i) => {
+                                                const Icon2 = card.icon;
+                                                return (
+                                                    <div
+                                                        key={i}
+                                                        className="group bg-white border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-lg hover:border-blue-400 transition-all duration-300 w-full max-w-sm"
+                                                    >
+                                                        {/* Icon + Title */}
+                                                        <div className="flex items-center gap-3 mb-4">
+                                                            <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 shadow-md">
+                                                                <Icon2 className="text-blue-600 w-6 h-6" />
+                                                            </div>
+                                                            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                                                                {card.title}
+                                                            </h3>
+                                                        </div>
+
+                                                        {/* Description */}
+                                                        <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                                                            <span className="font-bold text-gray-700 text-sm">
+                                                                {card.strong}
+                                                            </span>{" "}
+                                                            {card.description}
+                                                        </p>
+
+                                                        {/* Bullets */}
+                                                        <ul className="space-y-3 text-gray-800 text-sm">
+                                                            {card.bullets.map((point, j) => (
+                                                                <li key={j} className="flex items-start">
+                                                                    <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-blue-600 text-xs mt-0.5">
+                                                                        ✓
+                                                                    </span>
+                                                                    <p className="ml-3 leading-relaxed">
+                                                                        {point}
+                                                                    </p>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                );
+                                            }
+                                        )}
+                                    </div>
+                                );
+                            }
+
+                            // Skip rendering the last card separately (since we grouped them above)
+                            if (index === solutionDetails.length - 1) return null;
+
+                            // Normal cards
+                            return (
+                                <div
+                                    key={index}
+                                    className="group bg-white border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-lg hover:border-blue-400 transition-all duration-300 w-full max-w-sm"
+                                >
+                                    {/* Icon + Title */}
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 shadow-md">
+                                            <Icon className="text-blue-600 w-6 h-6" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition">
+                                            {item.title}
+                                        </h3>
                                     </div>
 
-                                    {/* Title */}
-                                    <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition">
-                                        {item.title}
-                                    </h3>
+                                    {/* Description */}
+                                    <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                                        <span className="font-bold text-gray-700 text-sm">
+                                            {item.strong}
+                                        </span>{" "}
+                                        {item.description}
+                                    </p>
+
+                                    {/* Bullets */}
+                                    <ul className="space-y-3 text-gray-800 text-sm">
+                                        {item.bullets.map((point, i) => (
+                                            <li key={i} className="flex items-start">
+                                                <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-blue-600 text-xs mt-0.5">
+                                                    ✓
+                                                </span>
+                                                <p className="ml-3 leading-relaxed">{point}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-
-                                {/* Description */}
-                                <p className="text-gray-700 text-sm mb-4 leading-relaxed">
-                                    <span className="font-bold text-gray-700  text-sm ">{item.strong}</span> {item.description}
-                                </p>
-
-                                {/* Bullets */}
-                                <ul className="space-y-3 text-gray-800 text-sm">
-                                    {item.bullets.map((point, i) => (
-                                        <li key={i} className="flex items-start">
-                                            {/* Icon (fixed width, won’t shrink) */}
-                                            <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-blue-600 text-xs mt-0.5">
-                                                ✓
-                                            </span>
-                                            {/* Text (perfect line alignment) */}
-                                            <p className="ml-3 leading-relaxed">{point}</p>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
             </section>
 
@@ -411,9 +524,13 @@ const AboutUs = () => {
                 </div>
             </section> */}
 
-            <div id="leadership" className="scroll-mt-20"><Leadership /></div>
+            <div id="leadership" className="scroll-mt-20">
+                <Leadership />
+            </div>
 
-            <div id="contact" className="scroll-mt-20"><ContactUs /></div>
+            <div id="contact" className="scroll-mt-20">
+                <ContactUs />
+            </div>
         </div>
     );
 };

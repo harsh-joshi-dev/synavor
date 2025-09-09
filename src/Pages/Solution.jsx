@@ -107,7 +107,7 @@ const SolutionsPage = () => {
             {/* Hero Section */}
             <section className="gradient-bg section-padding">
                 <div className="max-w-7xl mx-auto container-padding text-center">
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -115,13 +115,13 @@ const SolutionsPage = () => {
                     >
                         <Zap className="w-4 h-4 mr-2" />
                         AI-Powered Solutions
-                    </motion.div>
-                    
+                    </motion.div> */}
+
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Complete <span className="">Procurement</span> Solutions
+                        Purpose-built Solutions <span className="">Engineered</span> for Effortless Efficiencies.
                     </h1>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                        Discover our comprehensive suite of AI-powered solutions designed to transform 
+                        Discover our comprehensive suite of AI-powered solutions designed to transform
                         every aspect of your procurement and supply chain operations.
                     </p>
                 </div>
@@ -171,22 +171,20 @@ const SolutionsPage = () => {
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <div
-                                        className={`h-1 w-12 rounded-full transition-all duration-300 transform ${
-                                            activeIndex === index
+                                        className={`h-1 w-12 rounded-full transition-all duration-300 transform ${activeIndex === index
                                                 ? "bg-blue-400 scale-x-150"
                                                 : "bg-gray-400 group-hover:bg-blue-300 group-hover:scale-x-125"
-                                        }`}
+                                            }`}
                                     />
                                     <span
-                                        className={`mt-3 text-sm font-semibold transition-all duration-300 text-center ${
-                                            activeIndex === index
+                                        className={`mt-3 text-sm font-semibold transition-all duration-300 text-center ${activeIndex === index
                                                 ? "opacity-100 text-white"
                                                 : "opacity-70 group-hover:opacity-100 group-hover:text-blue-200"
-                                        }`}
+                                            }`}
                                     >
                                         {sol.name}
                                     </span>
-                                    
+
                                     {/* Active Indicator */}
                                     {activeIndex === index && (
                                         <motion.div
@@ -226,7 +224,7 @@ const SolutionsPage = () => {
                                                 {sol.tagline}
                                             </motion.div>
 
-                                            <motion.h1 
+                                            <motion.h1
                                                 className="text-5xl lg:text-6xl font-bold mb-4 leading-tight"
                                                 initial={{ opacity: 0, y: 20 }}
                                                 animate={{ opacity: activeIndex === index ? 1 : 0, y: 0 }}
@@ -235,7 +233,7 @@ const SolutionsPage = () => {
                                                 {sol.name}
                                             </motion.h1>
 
-                                            <motion.p 
+                                            <motion.p
                                                 className="text-xl text-gray-200 leading-relaxed mb-8"
                                                 initial={{ opacity: 0, y: 20 }}
                                                 animate={{ opacity: activeIndex === index ? 1 : 0, y: 0 }}
@@ -259,7 +257,7 @@ const SolutionsPage = () => {
                                                 ))}
                                             </motion.div>
 
-                                            <motion.button 
+                                            <motion.button
                                                 className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group"
                                                 initial={{ opacity: 0, y: 20 }}
                                                 animate={{ opacity: activeIndex === index ? 1 : 0, y: 0 }}

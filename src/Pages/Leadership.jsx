@@ -16,20 +16,26 @@ import {
 const data = [
   {
     name: "Shrijeet Desai",
-    field: "Co-founder and CEO",
+    field: "Co-founder & Chief Executive Officer",
     description:
-      "Shrijeet is a global supply chain and procurement expert with over two decades of experience delivering innovation, operational excellence, and long-term value across diverse industries. He has held leadership roles at companies like Mondelez, Beyond Meat, and Kerry, and has also worked with A.T. Kearney, where he advised clients on operations strategy, performance improvement, and M&A. With deep expertise in digital supply chain transformation, commodity risk management, sustainability, and cross-functional optimization, Shrijeet is known for combining strategic thinking with hands-on execution. ",
-    desc: "Shrijeet holds an MBA with honors from the University of Chicago Booth School of Business, a Master’s in Civil Engineering from Bradley University, and a Bachelor’s in Civil Engineering from Gujarat University. A collaborative and entrepreneurial leader, he continues to drive measurable impact by building high-performance teams and delivering transformative results across the global supply chain landscape.",
+      "Shrijeet is a seasoned global supply chain and procurement executive with over 20 years of experience driving innovation, operational excellence, and profitability across multinational, multicultural environments. Most recently, he served as Vice President of Global Supply Chain & Procurement at Beyond Meat, where he led end-to-end supply chain operations and delivered transformative results through digital and AI-enabled solutions, inventory optimization, and sustainable cost management. ",
+    desc: "Prior to that, Shrijeet held key leadership roles at Kearney, Kerry, and Mondelez International, where he drove multimillion-dollar value creation through strategic sourcing, procurement transformation initiatives, and innovative commercialization strategies.",
+    desc1:
+      "A strategic thinker with an entrepreneurial mindset, Shrijeet is recognized for building high-performing teams and fostering cross-functional collaboration to deliver exceptional business outcomes. His areas of expertise include commodity risk management, digital supply chain transformation, sustainability, and mergers & acquisitions.",
+    desc2:
+      "Shrijeet holds an MBA with honors from the University of Chicago Booth School of Business, as well as a Master’s in Civil Engineering from both Bradley University and Gujarat University.",
     img: "./assets/leader.jpg",
   },
   {
     name: "Shailesh Ganatra",
-    field: "Co-founder and CTO",
+    field: "Co-founder & Chief Technology Officer",
     description:
-      "Shailesh is a global supply chain and procurement expert with over two decades of experience delivering innovation, operational excellence, and long-term value across diverse industries. He has held leadership roles at companies like Mondelez, Beyond Meat, and Kerry, and has also worked with A.T. Kearney, where he advised clients on operations strategy, performance improvement, and M&A. With deep expertise in digital supply chain transformation, commodity risk management, sustainability, and cross-functional optimization, Shrijeet is known for combining strategic thinking with hands-on execution. ",
-
-    desc: "He holds an MBA with honors from the University of Chicago Booth School of Business, a Master’s in Civil Engineering from Bradley University, and a Bachelor’s in Civil Engineering from Gujarat University. A collaborative and entrepreneurial leader, he continues to drive measurable impact by building high-performance teams and delivering transformative results across the global supply chain landscape",
-    img: "./assets/leader2.jpg",
+      "Shailesh is an accomplished product and technology executive with over 20 years of experience driving innovation and growth across high-impact digital platforms in Financial Services, Healthcare, Human Resources, and Telecom. He has held senior leadership positions including Chief Technology Officer at WellRight, Vice President of Product & Technology at HighGround, and Managing Director of Product & Technology at Charles Schwab. ",
+    desc: "Shailesh brings deep expertise across the full technology lifecycle spanning product strategy, architecture, software engineering, cloud infrastructure, data, AI/ML, and cybersecurity. He has successfully led he development and scaling of multiple B2B SaaS products through rapid growth, market expansion, strategic acquisitions, and complex post-merger integrations. A strong advocate for data privacy and regulatory compliance, Shailesh has guided organizations in achieving and maintaining critical standards such as GDPR, CCPA, HIPAA, NIST, and SOC 2.",
+    desc1:
+      "Shailesh holds a Bachelor's degree in Engineering with a major in Information Technology from Gujarat University, an MBA from the Illinois Institute of Technology, and an Executive Scholar Certificate in Growth & Innovation from the Kellogg School of Management at Northwestern University.",
+    desc2: " ",
+    img: "./assets/leader2.png",
   },
   // {
   //     title: "Private Equity",
@@ -41,57 +47,69 @@ const data = [
   // },
 ];
 
+const TestimonialCard = ({
+  image,
+  name,
+  text1,
+  text2,
+  field,
+  text3,
+  text4,
+}) => {
+  return (
+    <div className="bg-white rounded-2xl shadow-md p-6 relative flex flex-col items-center max-w-2xl min-h-[500px] cursor-pointer hover:shadow-xl transition-shadow duration-300 border border-gray-200 hover:border-blue-400 group ">
+      {/* Profile Image */}
+      <div className="absolute -top-14 group-hover:scale-105 transition-transform duration-300">
+        <img
+          src={image}
+          alt={name}
+          className="w-32 h-32 rounded-full border-2 border-white  shadow-lg object-cover"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="mt-14 text-center">
+        <h3 className="text-lg group-hover:text-blue-700 text-gray-800 font-semibold">{name}</h3>
+        <p className="text-gray-600  text-base font-semibold leading-relaxed">{field}</p>
+        <p className="text-gray-700  font-medium mt-2 text-justify text-sm ">{text1}</p>
+        <p className="text-gray-700 font-medium  mt-2 text-justify text-sm ">{text2}</p>
+        <p className="text-gray-700  font-medium  mt-2 text-justify text-sm ">{text3}</p>
+        <p className="text-gray-700  font-medium  mt-2 text-justify text-sm ">{text4}</p>
+      </div>
+    </div>
+  );
+};
+
 const Leadership = () => {
   return (
-    <section className="gradient-bg section-padding ">
-      <div className="max-w-7xl mx-auto container-padding">
-        <motion.div className="text-center mb-10">
-          <h2 className="text-5xl font-bold text-black">
-            Leadership Team
-          </h2>
+    <section className=" section-padding ">
+      <div className="max-w-8xl mx-auto container-padding">
+        <motion.div className="text-center mb-5  ">
+          <h2 className="text-5xl font-bold text-black">Leadership Team</h2>
         </motion.div>
+        <div className="min-h-screen flex items-center justify-center p-6">
+          <div className="flex gap-6 ">
+            {data.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 ">
-          {data.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <div className="relative rounded-3xl overflow-hidden shadow-medium hover:shadow-large transition-all duration-300  border border-gray-100">
-                {/* Image Container */}
-                <div className="relative h-96 overflow-hidden">
-                  <img
-                    src={item.img}
-                    alt={item.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-
-                  {/* Gradient Overlay */}
-
-                </div>
-
-                {/* Content */}
-                <div>
-                  <div className="flex flex-col mt-5 items-center justify-center">
-                    <h3 className="text-xl font-semibold text-gray-900 not-only: group-hover:text-blue-600 transition-colors duration-200">
-                      {item.name}
-                    </h3>
-                    <p className="text-base font-bold text-blue-700">
-                      {item.field}
-                    </p>
-                  </div>
-                  <div className="p-6 text-justify mb-2 text-gray-600 text-l font-light ">
-                    <p>{item.description}</p>
-                    <p>{item.desc}</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              >
+                <TestimonialCard
+                  image={item.img}
+                  name={item.name}
+                  field={item.field}
+                  text1={item.description}
+                  text2={item.desc}
+                  text3={item.desc1}
+                  text4={item.desc2}
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

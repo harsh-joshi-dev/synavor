@@ -1,89 +1,159 @@
-import React, { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Eye, Users, BookOpen, Mail, Target, TrendingUp, Shield, Zap } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const whoWeHelp = [
     {
-        name: "Vision & Strategy",
-        tagline: "Shaping the Future Together.",
-        details: "Our vision is to empower organizations with transformative digital solutions that drive efficiency, innovation, and growth. We aim to be a trusted partner in every stage of your digital journey.",
-        extra: "We focus on long-term impact, ensuring that our technology solutions deliver sustained value across industries.",
-        backgroundImage: "/assets/whywehelp/vision.jpg",
-        icon: Eye,
-        benefits: ["Strategic planning", "Digital transformation", "Long-term impact", "Innovation focus"],
-        color: "blue"
+        id: "procurement",
+        mainSection: {
+            title: "Procurement & Sourcing",
+            image: "/Procurement.png",
+            description:
+                "Leading strategic benefit to leverage technology and AI / ML solutions for procurement function is to become a business partner and delivering enterprise value",
+            keyPoints: [
+                "Smarter and agile decision making allow deployment of more sophisticated solution set",
+                "Reduce administrative burden and simplify self-serve",
+                "Increased insights through leverage of internal and external data powered by analytics",
+                "Democratization of data format, sources and timing. Focus on speed, transparency and accuracy",
+                "Monetize supplier value through life cycle management",
+                "Competitive advantage by being a leader",
+            ],
+        },
+        bottomSections: [
+            {
+                title: "Supply Continuity",
+                description:
+                    "Optimized partnerships, improved inventory controls, long term resilience and risk management",
+            },
+            {
+                title: "Innovation Excellence",
+                description:
+                    "Preferential access to supplier driven innovation. Strong positioning and governance",
+            },
+            {
+                title: "Total Cost Advantage",
+                description:
+                    "Commodity management and forecasting typically deliver 3%-8% in cost savings, while supplier relationship management provides a sustained structural advantage.",
+            },
+            {
+                title: "Resilience",
+                description:
+                    "60% of leading organizations achieved higher supply resilience by leveraging effective SRM and resource allocations",
+            },
+        ],
     },
     {
-        name: "Leadership & Culture",
-        tagline: "Guided by Experience, Driven by Innovation.",
-        details: "Our leadership team brings decades of expertise across industries, combining strategic insights with hands-on experience to deliver value-driven outcomes.",
-        extra: "We foster a culture of integrity, inclusivity, and innovation that inspires both our employees and clients to succeed.",
-        backgroundImage: "/assets/whywehelp/leadership.jpg",
-        icon: Users,
-        benefits: ["Expert leadership", "Cultural excellence", "Integrity focus", "Innovation culture"],
-        color: "green"
+        id: "supplychain",
+        mainSection: {
+            title: "Supply Chain & Inventory",
+            image: "/supply.png",
+            description:
+                "Empowering Supply Chain and Inventory controls team with AI/ML solutions enables resilience, transparency and data driven decision making. Resulting in a highly efficient function",
+            keyPoints: [
+                "Implement robust risk assessment and comprehensive scenario planning frameworks.",
+                "Diversify supplier networks, explore regionalization, and maintain strategic buffer inventories.",
+                "Measure and track resilience as a key performance indicator.",
+                "Actively dismantle functional silos; establish and empower integrative roles ",
+                "Formalize decision rights; foster seamless information flow and collaborative planning with internal and external partners. ",
+                "Develop comprehensive capability-building programs focusing on analytical, digital, and leadership skills for supply chain professionals.",
+            ],
+        },
+        bottomSections: [
+            {
+                title: "Supply Continuity & Resilience",
+                description:
+                    "Proactive, agile and flexible practices to support changing needs and demanding working environments",
+            },
+            {
+                title: "Quality Excellence",
+                description:
+                    "Process control and seamless transparency / traceability to monitor, control and improve quality performance",
+            },
+            {
+                title: "Total Cost Advantage",
+                description:
+                    "Structured cost advantage through optimized processes, scenario and optimization modelling to implement continuous learning strategies",
+            },
+            {
+                title: "Efficient Customer Service",
+                description:
+                    "Best in class frameworks and automation support with transparency and resilience built in improves customer communications and deliverables",
+            },
+        ],
     },
     {
-        name: "Insights & Knowledge",
-        tagline: "Insights that Inspire.",
-        details: "Stay updated with our blog, where we share the latest industry trends, digital transformation strategies, and client success stories.",
-        extra: "Our blog covers emerging technologies, thought leadership, and practical tips for businesses looking to scale with innovation.",
-        backgroundImage: "/assets/whywehelp/blog.jpg",
-        icon: BookOpen,
-        benefits: ["Industry insights", "Thought leadership", "Best practices", "Trend analysis"],
-        color: "purple"
-    },
-    {
-        name: "Partnership & Support",
-        tagline: "Let's Build Something Great Together.",
-        details: "Reach out to our team to explore how we can help your business thrive in the digital age. Whether you need consulting, solutions, or ongoing support — we are here to assist.",
-        extra: "We're available across multiple locations worldwide and always eager to discuss new opportunities.",
-        backgroundImage: "/assets/whywehelp/contact.jpg",
-        icon: Mail,
-        benefits: ["Global support", "Consulting services", "Ongoing assistance", "Partnership focus"],
-        color: "orange"
-    },
+        id: "finance",
+        mainSection: {
+            title: "Finance & Treasury",
+            image: "/finance.png",
+            description:
+                "Critical supply chain and procurement inputs for finance and treasury processes are elevated through seamless connectivity and timely information, resulting in savings and compliance efficiencies",
+            keyPoints: [
+                "Drive accelerated savings and efficiency with stronger cost control and optimized working capital utilization.",
+                "Strengthen financial reporting, governance, and compliance through enhanced spend visibility, contract discipline, and AI-powered optimization.",
+                "Mitigate risk and build agility via connected controls, robust policy compliance, fraud prevention, and proactive exposure management.",
+                "Elevate strategic decision-making with greater transparency, executive alignment, and insights from timely reporting and forward-looking planning.",
+                "Maximize margins and manage costs through effective commodity strategies and productivity-driven performance.",
+            ],
+        },
+        bottomSections: [
+            {
+                title: "Supply Continuity & Resilience",
+                description:
+                    "Proactive, agile and flexible practices to support changing needs and demanding working environments",
+            },
+            {
+                title: "Quality Excellence",
+                description:
+                    "Process control and seamless transparency / traceability to monitor, control and improve quality performance",
+            },
+            {
+                title: "Total Cost Advantage",
+                description:
+                    "Structured cost advantage through optimized processes, scenario and optimization modelling to implement continuous learning strategies",
+            },
+            {
+                title: "Efficient Customer Service",
+                description:
+                    "Best in class frameworks and automation support with transparency and resilience built in improves customer communications and deliverables",
+            },
+        ],
+    }
 ];
 
 const WhoWeHelpPage = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const contentRef = useRef(null);
-    const sidebarRef = useRef(null);
 
-    const handleScroll = () => {
-        const scrollTop = contentRef.current.scrollTop;
-        const sectionHeight = contentRef.current.scrollHeight / whoWeHelp.length;
-        const index = Math.floor(scrollTop / sectionHeight);
-        setActiveIndex(Math.min(index, whoWeHelp.length - 1));
+    const [active, setActive] = useState(whoWeHelp[0].id);
+    const sectionRefs = useRef({});
 
-        // Scroll sidebar to keep active item centered
-        if (sidebarRef.current) {
-            const btn = sidebarRef.current.children[index];
-            const sidebarHeight = sidebarRef.current.clientHeight;
-            const btnOffset = btn.offsetTop + btn.offsetHeight / 2;
-            sidebarRef.current.scrollTo({
-                top: btnOffset - sidebarHeight / 2,
-                behavior: "smooth",
+    const handleClick = (id) => {
+        sectionRefs.current[id]?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+        setActive(id);
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPos = window.scrollY + 200; // offset for sticky nav
+            whoWeHelp.forEach((section) => {
+                const el = sectionRefs.current[section.id];
+                if (el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos) {
+                    setActive(section.id);
+                }
             });
-        }
-    };
-
-    const getColorClasses = (color) => {
-        const colors = {
-            blue: "bg-blue-100 text-blue-600",
-            green: "bg-green-100 text-green-600",
-            purple: "bg-purple-100 text-purple-600",
-            orange: "bg-orange-100 text-orange-600"
         };
-        return colors[color] || colors.blue;
-    };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
 
     return (
-        <div className="min-h-screen bg-gray-900">
+        <div className="min-h-screen">
             {/* Hero Section */}
             <section className="gradient-bg section-padding">
                 <div className="max-w-7xl mx-auto container-padding text-center">
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -91,187 +161,114 @@ const WhoWeHelpPage = () => {
                     >
                         <Target className="w-4 h-4 mr-2" />
                         Who We Help
-                    </motion.div>
-                    
+                    </motion.div> */}
+
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                        Empowering <span className="">Organizations</span> Worldwide
+                        Empowering <span className="">Teams Worldwide</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                        Discover how we help businesses across industries transform their operations 
-                        through innovative technology solutions and strategic partnerships.
+                        Discover how we help businesses transform their operations through intelligent and pragmatic solutions.
                     </p>
                 </div>
             </section>
 
-            {/* Interactive Showcase */}
-            <section className="relative min-h-screen bg-gray-900">
-                <div
-                    ref={contentRef}
-                    onScroll={handleScroll}
-                    className="h-screen w-full overflow-y-auto scroll-smooth relative"
-                >
-                    {/* Background Images */}
-                    {whoWeHelp.map((item, index) => (
-                        <AnimatePresence key={index} mode="wait">
-                            {activeIndex === index && (
-                                <motion.div
-                                    className="fixed inset-0 bg-cover bg-center -z-10"
-                                    style={{ backgroundImage: `url(${item.backgroundImage})` }}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 1.2 }}
-                                />
-                            )}
-                        </AnimatePresence>
-                    ))}
-
-                    {/* Enhanced Dark Overlay */}
-                    <div className="fixed inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/50 -z-5 pointer-events-none" />
-
-                    <div className="flex min-h-[200vh] relative z-10">
-                        {/* Enhanced Sidebar */}
-                        <div
-                            ref={sidebarRef}
-                            className="flex flex-col items-center px-6 py-8 space-y-8 sticky top-0 h-screen overflow-y-auto bg-black/20 backdrop-blur-custom rounded-r-2xl"
+            <div className="sticky top-[72px] z-40 flex justify-center backdrop-blur-md py-3 px-6">
+                <div className="flex gap-4">
+                    {whoWeHelp.map((section) => (
+                        <button
+                            key={section.id}
+                            onClick={() => handleClick(section.id)}
+                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${active === section.id
+                                ? "bg-blue-600 text-white shadow-lg scale-105"
+                                : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
+                                }`}
                         >
-                            {whoWeHelp.map((item, index) => (
-                                <motion.button
-                                    key={index}
-                                    onClick={() => {
-                                        const sectionHeight = contentRef.current.scrollHeight / whoWeHelp.length;
-                                        contentRef.current.scrollTo({
-                                            top: sectionHeight * index,
-                                            behavior: "smooth",
-                                        });
-                                    }}
-                                    className="relative group flex flex-col items-center w-full"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <div
-                                        className={`h-1 w-12 rounded-full transition-all duration-300 transform ${
-                                            activeIndex === index
-                                                ? "bg-blue-400 scale-x-150"
-                                                : "bg-gray-400 group-hover:bg-blue-300 group-hover:scale-x-125"
-                                        }`}
-                                    />
-                                    <span
-                                        className={`mt-3 text-sm font-semibold transition-all duration-300 text-center ${
-                                            activeIndex === index
-                                                ? "opacity-100 text-white"
-                                                : "opacity-70 group-hover:opacity-100 group-hover:text-blue-200"
-                                        }`}
-                                    >
-                                        {item.name}
-                                    </span>
-                                    
-                                    {/* Active Indicator */}
-                                    {activeIndex === index && (
-                                        <motion.div
-                                            initial={{ scale: 0 }}
-                                            animate={{ scale: 1 }}
-                                            className="absolute -right-2 w-3 h-3 bg-blue-400 rounded-full"
-                                        />
-                                    )}
-                                </motion.button>
-                            ))}
-                        </div>
+                            {section.mainSection.title}
+                        </button>
+                    ))}
+                </div>
+            </div>
 
-                        {/* Enhanced Content */}
-                        <div className="flex-1 flex flex-col px-8 lg:px-16">
-                            {whoWeHelp.map((item, index) => (
-                                <div key={index} className="min-h-screen flex flex-col justify-center">
-                                    <AnimatePresence mode="wait">
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, y: 30 }}
-                                            animate={{ opacity: activeIndex === index ? 1 : 0, y: 0 }}
-                                            exit={{ opacity: 0, y: -30 }}
-                                            transition={{ duration: 0.8 }}
-                                            className="max-w-2xl text-white"
-                                        >
-                                            {/* Section Badge */}
-                                                                        <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: activeIndex === index ? 1 : 0, x: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                className={`inline-flex items-center px-4 py-2 ${getColorClasses(item.color)} rounded-full text-sm font-medium mb-6`}
+
+            <div className="max-w-7xl mx-auto px-6 py-12">
+                {whoWeHelp.map((sectionData, sectionIndex) => (
+                    <div
+                        key={sectionIndex}
+                        className="mb-24 scroll-mt-36"
+                        ref={(el) => (sectionRefs.current[sectionData.id] = el)}
+                    >
+                        {/* Top Section */}
+                        <div className="flex flex-col lg:flex-row gap-12 mb-16 items-center">
+                            {/* Left Image */}
+                            <motion.div
+                                className="lg:w-1/2 flex justify-center"
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8 }}
                             >
-                                {(() => {
-                                    const IconComponent = item.icon;
-                                    return <IconComponent className="w-4 h-4 mr-2" />;
-                                })()}
-                                {item.tagline}
+                                <div className="w-full h-[550px] lg:h-[550px] flex-shrink-0">
+                                    <img
+                                        src={sectionData.mainSection.image}
+                                        alt={sectionData.mainSection.title}
+                                        className="w-full h-full object-cover rounded-2xl shadow-2xl"
+                                    />
+                                </div>
                             </motion.div>
 
-                                            <motion.h1 
-                                                className="text-5xl lg:text-6xl font-bold mb-4 leading-tight"
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: activeIndex === index ? 1 : 0, y: 0 }}
-                                                transition={{ duration: 0.6, delay: 0.3 }}
-                                            >
-                                                {item.name}
-                                            </motion.h1>
+                            {/* Right Content */}
+                            <motion.div
+                                className="lg:w-1/2 flex flex-col justify-start"
+                                initial={{ opacity: 0, x: 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.3 }}
+                            >
+                                <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+                                    {sectionData.mainSection.title}
+                                </h2>
+                                <p className="text-lg mb-6 leading-relaxed">
+                                    {sectionData.mainSection.description}
+                                </p>
+                                <ul className="space-y-4">
+                                    {sectionData.mainSection.keyPoints.map((point, index) => (
+                                        <motion.li
+                                            key={index}
+                                            className="flex items-start"
+                                            initial={{ opacity: 0, x: 20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                                        >
+                                            <span className="mr-3 text-blue-400 font-bold">•</span>
+                                            <span className="leading-relaxed">{point}</span>
+                                        </motion.li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        </div>
 
-                                            <div className="space-y-8">
-                                                <motion.div
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    animate={{ opacity: activeIndex === index ? 1 : 0, y: 0 }}
-                                                    transition={{ duration: 0.6, delay: 0.4 }}
-                                                >
-                                                    <h2 className="text-sm font-bold text-blue-300 uppercase tracking-wider mb-3">
-                                                        Overview
-                                                    </h2>
-                                                    <p className="text-xl text-gray-200 leading-relaxed">
-                                                        {item.details}
-                                                    </p>
-                                                </motion.div>
-                                                
-                                                <motion.div
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    animate={{ opacity: activeIndex === index ? 1 : 0, y: 0 }}
-                                                    transition={{ duration: 0.6, delay: 0.5 }}
-                                                >
-                                                    <h2 className="text-sm font-bold text-blue-300 uppercase tracking-wider mb-3">
-                                                        Key Benefits
-                                                    </h2>
-                                                    <p className="text-xl text-gray-200 leading-relaxed mb-4">
-                                                        {item.extra}
-                                                    </p>
-                                                    
-                                                    {/* Benefits Grid */}
-                                                    <div className="grid grid-cols-2 gap-4 mb-6">
-                                                        {item.benefits.map((benefit, idx) => (
-                                                            <div key={idx} className="flex items-center space-x-3">
-                                                                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                                                <span className="text-sm text-gray-300">{benefit}</span>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </motion.div>
+                        {/* Bottom 4 Sections */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {sectionData.bottomSections.map((section, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="relative p-6 rounded-2xl gradient-bg text-black shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-pointer"
+                                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                                >
+                                    <h3 className="text-xl font-bold mb-3 text-center">{section.title}</h3>
+                                    <p className="text-gray-800 text-sm leading-relaxed">{section.description}</p>
 
-                                                <motion.button 
-                                                    className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group"
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    animate={{ opacity: activeIndex === index ? 1 : 0, y: 0 }}
-                                                    transition={{ duration: 0.6, delay: 0.6 }}
-                                                    whileHover={{ scale: 1.05 }}
-                                                >
-                                                    Learn More
-                                                    <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                                                </motion.button>
-                                            </div>
-                                        </motion.div>
-                                    </AnimatePresence>
-                                </div>
+                                    {/* Subtle decorative glow */}
+                                    <div className="absolute -top-8 -right-8 w-24 h-24 bg-blue-200/20 rounded-full blur-3xl pointer-events-none"></div>
+                                    <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-blue-200/10 rounded-full blur-2xl pointer-events-none"></div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
-                </div>
-            </section>
+                ))}
+            </div>
         </div>
-    );
-};
-
+    )
+}
 export default WhoWeHelpPage;

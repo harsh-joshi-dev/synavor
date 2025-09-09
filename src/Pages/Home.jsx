@@ -75,7 +75,7 @@
                                 </div>
 
                                 {/* Floating Stats Card */}
-                                <motion.div
+                                {/* <motion.div
                                     className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-large p-4 border border-gray-100"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@
                                             <div className="text-xs text-gray-500">Average savings</div>
                                         </div>
                                     </div>
-                                </motion.div>
+                                </motion.div> */}
                             </motion.div>
                         </div>
                     </div>
