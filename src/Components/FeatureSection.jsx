@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronDown, CheckCircle, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const features = [
   {
@@ -16,7 +16,11 @@ const features = [
         strategies with execution excellence.
       </>
     ),
-    image: "./assets/improve.jpg",
+    image: [
+      "./assets/Inventory/Picture1.png",
+      "./assets/Inventory/Picture2.png",
+      "./assets/Inventory/Picture3.png",
+    ],
     benefits: [
       "Robust data integration",
       "Modelling, simulations & optimization tools", // fixed wording
@@ -38,7 +42,11 @@ const features = [
         physical and financial risks & opportunities.
       </>
     ),
-    image: "./assets/flexible.jpg",
+    image: [
+      "./assets/Commodity/Picture1.png",
+      "./assets/Commodity/Picture2.png",
+      "./assets/Commodity/Picture3.png",
+    ],
     benefits: [
       // Left column
       "Agile & automated solutions",
@@ -60,7 +68,11 @@ const features = [
         optimize relationships, and deliver incremental value.
       </>
     ),
-    image: "./assets/stock.jpg",
+    image: [
+      "./assets/Supplier/Picture1.png",
+      "./assets/Supplier/Picture2.png",
+      "./assets/Supplier/Picture3.png",
+    ],
     benefits: [
       "Supplier segmentation & positioning models",
       "Performance score cards",
@@ -79,7 +91,11 @@ const features = [
         powered source discovery and analytics.
       </>
     ),
-    image: "./assets/collaborate.jpg",
+    image: [
+      "./assets/Tariff/Picture1.png",
+      "./assets/Tariff/Picture2.png",
+      "./assets/Tariff/Picture3.png",
+    ],
     benefits: [
       "What-if analysis tools",
       "Alternate tariff optimization sources",
@@ -90,7 +106,21 @@ const features = [
 ];
 
 export default function FeatureSection() {
+
   const [activeIndex, setActiveIndex] = useState(0);
+  const [imgIndex, setImgIndex] = useState(0);
+
+  // auto rotate images every 2s
+  useEffect(() => {
+    const images = features[activeIndex]?.image || [];
+    if (images.length === 0) return;
+
+    const interval = setInterval(() => {
+      setImgIndex((prev) => (prev + 1) % images.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex]);
 
   return (
     <section className="bg-white section-padding">
@@ -135,28 +165,25 @@ export default function FeatureSection() {
                   onClick={() =>
                     setActiveIndex(activeIndex === index ? null : index)
                   }
-                  className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
-                    activeIndex === index
-                      ? "border-blue-200 bg-blue-50 shadow-medium"
-                      : "border-gray-200 hover:border-blue-200 hover:bg-gray-50"
-                  }`}
+                  className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${activeIndex === index
+                    ? "border-blue-200 bg-blue-50 shadow-medium"
+                    : "border-gray-200 hover:border-blue-200 hover:bg-gray-50"
+                    }`}
                 >
                   <div className="flex items-center justify-between">
                     <h3
-                      className={`text-xl font-semibold transition-colors ${
-                        activeIndex === index
-                          ? "text-blue-700"
-                          : "text-gray-800"
-                      }`}
+                      className={`text-xl font-semibold transition-colors ${activeIndex === index
+                        ? "text-blue-700"
+                        : "text-gray-800"
+                        }`}
                     >
                       {feature.title}
                     </h3>
                     <ChevronDown
-                      className={`h-6 w-6 text-gray-500 transition-transform duration-300 ${
-                        activeIndex === index
-                          ? "rotate-180 text-blue-600"
-                          : "rotate-0"
-                      }`}
+                      className={`h-6 w-6 text-gray-500 transition-transform duration-300 ${activeIndex === index
+                        ? "rotate-180 text-blue-600"
+                        : "rotate-0"
+                        }`}
                     />
                   </div>
 
@@ -239,28 +266,29 @@ export default function FeatureSection() {
               className="relative w-full h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-3xl blur-2xl"></div>
-              <div className="hidden md:block relative">
-                <img
-                  src={features[activeIndex]?.image || "/assets/dashboard.jpg"}
-                  alt={features[activeIndex]?.title}
-                  className="relative w-full h-[500px] object-cover mx-auto rounded-3xl shadow-2xl border border-gray-100 transition-all duration-500 ease-in-out"
-                />
+              <div className="hidden md:block relative w-full h-[500px] overflow-hidden rounded-3xl shadow-2xl border border-gray-100">
+                <AnimatePresence mode="wait" custom={imgIndex}>
+                  <motion.img
+                    key={imgIndex}
+                    src={
+                      features[activeIndex]?.image?.[imgIndex] || "/assets/dashboard.jpg"
+                    }
+                    alt={features[activeIndex]?.title}
+                    className="absolute inset-0 w-full h-full object-fill"
+                    custom={imgIndex}
+                    initial={{
+                      opacity: 0,
+                      x: imgIndex % 2 === 0 ? 150 : -150, // 👈 even = right, odd = left
+                    }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{
+                      opacity: 0,
+                      x: imgIndex % 2 === 0 ? -150 : 150, // 👈 leave opposite side
+                    }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  />
+                </AnimatePresence>
 
-                {/* <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-large p-6 border border-gray-100 max-w-sm">
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    {features[activeIndex]?.title ||
-                      "Smart Supply Chain Transformation"}
-                  </h4>
-                  <p className="text-sm text-gray-600 mb-3">
-                    {features[activeIndex]?.description ||
-                      "Harness AI-driven insights to streamline procurement, cut costs, and boost efficiency across your supply chain."}
-                    ...
-                  </p>
-                  <div className="flex items-center text-blue-600 text-sm font-medium">
-                    <span>Explore Feature</span>
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </div>
-                </div> */}
               </div>
             </motion.div>
           </div>
