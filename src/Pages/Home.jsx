@@ -25,13 +25,13 @@
                                 </div> */}
 
                                 <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight">
-                                    Optimizing {" "}
+                                Transform your {" "}
                                     <span className="">Procurement & Supply Chain</span>{" "}
                                     through Advanced Digital and AI/ML Solutions
                                 </h1>
 
                                 <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
-                                    Transform your procurement & supply chain operations and gain deeper visibility, smarter decision-making, and tailored automation that drives measurable, sustainable and resilient business outcomes.
+                                    optimize your procurement & supply chain operations and gain deeper visibility, smarter decision-making, and tailored automation that drives measurable, sustainable and resilient business outcomes.
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4">

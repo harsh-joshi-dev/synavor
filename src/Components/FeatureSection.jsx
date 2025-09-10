@@ -27,7 +27,7 @@ const features = [
       "Analytics with KPI dashboard",
       "Transparency, accuracy & speed",
     ],
-    video: ["./assets/Inventory/video.mp4"]
+    video: ["./assets/Inventory/video.mp4"],
   },
   {
     title: "Commodities Risk Management",
@@ -57,9 +57,7 @@ const features = [
       "Built-in Mark-to-Market and Hedge P&L reports",
       "Commodity risk management governance support",
     ],
-    video: [
-      "./assets/Commodity/video.mp4"
-    ]
+    video: ["./assets/Commodity/video.mp4"],
   },
   {
     title: "Supplier Segmentation & SRM Support",
@@ -83,9 +81,7 @@ const features = [
       "Risk profiles and heat maps",
       "SRM activity management workflows",
     ],
-    video: [
-      "./assets/Supplier/video.mp4"
-    ]
+    video: ["./assets/Supplier/video.mp4"],
   },
   {
     title: "Tariff Impact Management",
@@ -113,7 +109,6 @@ const features = [
 ];
 
 export default function FeatureSection() {
-
   const [activeIndex, setActiveIndex] = useState(0);
   const [imgIndex, setImgIndex] = useState(0);
 
@@ -133,7 +128,7 @@ export default function FeatureSection() {
     <section className="bg-white section-padding">
       <div className="max-w-7xl mx-auto container-padding">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-5">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -142,17 +137,16 @@ export default function FeatureSection() {
             className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200 mb-6"
           >
             <CheckCircle className="w-4 h-4 mr-2" />
-            Core Features
+            Core Solutions
           </motion.div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Transform Your{" "}
-            <span className="">Procurement & Supply Chain </span>{" "}
+          {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Transform Your <span className="">Procurement & Supply Chain </span>{" "}
             Operations
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Leverage advanced AI/ML technologies to optimize core supply chain
             and procurement processes.
-          </p>
+          </p> */}
         </div>
 
         {/* Content */}
@@ -172,25 +166,28 @@ export default function FeatureSection() {
                   onClick={() =>
                     setActiveIndex(activeIndex === index ? null : index)
                   }
-                  className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${activeIndex === index
-                    ? "border-blue-200 bg-blue-50 shadow-medium"
-                    : "border-gray-200 hover:border-blue-200 hover:bg-gray-50"
-                    }`}
+                  className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
+                    activeIndex === index
+                      ? "border-blue-200 bg-blue-50 shadow-medium"
+                      : "border-gray-200 hover:border-blue-200 hover:bg-gray-50"
+                  }`}
                 >
                   <div className="flex items-center justify-between">
                     <h3
-                      className={`text-xl font-semibold transition-colors ${activeIndex === index
-                        ? "text-blue-700"
-                        : "text-gray-800"
-                        }`}
+                      className={`text-xl font-semibold transition-colors ${
+                        activeIndex === index
+                          ? "text-blue-700"
+                          : "text-gray-800"
+                      }`}
                     >
                       {feature.title}
                     </h3>
                     <ChevronDown
-                      className={`h-6 w-6 text-gray-500 transition-transform duration-300 ${activeIndex === index
-                        ? "rotate-180 text-blue-600"
-                        : "rotate-0"
-                        }`}
+                      className={`h-6 w-6 text-gray-500 transition-transform duration-300 ${
+                        activeIndex === index
+                          ? "rotate-180 text-blue-600"
+                          : "rotate-0"
+                      }`}
                     />
                   </div>
 
@@ -206,7 +203,7 @@ export default function FeatureSection() {
                         {feature.description}
                       </p>
 
-                      <div className="grid grid-cols-2 gap-2 ">
+                      {/* <div className="grid grid-cols-2 gap-2 ">
                         {feature.benefits.map((benefit, idx) => (
                           <div
                             key={idx}
@@ -218,7 +215,7 @@ export default function FeatureSection() {
                             </span>
                           </div>
                         ))}
-                      </div>
+                      </div> */}
                       <a
                         href="#"
                         className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"
@@ -312,29 +309,8 @@ export default function FeatureSection() {
               <div className="absolute inset-0 rounded-2xl blur-xl"></div>
 
               {/* Main image */}
-              <div className="hidden md:block relative w-full h-[450px] overflow-hidden rounded-2xl">
+              <div className="hidden md:block top-12 relative w-full h-[450px] overflow-hidden rounded-2xl">
                 <AnimatePresence mode="wait" custom={imgIndex}>
-                  <motion.img
-                    key={imgIndex}
-                    src={features[activeIndex]?.image?.[imgIndex] || "/assets/dashboard.jpg"}
-                    alt={features[activeIndex]?.title}
-                    className="absolute inset-0 w-full h-full object-contain"
-                    custom={imgIndex}
-                    initial={{ opacity: 0, x: imgIndex % 2 === 0 ? 150 : -150 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: imgIndex % 2 === 0 ? -150 : 150 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                  />
-                </AnimatePresence>
-              </div>
-
-              {/* 🎥 Video card - bottom left */}
-              {features[activeIndex]?.video && (
-                <motion.div
-                  className="absolute -bottom-16 -left-16 bg-white rounded-lg shadow-lg border border-gray-100 w-64 h-45 z-20 overflow-hidden"
-                  animate={{ y: [0, -10, 0, 10, 0] }} // Up-down motion
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
                   <video
                     src={features[activeIndex].video}
                     autoPlay
@@ -343,44 +319,80 @@ export default function FeatureSection() {
                     playsInline
                     className="w-full h-full object-cover"
                   />
+                </AnimatePresence>
+              </div>
+
+              {/* 🎥 Video card - bottom left */}
+              {features[activeIndex]?.video && (
+                <motion.div
+                  className="absolute -top-2 -left-16 bg-white rounded-lg shadow-lg border border-gray-100 w-64 h-45 z-20 overflow-hidden"
+                  // animate={{ y: [0, -10, 0, 10, 0] }} // Up-down motion
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <motion.img
+                    key={imgIndex}
+                    src={
+                      features[activeIndex]?.image?.[imgIndex] ||
+                      "/assets/dashboard.jpg"
+                    }
+                    alt={features[activeIndex]?.title}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    custom={imgIndex}
+                    // initial={{ opacity: 0, x: imgIndex % 2 === 0 ? 150 : -150 }}
+                    // animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: imgIndex % 2 === 0 ? -150 : 150 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  />
                 </motion.div>
               )}
 
               {/* 📋 Benefits card - bottom right */}
               {features[activeIndex]?.benefits?.length > 0 && (
                 <motion.div
-                  className="absolute -bottom-16 -right-16 bg-white rounded-lg shadow-lg p-4 border border-gray-100 w-64 z-20"
-                  animate={{ y: [0, -10, 0, 10, 0] }} // Up-down motion
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -bottom-24 -right-36 bg-white rounded-lg shadow-lg p-4 border border-gray-100 w-full z-20"
+                  // animate={{ y: [0, -10, 0, 10, 0] }} // Up-down motion
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 >
                   <h4 className="font-semibold text-sm text-gray-900 mb-2">
                     {features[activeIndex]?.title}
                   </h4>
 
-                  <ul className="space-y-1 text-xs text-gray-700 mb-3">
-                    {features[activeIndex].benefits.map((benefit, i) => (
+                  {/* <ul className="space-y-1 text-xs text-gray-700 mb-3">
+                    { => (
                       <li key={i} className="flex items-start">
                         <span className="text-blue-600 mr-1">✔</span>
                         {benefit}
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-3">
+                    {features[activeIndex].benefits.map((benefit, i) => (
+                      <div key={i} className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                        <span className="text-sm text-gray-700 leading-[17px]">
+                          {benefit}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
 
-                  <button className="text-blue-600 font-medium text-xs flex items-center hover:underline">
+                  <a
+                    href="#"
+                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200 "
+                  >
                     Learn More
-                    <svg
-                      className="w-3 h-3 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </a>
                 </motion.div>
               )}
-
             </motion.div>
           </div>
         </div>
