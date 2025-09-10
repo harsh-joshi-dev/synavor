@@ -63,60 +63,56 @@ export default function Navbar() {
              transition-all duration-300 ease-out opacity-100 scale-100"
                                         style={{ transformOrigin: "top" }}
                                     >
-                                        <HashLink
-                                            smooth
-                                            to="/AboutUs#about"
+                                        <NavLink
+                                            to="/solutions?solution=0"
                                             onClick={() => setOpenSolution(false)}
                                             className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                                         >
                                             <Package className="w-5 h-5 text-blue-600 mt-1" />
                                             <div>
                                                 <p className="text-gray-900 font-semibold text-sm">Inventory Controls & Management</p>
-                                                <p className="text-gray-500 text-xs">
+                                                <p className="text-gray-500 text-xs">AI-powered inventory optimization
                                                 </p>
                                             </div>
-                                        </HashLink>
+                                        </NavLink>
 
-                                        <HashLink
-                                            smooth
-                                            to="/AboutUs#leadership"
+                                        <NavLink
+                                            to="/solutions?solution=1"
                                             onClick={() => setOpenSolution(false)}
                                             className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                                         >
                                             <TrendingDown className="w-5 h-5 text-blue-600 mt-1" />
                                             <div>
                                                 <p className="text-gray-900 font-semibold text-sm">Commodities Risk Management</p>
-                                                <p className="text-gray-500 text-xs">
+                                                <p className="text-gray-500 text-xs">Navigate market volatility with confidence
                                                 </p>
                                             </div>
-                                        </HashLink>
+                                        </NavLink>
 
-                                        <HashLink
-                                            smooth
-                                            to="/AboutUs#contact"
+                                        <NavLink
+                                            to="/solutions?solution=2"
                                             onClick={() => setOpenSolution(false)}
                                             className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                                         >
                                             <User2 className="w-5 h-5 text-blue-600 mt-1" />
                                             <div>
                                                 <p className="text-gray-900 font-semibold text-sm">Supplier Segmentation & SRM Support</p>
-                                                <p className="text-gray-500 text-xs">
+                                                <p className="text-gray-500 text-xs">Build strategic supplier partnerships
                                                 </p>
                                             </div>
-                                        </HashLink>
-                                        <HashLink
-                                            smooth
-                                            to="/AboutUs#contact"
+                                        </NavLink>
+                                        <NavLink
+                                            to="/solutions?solution=3"
                                             onClick={() => setOpenSolution(false)}
                                             className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
                                         >
                                             <FileBarChart className="w-5 h-5 text-blue-600 mt-1" />
                                             <div>
                                                 <p className="text-gray-900 font-semibold text-sm">Tariff Impact Management</p>
-                                                <p className="text-gray-500 text-xs">
+                                                <p className="text-gray-500 text-xs">Simplify complex international trade regulations
                                                 </p>
                                             </div>
-                                        </HashLink>
+                                        </NavLink>
                                     </div>
                                 )}
                             </div>
