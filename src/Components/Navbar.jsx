@@ -29,15 +29,15 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex h-20 justify-between items-center">
                     {/* Logo */}
-                    <NavLink to="/" className="flex items-center space-x-3 group">
+                    <NavLink to="/" className="flex items-center space-x-3 group -ml-7">
                         <img
-                            src="/logotry.png"
+                            src="/SynavorLogo.svg"
                             alt="Synavor"
-                            className="h-13 transition-transform duration-300 group-hover:scale-105"
+                            className="h-30 transition-transform duration-300 group-hover:scale-105"
                         />
-                        <span className="text-2xl font-semibold block sm:text-3xl sm:font-bold" style={{ color: "#052840" }}>
+                        {/* <span className="text-2xl font-semibold block sm:text-3xl sm:font-bold transition-transform duration-300 group-hover:scale-105" style={{ color: "#052840" }}>
                             Synavor
-                        </span>
+                        </span> */}
                     </NavLink>
 
                     {/* Desktop Menu */}

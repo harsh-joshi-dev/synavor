@@ -18,8 +18,8 @@ const features = [
     ),
     image: [
       "./assets/Inventory/Picture1.png",
-      "./assets/Inventory/Picture2.png",
-      "./assets/Inventory/Picture3.png",
+      // "./assets/Inventory/Picture2.png",
+      // "./assets/Inventory/Picture3.png",
     ],
     benefits: [
       "Robust data integration",
@@ -27,6 +27,7 @@ const features = [
       "Analytics with KPI dashboard",
       "Transparency, accuracy & speed",
     ],
+    video: ["./assets/Inventory/video.mp4"]
   },
   {
     title: "Commodities Risk Management",
@@ -44,8 +45,8 @@ const features = [
     ),
     image: [
       "./assets/Commodity/Picture1.png",
-      "./assets/Commodity/Picture2.png",
-      "./assets/Commodity/Picture3.png",
+      // "./assets/Commodity/Picture2.png",
+      // "./assets/Commodity/Picture3.png",
     ],
     benefits: [
       // Left column
@@ -56,6 +57,9 @@ const features = [
       "Built-in Mark-to-Market and Hedge P&L reports",
       "Commodity risk management governance support",
     ],
+    video: [
+      "./assets/Commodity/video.mp4"
+    ]
   },
   {
     title: "Supplier Segmentation & SRM Support",
@@ -70,8 +74,8 @@ const features = [
     ),
     image: [
       "./assets/Supplier/Picture1.png",
-      "./assets/Supplier/Picture2.png",
-      "./assets/Supplier/Picture3.png",
+      // "./assets/Supplier/Picture2.png",
+      // "./assets/Supplier/Picture3.png",
     ],
     benefits: [
       "Supplier segmentation & positioning models",
@@ -79,6 +83,9 @@ const features = [
       "Risk profiles and heat maps",
       "SRM activity management workflows",
     ],
+    video: [
+      "./assets/Supplier/video.mp4"
+    ]
   },
   {
     title: "Tariff Impact Management",
@@ -93,8 +100,8 @@ const features = [
     ),
     image: [
       "./assets/Tariff/Picture1.png",
-      "./assets/Tariff/Picture2.png",
-      "./assets/Tariff/Picture3.png",
+      // "./assets/Tariff/Picture2.png",
+      // "./assets/Tariff/Picture3.png",
     ],
     benefits: [
       "What-if analysis tools",
@@ -228,36 +235,36 @@ export default function FeatureSection() {
 
           {/* Right side - Image Preview (always fixed position) */}
           {/* <div className="relative flex justify-center md:sticky md:top-24">
-                        <motion.div
-                            key={activeIndex}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5 }}
-                            className="relative"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-3xl blur-2xl"></div>
-                            <img
-                                src={features[activeIndex]?.image || "/assets/dashboard.jpg"}
-                                alt={features[activeIndex]?.title}
-                                className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl border border-gray-100 transition-all duration-500 ease-in-out"
-                            />
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-3xl blur-2xl"></div>
+              <img
+                src={features[activeIndex]?.image || "/assets/dashboard.jpg"}
+                alt={features[activeIndex]?.title}
+                className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl border border-gray-100 transition-all duration-500 ease-in-out"
+              />
 
-                            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-large p-6 border border-gray-100 max-w-xs">
-                                <h4 className="font-semibold text-gray-900 mb-2">
-                                    {features[activeIndex]?.title || "Smart Supply Chain Transformation"}
-                                </h4>
-                                <p className="text-sm text-gray-600 mb-3">
-                                    {features[activeIndex]?.description.substring(0, 100) || "Harness AI-driven insights to streamline procurement, cut costs, and boost efficiency across your supply chain."}...
-                                </p>
-                                <div className="flex items-center text-blue-600 text-sm font-medium">
-                                    <span>Explore Feature</span>
-                                    <ArrowRight className="w-4 h-4 ml-1" />
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div> */}
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-large p-6 border border-gray-100 max-w-xs">
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  {features[activeIndex]?.title || "Smart Supply Chain Transformation"}
+                </h4>
+                <p className="text-sm text-gray-600 mb-3">
+                  {features[activeIndex]?.description.substring(0, 100) || "Harness AI-driven insights to streamline procurement, cut costs, and boost efficiency across your supply chain."}...
+                </p>
+                <div className="flex items-center text-blue-600 text-sm font-medium">
+                  <span>Explore Feature</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </div>
+            </motion.div>
+          </div> */}
 
-          <div className="relative flex justify-center md:sticky md:top-24 flex-1">
+          {/* <div className="relative flex justify-center md:sticky md:top-24 flex-1">
             <motion.div
               key={activeIndex}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -290,6 +297,90 @@ export default function FeatureSection() {
                 </AnimatePresence>
 
               </div>
+            </motion.div>
+          </div> */}
+
+          <div className="relative md:flex justify-center md:sticky md:top-28 flex-1 mb-20 hidden">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative w-[80%] max-w-3xl mx-auto h-auto"
+            >
+              {/* Background effect */}
+              <div className="absolute inset-0 rounded-2xl blur-xl"></div>
+
+              {/* Main image */}
+              <div className="hidden md:block relative w-full h-[450px] overflow-hidden rounded-2xl">
+                <AnimatePresence mode="wait" custom={imgIndex}>
+                  <motion.img
+                    key={imgIndex}
+                    src={features[activeIndex]?.image?.[imgIndex] || "/assets/dashboard.jpg"}
+                    alt={features[activeIndex]?.title}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    custom={imgIndex}
+                    initial={{ opacity: 0, x: imgIndex % 2 === 0 ? 150 : -150 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: imgIndex % 2 === 0 ? -150 : 150 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  />
+                </AnimatePresence>
+              </div>
+
+              {/* 🎥 Video card - bottom left */}
+              {features[activeIndex]?.video && (
+                <motion.div
+                  className="absolute -bottom-16 -left-16 bg-white rounded-lg shadow-lg border border-gray-100 w-64 h-45 z-20 overflow-hidden"
+                  animate={{ y: [0, -10, 0, 10, 0] }} // Up-down motion
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <video
+                    src={features[activeIndex].video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              )}
+
+              {/* 📋 Benefits card - bottom right */}
+              {features[activeIndex]?.benefits?.length > 0 && (
+                <motion.div
+                  className="absolute -bottom-16 -right-16 bg-white rounded-lg shadow-lg p-4 border border-gray-100 w-64 z-20"
+                  animate={{ y: [0, -10, 0, 10, 0] }} // Up-down motion
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <h4 className="font-semibold text-sm text-gray-900 mb-2">
+                    {features[activeIndex]?.title}
+                  </h4>
+
+                  <ul className="space-y-1 text-xs text-gray-700 mb-3">
+                    {features[activeIndex].benefits.map((benefit, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-blue-600 mr-1">✔</span>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button className="text-blue-600 font-medium text-xs flex items-center hover:underline">
+                    Learn More
+                    <svg
+                      className="w-3 h-3 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </motion.div>
+              )}
+
             </motion.div>
           </div>
         </div>

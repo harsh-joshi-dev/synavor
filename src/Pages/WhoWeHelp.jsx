@@ -6,7 +6,7 @@ const whoWeHelp = [
         id: "procurement",
         mainSection: {
             title: "Procurement & Sourcing",
-            image: "/Procurement.png",
+            image: "/Procurement1.png",
             description:
                 "Leading strategic benefit to leverage technology and AI / ML solutions for procurement function is to become a business partner and delivering enterprise value",
             keyPoints: [
@@ -178,7 +178,7 @@ const WhoWeHelpPage = () => {
                         <button
                             key={section.id}
                             onClick={() => handleClick(section.id)}
-                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${active === section.id
+                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.id
                                 ? "bg-blue-600 text-white shadow-lg scale-105"
                                 : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
                                 }`}
@@ -194,11 +194,16 @@ const WhoWeHelpPage = () => {
                 {whoWeHelp.map((sectionData, sectionIndex) => (
                     <div
                         key={sectionIndex}
-                        className="mb-24 scroll-mt-36"
+                        className="mb-24 scroll-mt-36 relative"
                         ref={(el) => (sectionRefs.current[sectionData.id] = el)}
                     >
+                        {/* Supply Chain Fading Background */}
+                        {sectionData.id === "supplychain" && (
+                            <div className="absolute -inset-6 bg-gradient-to-tr from-blue-300 via-blue-100 to-purple-200 opacity-40 pointer-events-none rounded-2xl"></div>
+                        )}
+
                         {/* Top Section */}
-                        <div className="flex flex-col lg:flex-row gap-12 mb-16 items-center">
+                        <div className="flex flex-col lg:flex-row gap-12 mb-16 items-center relative z-10">
                             {/* Left Image */}
                             <motion.div
                                 className="lg:w-1/2 flex justify-center"
@@ -246,11 +251,11 @@ const WhoWeHelpPage = () => {
                         </div>
 
                         {/* Bottom 4 Sections */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
                             {sectionData.bottomSections.map((section, index) => (
                                 <motion.div
                                     key={index}
-                                    className="relative p-6 rounded-2xl gradient-bg text-black shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-pointer"
+                                    className="relative p-6 rounded-2xl gradient-bg text-black shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-default"
                                     initial={{ opacity: 0, y: 30, scale: 0.95 }}
                                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                                     viewport={{ once: true }}
