@@ -200,6 +200,7 @@ const SolutionsPage = () => {
                 if (el && el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos) {
                     setSelectedSolution(solutionId);
                 }
+
             });
         };
         window.addEventListener("scroll", handleScroll);
@@ -234,7 +235,7 @@ const SolutionsPage = () => {
                     </motion.div> */}
                     
                     <motion.h1 
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight text-center"
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-12 leading-tight text-center"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
@@ -243,7 +244,7 @@ const SolutionsPage = () => {
                         <span className="text-blue-600">for Effortless Efficiencies</span>
                     </motion.h1>
                     <motion.p 
-                        className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-12 text-center font-normal"
+                        className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-16 text-center font-normal"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
@@ -275,8 +276,8 @@ const SolutionsPage = () => {
             </section>
 
             {/* Solutions Navigation - Sticky */}
-            <div className="sticky top-[72px] z-40 flex justify-center backdrop-blur-md py-3 px-6 bg-white/90">
-                <div className="flex gap-4 flex-wrap justify-center mt-2">
+            <div className="sticky top-[72px] z-40 flex justify-center backdrop-blur-md py-4 px-6 bg-white/90">
+                <div className="flex gap-6 flex-wrap justify-center mt-3">
                     {solutions.map((solution, index) => {
                         const isActive = selectedSolution === solution.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
 
@@ -311,12 +312,12 @@ const SolutionsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.6 }}
-                        className="py-20 gradient-bg scroll-mt-36"
+                        className="py-24 gradient-bg scroll-mt-36"
                     >
                         <div className="max-w-7xl mx-auto px-6">
 
                             {/* Main Content Grid */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                                 {/* Left Side - Content */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -50 }}
@@ -324,11 +325,11 @@ const SolutionsPage = () => {
                                     transition={{ duration: 0.8, delay: 0.2 }}
                                     className="space-y-8"
                                 >
-                                    <div>
+                                    <div className="space-y-8">
                                         <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                                             Measure, Control and Optimize Inventory for savings, efficiencies and resilience
                                         </h1>
-                                        <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                                        <p className="text-xl text-gray-600 leading-relaxed">
                                             Enable smarter, data-driven decisions with enterprise-grade controls, cutting-edge algorithms, and AI/ML powered workflow solutions.
                                         </p>
                                         <motion.button
@@ -427,18 +428,18 @@ const SolutionsPage = () => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.6 }}
-                                className="mt-20 bg-white rounded-2xl p-8"
+                                className="mt-24 bg-white rounded-2xl p-10"
                             >
-                                <div className="text-center mb-16">
-                                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Features</h2>
+                                <div className="text-center mb-20">
+                                    <h2 className="text-4xl font-bold text-gray-900 mb-6">Features</h2>
                                     <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                                     {/* Feature 1 */}
                                     <motion.div
                                         whileHover={{ y: -5, scale: 1.02 }}
-                                        className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
+                                        className="relative bg-white p-8 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
                                     >
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                                             Robust data integration across company's information ecosystem
@@ -530,12 +531,12 @@ const SolutionsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.6 }}
-                        className="py-20 gradient-bg scroll-mt-36"
+                        className="py-24 gradient-bg scroll-mt-36"
                     >
                         <div className="max-w-7xl mx-auto px-6">
 
                             {/* Main Content Grid */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                                 {/* Left Side - Content */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -50 }}
@@ -543,11 +544,11 @@ const SolutionsPage = () => {
                                     transition={{ duration: 0.8, delay: 0.2 }}
                                     className="space-y-8"
                                 >
-                                    <div>
-                                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                                    <div className="space-y-8">
+                                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                                             Commodity Daily Positioning Management Platform for Procurement and Finance teams
                                         </h1>
-                                        <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                                        <p className="text-xl text-gray-600 leading-relaxed">
                                             Empower your teams with integrated, smarter, & nimble solutions that are powered by complex analytics, AI/ML led predictive modeling & industry tested workflows.
                                         </p>
                                         <motion.button
@@ -643,22 +644,19 @@ const SolutionsPage = () => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.6 }}
-                                className="mt-20 bg-white rounded-2xl p-8"
+                                className="mt-24 bg-white rounded-2xl p-10"
                             >
-                                <div className="text-center mb-16">
-                                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Features</h2>
+                                <div className="text-center mb-20">
+                                    <h2 className="text-4xl font-bold text-gray-900 mb-6">Features</h2>
                                     <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                                     {/* Feature 1 */}
                                     <motion.div
                                         whileHover={{ y: -5, scale: 1.02 }}
-                                        className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
+                                        className="relative bg-white p-8 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <Database className="w-6 h-6 text-blue-600" />
-                                        </div>
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                                             Foundational integrated source architecture
                                         </h3>
@@ -679,9 +677,6 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <BarChart className="w-6 h-6 text-green-600" />
-                                        </div>
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
                                             Fuel critical decisions efficiently by supercharging your data with right analytics
                                         </h3>
@@ -702,9 +697,6 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <Users className="w-6 h-6 text-purple-600" />
-                                        </div>
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">
                                             Seamless two-way integration with existing system landscape
                                         </h3>
@@ -725,9 +717,6 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-red-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <AlertTriangle className="w-6 h-6 text-red-600" />
-                                        </div>
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
                                             Control risks and opportunities with confidence
                                         </h3>
@@ -758,12 +747,12 @@ const SolutionsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.6 }}
-                        className="py-20 gradient-bg scroll-mt-36"
+                        className="py-24 gradient-bg scroll-mt-36"
                     >
                         <div className="max-w-7xl mx-auto px-6">
 
                             {/* Main Content Grid */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                                 {/* Left Side - Content */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -50 }}
@@ -771,12 +760,12 @@ const SolutionsPage = () => {
                                     transition={{ duration: 0.8, delay: 0.2 }}
                                     className="space-y-8"
                                 >
-                                    <div>
-                                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                                    <div className="space-y-8">
+                                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                                             Unlock competitive advantage through effective supplier management across the full life cycle
                                         </h1>
-                                        <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                                            Monetize longest phase of supplier’s relationship, and drive value aligned with business objective through comprehensive end-to-end supplier management solution.
+                                        <p className="text-xl text-gray-600 leading-relaxed">
+                                            Monetize longest phase of supplier's relationship, and drive value aligned with business objective through comprehensive end-to-end supplier management solution.
                                         </p>
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
@@ -871,22 +860,22 @@ const SolutionsPage = () => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.6 }}
-                                className="mt-20 bg-white rounded-2xl p-8"
+                                className="mt-24 bg-white rounded-2xl p-10"
                             >
-                                <div className="text-center mb-16">
-                                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Features</h2>
+                                <div className="text-center mb-20">
+                                    <h2 className="text-4xl font-bold text-gray-900 mb-6">Features</h2>
                                     <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                                     {/* Feature 1 */}
                                     <motion.div
                                         whileHover={{ y: -5, scale: 1.02 }}
-                                        className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
+                                        className="relative bg-white p-8 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {/* <div className="w-12 h-12 border-2 border-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <BarChart3 className="w-6 h-6 text-blue-600" />
-                                        </div>
+                                        </div> */}
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                                             Spend analytics and segmentation
                                         </h3>
@@ -907,9 +896,9 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {/* <div className="w-12 h-12 border-2 border-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Target className="w-6 h-6 text-green-600" />
-                                        </div>
+                                        </div> */}
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
                                             Performance management
                                         </h3>
@@ -930,9 +919,9 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {/* <div className="w-12 h-12 border-2 border-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <AlertTriangle className="w-6 h-6 text-purple-600" />
-                                        </div>
+                                        </div> */}
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">
                                             Risk profiling
                                         </h3>
@@ -953,9 +942,9 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-red-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {/* <div className="w-12 h-12 border-2 border-red-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Users className="w-6 h-6 text-red-600" />
-                                        </div>
+                                        </div> */}
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
                                             Supplier Relationship Management (SRM) excellence
                                         </h3>
@@ -986,12 +975,12 @@ const SolutionsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.6 }}
-                        className="py-20 gradient-bg scroll-mt-36"
+                        className="py-24 gradient-bg scroll-mt-36"
                     >
                         <div className="max-w-7xl mx-auto px-6">
 
                             {/* Main Content Grid */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                                 {/* Left Side - Content */}
                                 <motion.div
                                     initial={{ opacity: 0, x: -50 }}
@@ -999,11 +988,11 @@ const SolutionsPage = () => {
                                     transition={{ duration: 0.8, delay: 0.2 }}
                                     className="space-y-8"
                                 >
-                                    <div>
-                                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                                    <div className="space-y-8">
+                                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                                             Monitor, Evaluate and Mitigate Tariff impact
                                         </h1>
-                                        <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                                        <p className="text-xl text-gray-600 leading-relaxed">
                                             Effortlessly manage tariff risk seamlessly with impact overview, scenario based "What-if" analysis and mitigate using trade options through AI enabled solutions.
                                         </p>
                                         <motion.button
@@ -1099,22 +1088,22 @@ const SolutionsPage = () => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.6 }}
-                                className="mt-20 bg-white rounded-2xl p-8"
+                                className="bg-white rounded-2xl p-8"
                             >
-                                <div className="text-center mb-16">
-                                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Features</h2>
+                                <div className="text-center mb-20">
+                                    <h2 className="text-4xl font-bold text-gray-900 mb-6">Features</h2>
                                     <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                                     {/* Feature 1 */}
                                     <motion.div
                                         whileHover={{ y: -5, scale: 1.02 }}
-                                        className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
+                                        className="relative bg-white p-8 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {/* <div className="w-12 h-12 border-2 border-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <BarChart3 className="w-6 h-6 text-blue-600" />
-                                        </div>
+                                        </div> */}
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                                             Informative tariff impact monitoring
                                         </h3>
@@ -1135,9 +1124,9 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {/* <div className="w-12 h-12 border-2 border-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Target className="w-6 h-6 text-green-600" />
-                                        </div>
+                                        </div> */}
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
                                             Options analysis
                                         </h3>
@@ -1158,9 +1147,9 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {/* <div className="w-12 h-12 border-2 border-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <TrendingUp className="w-6 h-6 text-purple-600" />
-                                        </div>
+                                        </div> */}
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">
                                             Scenario analysis
                                         </h3>
@@ -1181,9 +1170,9 @@ const SolutionsPage = () => {
                                         whileHover={{ y: -5, scale: 1.02 }}
                                         className="relative bg-white p-6 rounded-xl border border-gray-200 hover:border-red-300 hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <div className="w-12 h-12 border-2 border-red-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {/* <div className="w-12 h-12 border-2 border-red-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                             <Shield className="w-6 h-6 text-red-600" />
-                                        </div>
+                                        </div> */}
                                         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
                                             Enhance resilience proactively
                                         </h3>
@@ -1211,3 +1200,4 @@ const SolutionsPage = () => {
 };
 
 export default SolutionsPage;
+
