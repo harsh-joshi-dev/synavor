@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { 
     TrendingUp, Shield, Users, Zap, BarChart3,
     Clock, DollarSign, Activity, ArrowRight, CheckCircle,
@@ -126,8 +127,11 @@ const industryStats = [
 ];
 
 const SolutionsPage = () => {
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
     const [selectedSolution, setSelectedSolution] = useState("inventory-controls-and-management");
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const sectionRefs = useRef({});
 
     const inventoryImages = [
         "/assets/solution/inventory2.png",  // Base layer
@@ -153,12 +157,54 @@ const SolutionsPage = () => {
         "/assets/solution/Tariffimpact3.png"  // Third layer (top)
     ];
 
+    // Read URL parameter and set initial solution
+    useEffect(() => {
+        const solutionParam = searchParams.get('solution');
+        if (solutionParam !== null) {
+            const solutionIndex = parseInt(solutionParam);
+            if (solutionIndex >= 0 && solutionIndex < solutions.length) {
+                const solution = solutions[solutionIndex];
+                const solutionId = solution.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+                setSelectedSolution(solutionId);
+            }
+        }
+    }, [searchParams]);
+
     useEffect(() => {
         if (selectedSolution === "inventory-controls-and-management") {
             // Reset to first image when inventory section is selected
             setCurrentImageIndex(0);
         }
     }, [selectedSolution]);
+
+    // Handle click on solution navigation
+    const handleSolutionClick = (solution, index) => {
+        const solutionId = solution.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+        setSelectedSolution(solutionId);
+        navigate(`/solutions?solution=${index}`, { replace: true });
+        
+        // Scroll to the solution section
+        sectionRefs.current[solutionId]?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
+
+    // Handle scroll to update active solution
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPos = window.scrollY + 200; // offset for sticky nav
+            solutions.forEach((solution) => {
+                const solutionId = solution.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+                const el = sectionRefs.current[solutionId];
+                if (el && el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos) {
+                    setSelectedSolution(solutionId);
+                }
+            });
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const getColorClasses = (color) => {
         const colors = {
@@ -228,60 +274,44 @@ const SolutionsPage = () => {
                 </div>
             </section>
 
-            {/* Solutions Navigation */}
-            <section className="py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-8">
-                    {/* <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Our Solutions
-                        </h2>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Choose from our comprehensive suite of procurement solutions, each designed to address 
-                            specific challenges and deliver measurable business value.
-                        </p>
-                    </div> */}
+            {/* Solutions Navigation - Sticky */}
+            <div className="sticky top-[72px] z-40 flex justify-center backdrop-blur-md py-3 px-6 bg-white/90">
+                <div className="flex gap-4 flex-wrap justify-center mt-2">
+                    {solutions.map((solution, index) => {
+                        const isActive = selectedSolution === solution.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {solutions.map((solution, index) => {
-                            const isActive = selectedSolution === solution.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
-
-                            return (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                                    whileHover={{ y: -5, scale: 1.02 }}
-                                    onClick={() => setSelectedSolution(solution.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and'))}
-                                    className={`relative rounded-2xl p-8 border ${
-                                        isActive 
-                                            ? 'border-blue-500 bg-blue-50 shadow-lg' 
-                                            : 'border-gray-200 bg-white hover:border-blue-300'
-                                    } hover:shadow-md transition-all duration-300 cursor-pointer`}
-                                >
-                                    <div className="text-center">
-                                        <h3 className={`text-lg font-semibold mb-2 transition-colors duration-300 ${
-                                            isActive ? 'text-blue-700' : 'text-gray-900'
-                                        }`}>
-                                            {solution.name}
-                                        </h3>
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
-                    </div>
+                        return (
+                            <motion.button
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => handleSolutionClick(solution, index)}
+                                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+                                    isActive 
+                                        ? "bg-blue-600 text-white shadow-lg scale-105" 
+                                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
+                                }`}
+                            >
+                                {solution.name}
+                            </motion.button>
+                        );
+                    })}
                 </div>
-            </section>
+            </div>
 
             {/* Inventory Controls & Management Detailed Section */}
             <AnimatePresence>
                 {selectedSolution === "inventory-controls-and-management" && (
                     <motion.section
+                        ref={(el) => (sectionRefs.current["inventory-controls-and-management"] = el)}
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.6 }}
-                        className="py-20 gradient-bg"
+                        className="py-20 gradient-bg scroll-mt-36"
                     >
                         <div className="max-w-7xl mx-auto px-6">
 
@@ -295,7 +325,7 @@ const SolutionsPage = () => {
                                     className="space-y-8"
                                 >
                                     <div>
-                                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                                             Measure, Control and Optimize Inventory for savings, efficiencies and resilience
                                         </h1>
                                         <p className="text-xl text-gray-600 leading-relaxed mb-8">
@@ -495,11 +525,12 @@ const SolutionsPage = () => {
             <AnimatePresence>
                 {selectedSolution === "commodity-risk-management" && (
                     <motion.section
+                        ref={(el) => (sectionRefs.current["commodity-risk-management"] = el)}
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.6 }}
-                        className="py-20 gradient-bg"
+                        className="py-20 gradient-bg scroll-mt-36"
                     >
                         <div className="max-w-7xl mx-auto px-6">
 
@@ -722,11 +753,12 @@ const SolutionsPage = () => {
             <AnimatePresence>
                 {selectedSolution === "supplier-segmentation-and-srm-support" && (
                     <motion.section
+                        ref={(el) => (sectionRefs.current["supplier-segmentation-and-srm-support"] = el)}
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.6 }}
-                        className="py-20 gradient-bg"
+                        className="py-20 gradient-bg scroll-mt-36"
                     >
                         <div className="max-w-7xl mx-auto px-6">
 
@@ -949,11 +981,12 @@ const SolutionsPage = () => {
             <AnimatePresence>
                 {selectedSolution === "tariff-impact-management" && (
                     <motion.section
+                        ref={(el) => (sectionRefs.current["tariff-impact-management"] = el)}
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -50 }}
                         transition={{ duration: 0.6 }}
-                        className="py-20 gradient-bg"
+                        className="py-20 gradient-bg scroll-mt-36"
                     >
                         <div className="max-w-7xl mx-auto px-6">
 
@@ -1171,6 +1204,7 @@ const SolutionsPage = () => {
                     </motion.section>
                 )}
             </AnimatePresence>
+
 
         </div>
     );
