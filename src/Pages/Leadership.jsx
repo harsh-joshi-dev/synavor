@@ -12,7 +12,7 @@ import {
   Zap,
   Handshake,
 } from "lucide-react";
-// import { ArrowRight, TrendingUp, Target } from "lucide-react";
+
 const data = [
   {
     name: "Shrijeet Desai",
@@ -37,14 +37,7 @@ const data = [
     desc2: " ",
     img: "./assets/leader2.png",
   },
-  // {
-  //     title: "Private Equity",
-  //     description: "Unlock new opportunities by driving efficiency across portfolio companies with data-driven insights.",
-  //     img: "./assets/tier4.jpg",
-  //     bg: "bg-blue-100",
-  //     icon: Users,
-  //     benefits: ["Portfolio efficiency", "Opportunity identification", "Data insights", "Value creation"]
-  // },
+
 ];
 
 const TestimonialCard = ({
@@ -55,65 +48,77 @@ const TestimonialCard = ({
   field,
   text3,
   text4,
+  className ,
 }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 relative flex flex-col items-center max-w-2xl min-h-[500px] cursor-pointer hover:shadow-xl transition-shadow duration-300 border border-gray-200 hover:border-blue-400 group ">
-      {/* Profile Image */}
-      <div className="absolute -top-14 group-hover:scale-105 transition-transform duration-300">
-        <img
-          src={image}
-          alt={name}
-          className="w-32 h-32 rounded-full border-2 border-white  shadow-lg object-cover"
-        />
+
+<div className={`bg-gradient-to-r from-blue-50 via-white to-blue-50 
+     p-10 rounded-2xl flex flex-col lg:flex-row items-start 
+     gap-20 w-full ${className} border border-gray-200 
+     hover:shadow-2xl transition-all duration-300 hover:border-blue-400 cursor-pointer 
+     min-h-[500px] group`}>
+
+  {/* Left Section - Image + Name + Role */}
+     <div className="flex flex-col items-center justify-center w-full lg:w-1/4 text-center ">
+        <div className="w-40 h-40 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-md group-hover:scale-105 transition-transform duration-300">
+          <img src={image} alt={name} className="w-full h-full object-cover" />
+        </div>
+        <h3 className="text-2xl font-semibold text-gray-800 mt-4 group-hover:text-blue-700 transition-colors duration-300">
+          {name}
+        </h3>
+        <p className="text-gray-600 text-base font-semibold">{field}</p>
       </div>
 
-      {/* Content */}
-      <div className="mt-14 text-center">
-        <h3 className="text-lg group-hover:text-blue-700 text-gray-800 font-semibold">{name}</h3>
-        <p className="text-gray-600  text-base font-semibold leading-relaxed">{field}</p>
-        <p className="text-gray-700  font-medium mt-2 text-justify text-sm ">{text1}</p>
-        <p className="text-gray-700 font-medium  mt-2 text-justify text-sm ">{text2}</p>
-        <p className="text-gray-700  font-medium  mt-2 text-justify text-sm ">{text3}</p>
-        <p className="text-gray-700  font-medium  mt-2 text-justify text-sm ">{text4}</p>
-      </div>
-    </div>
+  {/* Right Section - Bio/Description */}
+  <div className="flex-1 text-left w-full lg:w-3/4">
+    <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text1}</p>
+    <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text2}</p>
+    <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text3}</p>
+    <p className="text-gray-700 font-medium text-base  leading-relaxed text-justify">{text4}</p>
+  </div>
+</div>
+
+  
   );
 };
 
 const Leadership = () => {
   return (
-    <section className=" section-padding ">
-      <div className="max-w-8xl mx-auto container-padding">
-        <motion.div className="text-center mb-5  ">
-          <h2 className="text-5xl font-bold text-black">Leadership Team</h2>
-        </motion.div>
-        <div className="min-h-screen flex items-center justify-center p-6">
-          <div className="flex gap-6 ">
-            {data.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
 
-              >
-                <TestimonialCard
-                  image={item.img}
-                  name={item.name}
-                  field={item.field}
-                  text1={item.description}
-                  text2={item.desc}
-                  text3={item.desc1}
-                  text4={item.desc2}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+
+  <section className="section-padding">
+  <div className="w-full px-6 lg:px-12">
+    <motion.div className="text-center mb-10">
+      <h2 className="text-5xl font-bold text-black">Leadership Team</h2>
+    </motion.div>
+
+    <div className="flex flex-col gap-10 w-full">
+      {data.map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className="w-full"
+        >
+          <TestimonialCard
+            image={item.img}
+            name={item.name}
+            field={item.field}
+            text1={item.description}
+            text2={item.desc}
+            text3={item.desc1}
+            text4={item.desc2}
+            className="w-full max-w-6xl mx-auto"
+          />
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+ );
+
 };
 
 export default Leadership;
