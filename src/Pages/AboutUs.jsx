@@ -24,7 +24,7 @@ import ContactUs from "./ContactUs";
 const aboutUsData = [
   {
     title: "Best-in-class Industry Solutions",
-    image: "/assets/about/ourmission.jpg",
+    image: "/assets/about/about.1.png",
     description:
       "Our built-in frameworks and models empower your functional teams with readily available analytics and information for strategic decision-making and efficient execution.",
     icon: Target,
@@ -32,7 +32,7 @@ const aboutUsData = [
   },
   {
     title: "Analytics & Automation First",
-    image: "/assets/about/vision.jpg",
+    image: "/assets/about/about.2.png",
     description:
       "We embed data and automation into the heart of every process-empowering teams to shift away from low-value manual work and focus on strategic, high-return tasks.",
     icon: Eye,
@@ -40,15 +40,15 @@ const aboutUsData = [
   },
   {
     title: "Smart Solutions, Delivered Fast",
-    image: "/assets/about/team.jpg",
+    image: "/assets/about/about.3.jpg",
     description:
       "We rapidly implement intelligent solutions with agility and precision-bringing actionable insights and measurable results.",
     icon: Users,
     color: "purple",
   },
   {
-    title: "Data-Driven Decision Making",
-    image: "/assets/about/values.jpg",
+    title: "Data-driven Decision Making",
+    image: "/assets/about/about.4.png",
     description:
       "Through intuitive dashboards, KPIs, proactive alerts, and workflow automation, we put real-time insights in the hands of decision-makers, enabling optimized resource allocation and continuous value creation.",
     icon: Heart,
@@ -140,18 +140,18 @@ const solutionDetails = [
 ];
 
 const AboutUs = () => {
- 
+
   return (
-    <div className="min-h-screen scroll-mt-20 bg-gray-50" id="about">
+    <div className="min-h-screen scroll-mt-20 bg-gray-50 cursor-default" id="about">
       {/* Hero Section */}
 
-      <section className="gradient-bg section-padding">
+      <section className="gradient-bg section-padding ">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Our <span className="">Approach</span>
             </h2>
-            <p className="text-xl font-semibold text-gray-600 max-w-4xl mb-1 mx-auto ">
+            <p className="text-xl font-normal text-gray-600 max-w-4xl mb-4 mx-auto">
               At Synavor, we enable procurement and supply-chain functions to be
               smarter, speeder and smaller by driving transformative change
               through technology enablement.
@@ -182,6 +182,8 @@ const AboutUs = () => {
                       />
                     </div>
 
+                    <div><p className="text-xl p-2 mt-4 font-bold text-center">{item.title}</p></div>
+
                     <div className="p-6 flex flex-col flex-grow">
                       <p className="text-gray-600 leading-relaxed flex-grow ">
                         {item.description}
@@ -211,7 +213,7 @@ const AboutUs = () => {
       </section>
 
       {/* Our Technology */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 pt-10 pb-2">
         {/* Section Header */}
         <div className="max-w-5xl mx-auto text-center mb-16 px-6">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -247,7 +249,7 @@ const AboutUs = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-700 text-sm mb-4 leading-relaxed cursor-default">
                     <span className="font-bold text-gray-700 text-sm">
                       {item.strong}
                     </span>{" "}
@@ -255,7 +257,7 @@ const AboutUs = () => {
                   </p>
 
                   {/* Bullets */}
-                  <ul className="space-y-3 text-gray-800 text-sm">
+                  <ul className="space-y-3 text-gray-800 text-sm cursor-default">
                     {item.bullets.map((point, i) => (
                       <li key={i} className="flex items-start">
                         <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-blue-600 text-xs mt-0.5">

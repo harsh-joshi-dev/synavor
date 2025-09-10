@@ -52,7 +52,7 @@ const TestimonialCard = ({
 }) => {
   return (
 
-<div className={`bg-gradient-to-r from-blue-50 via-white to-blue-50 
+<div className={`bg-gradient-to-r from-blue-50 via-white to-blue-50
      p-10 rounded-2xl flex flex-col lg:flex-row items-start 
      gap-20 w-full ${className} border border-gray-200 
      hover:shadow-2xl transition-all duration-300 hover:border-blue-400 cursor-pointer 
