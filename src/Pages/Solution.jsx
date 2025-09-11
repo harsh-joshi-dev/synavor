@@ -248,8 +248,8 @@ const SolutionsPage = () => {
       {/* Hero Section */}
       <section className="gradient-bg section-padding">
         <div className="max-w-7xl mx-auto text-center px-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2">
-            Purpose-built Solutions Engineered for Effortless Efficiencies.
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 leading-[70px]">
+            Purpose-built Solutions Engineered for Effortless Efficiencies
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
             Integrated value chain solutions designed to build a transparent,
@@ -280,19 +280,19 @@ const SolutionsPage = () => {
       </div>
 
       {/* Content Sections */}
-      <div className="max-w-7xl mx-auto px-6 py-12 space-y-24">
+      <div className=" mx-auto py-12 space-y-24">
         {solutionDetail.map((sectionData, sectionIndex) => {
           // Decide background: even = default, odd = gradient
           const isGradient = sectionIndex % 2 !== 0;
           const sectionBg = isGradient
-            ? "gradient-bg"
+            ? "gradient-bg  "
             : "";
 
           const [showExtras, setShowExtras] = useState(false);
 
           useEffect(() => {
             if (active === sectionData.heading) {
-              const timer = setTimeout(() => setShowExtras(true), 5000); // 5 sec delay
+              const timer = setTimeout(() => setShowExtras(true), 3000); // 5 sec delay
               return () => clearTimeout(timer);
             } else {
               setShowExtras(false);
@@ -302,7 +302,7 @@ const SolutionsPage = () => {
           return (
             <div
               key={sectionIndex}
-              className={`${sectionBg} relative scroll-mt-36 px-6 py-12 rounded-3xl`}
+              className={`${sectionBg}  relative scroll-mt-36 px-6 py-12`}
               ref={(el) => (sectionRefs.current[sectionData.heading] = el)}
               data-solution={sectionData.heading
                 .toLowerCase()
@@ -310,7 +310,7 @@ const SolutionsPage = () => {
                 .replace(/&/g, "and")}
             >
               {/* Left-Right Section */}
-              <div className="flex flex-col lg:flex-row gap-12 items-center mb-8">
+              <div className="flex max-w-7xl px-6 mx-auto flex-col lg:flex-row gap-12 items-center mb-8">
                 {/* Left: Title & Description */}
                 <motion.div
                   className="lg:w-1/2 flex flex-col justify-center"
@@ -376,7 +376,7 @@ const SolutionsPage = () => {
               </div>
 
               {/* Features Section */}
-              <div className="text-center mt-16">
+              <div className=" max-w-7xl px-6 mx-auto text-center mt-16">
                 {/* <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">
                   Features
                 </h3> */}

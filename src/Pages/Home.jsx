@@ -11,8 +11,8 @@ import { HashLink } from "react-router-hash-link";
 const Home = () => {
   const videos = [
     "/assets/home/home1.mp4",
-    "/assets/home/home2.mp4",
     "/assets/home/home3.mp4",
+    "/assets/home/home2.mp4",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,7 +31,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Transform your{" "}
                 <span className="">Procurement & Supply Chain</span> through
                 Advanced Digital and AI/ML Solutions

@@ -60,9 +60,9 @@ const aboutUsData = [
 const solutionDetails = [
   {
     title: "Ecosystem and Integrations",
-    strong: "Our solution is built to fit,",
+    strong: "Our solution is built to fit, not force.",
     description:
-      " not force. With robust API frameworks and connectors, it integrates effortlessly with leading ERP, SCM, CRM, and analytics platforms. This flexible architecture ensures fast adoption and zero disruption-maximizing the value of your existing tools while extending their capabilities.",
+      "APIs and connectors enable seamless integration with ERP, SCM, CRM, and analytics platforms. The flexible architecture accelerates adoption, reduces disruption, and extends the value of existing tools.",
     bullets: [
       "Seamless integration with internal systems and third-party platforms",
       "Modular design for flexible deployment across business functions",

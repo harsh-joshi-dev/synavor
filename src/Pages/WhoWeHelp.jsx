@@ -184,7 +184,7 @@ const WhoWeHelpPage = () => {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="gradient-bg section-padding">
+            <section className="gradient-bg  section-padding">
                 <div className="max-w-7xl mx-auto container-padding text-center">
                     {/* <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -205,7 +205,7 @@ const WhoWeHelpPage = () => {
                 </div>
             </section>
 
-            <div className="sticky top-[72px] z-40 flex justify-center backdrop-blur-md py-3 px-6">
+            <div className="sticky  top-[72px] z-40 flex justify-center backdrop-blur-md py-3 px-6">
                 <div className="flex gap-4">
                     {whoWeHelp.map((section) => (
                         <button
@@ -223,7 +223,7 @@ const WhoWeHelpPage = () => {
             </div>
 
 
-            <div className="max-w-7xl mx-auto px-6 py-12">
+            <div className=" mx-auto py-12">
                 {whoWeHelp.map((sectionData, sectionIndex) => (
                     <div
                         key={sectionIndex}
@@ -232,11 +232,11 @@ const WhoWeHelpPage = () => {
                     >
                         {/* Supply Chain Fading Background */}
                         {sectionData.id === "supplychain" && (
-                            <div className="absolute -inset-6 gradient-bg opacity-40 pointer-events-none rounded-2xl"></div>
+                            <div className="absolute -inset-6 gradient-bg  pointer-events-none rounded-2xl"></div>
                         )}
 
                         {/* Top Section */}
-                        <div className="flex flex-col lg:flex-row gap-12 mb-16 items-center relative z-10">
+                        <div className="flex flex-col max-w-7xl px-6 mx-auto lg:flex-row gap-12 mb-16 items-center relative z-10">
                             {/* Left Image */}
                             <motion.div
                                 className="lg:w-1/2 flex justify-center"
@@ -284,7 +284,7 @@ const WhoWeHelpPage = () => {
                         </div>
 
                         {/* Bottom 4 Sections */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                        <div className="grid max-w-7xl px-6 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
                             {sectionData.bottomSections.map((section, index) => (
                                 <motion.div
                                     key={index}

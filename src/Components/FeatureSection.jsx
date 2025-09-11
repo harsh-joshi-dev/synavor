@@ -134,7 +134,7 @@ export default function FeatureSection() {
     setShowCards(false); // Reset when activeIndex changes
     const timer = setTimeout(() => {
       setShowCards(true);
-    }, 5000);
+    }, 3000);
     
     return () => clearTimeout(timer);
   }, [activeIndex]);
