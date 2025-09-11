@@ -329,7 +329,7 @@ export default function Navbar() {
                           About
                         </p>
                         <p className="text-gray-500 text-xs">
-                          Learn more about our company and mission.
+                          Learn more about our company and mission
                         </p>
                       </div>
                     </HashLink>
@@ -346,7 +346,7 @@ export default function Navbar() {
                           Leadership
                         </p>
                         <p className="text-gray-500 text-xs">
-                          Meet our executive team and key leaders.
+                          Meet our executive team and key leaders
                         </p>
                       </div>
                     </HashLink>
@@ -363,7 +363,7 @@ export default function Navbar() {
                           Contact
                         </p>
                         <p className="text-gray-500 text-xs">
-                          Get in touch with our team for support or inquiries.
+                          Get in touch with our team for support or inquiries
                         </p>
                       </div>
                     </HashLink>
