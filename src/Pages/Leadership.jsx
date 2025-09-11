@@ -18,12 +18,12 @@ const data = [
     name: "Shrijeet Desai",
     field: "Co-founder & Chief Executive Officer",
     description:
-      "Shrijeet is a seasoned global supply chain and procurement executive with over 20 years of experience driving innovation, operational excellence, and profitability across multinational, multicultural environments. Most recently, he served as Vice President of Global Supply Chain & Procurement at Beyond Meat, where he led end-to-end supply chain operations and delivered transformative results through digital and AI-enabled solutions, inventory optimization, and sustainable cost management. ",
-    desc: "Prior to that, Shrijeet held key leadership roles at Kearney, Kerry, and Mondelez International, where he drove multimillion-dollar value creation through strategic sourcing, procurement transformation initiatives, and innovative commercialization strategies.",
+      "Shrijeet is a seasoned global supply chain and procurement executive with over 20 years of experience driving innovation, operational excellence, and profitability across multinational, multicultural environments. Most recently, he served as Vice President of Global Supply Chain & Procurement at Beyond Meat, where he led end-to-end supply chain operations and delivered transformative results through digital and AI-enabled solutions, inventory optimization, and sustainable cost management.",
+    desc: "Prior to that, Shrijeet held key leadership roles at Mondelez, Kerry and Kearney, where he drove multimillion-dollar value creation through strategic sourcing, procurement transformation initiatives, and innovative commercialization strategies. Additionally, he serves as an expert advisor with Bain Consulting.",
     desc1:
       "A strategic thinker with an entrepreneurial mindset, Shrijeet is recognized for building high-performing teams and fostering cross-functional collaboration to deliver exceptional business outcomes. His areas of expertise include commodity risk management, digital supply chain transformation, sustainability, and mergers & acquisitions.",
     desc2:
-      "Shrijeet holds an MBA with honors from the University of Chicago Booth School of Business, as well as a Master’s in Civil Engineering from both Bradley University and Gujarat University.",
+      "Shrijeet holds an MBA from the University of Chicago Booth School of Business, as well as a master’s in civil engineering from Bradley University with an undergraduate in Civil Engineering from Gujarat University.",
     img: "./assets/leader.jpg",
   },
   {
@@ -48,18 +48,18 @@ const TestimonialCard = ({
   field,
   text3,
   text4,
-  className ,
+  className,
 }) => {
   return (
 
-<div className={`bg-gradient-to-r from-blue-50 via-white to-blue-50
+    <div className={`bg-gradient-to-r from-blue-50 via-white to-blue-50
      p-10 rounded-2xl flex flex-col lg:flex-row items-start 
      gap-20 w-full ${className} border border-gray-200 
      hover:shadow-2xl transition-all duration-300 hover:border-blue-400 cursor-pointer 
      min-h-[500px] group`}>
 
-  {/* Left Section - Image + Name + Role */}
-     <div className="flex flex-col items-center justify-center w-full lg:w-1/4 text-center ">
+      {/* Left Section - Image + Name + Role */}
+      <div className="flex flex-col items-center justify-center w-full lg:w-1/4 text-center ">
         <div className="w-40 h-40 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-md group-hover:scale-105 transition-transform duration-300">
           <img src={image} alt={name} className="w-full h-full object-cover" />
         </div>
@@ -69,16 +69,16 @@ const TestimonialCard = ({
         <p className="text-gray-600 text-base font-semibold">{field}</p>
       </div>
 
-  {/* Right Section - Bio/Description */}
-  <div className="flex-1 text-left w-full lg:w-3/4">
-    <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text1}</p>
-    <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text2}</p>
-    <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text3}</p>
-    <p className="text-gray-700 font-medium text-base  leading-relaxed text-justify">{text4}</p>
-  </div>
-</div>
+      {/* Right Section - Bio/Description */}
+      <div className="flex-1 text-left w-full lg:w-3/4">
+        <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text1}</p>
+        <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text2}</p>
+        <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text3}</p>
+        <p className="text-gray-700 font-medium text-base  leading-relaxed text-justify">{text4}</p>
+      </div>
+    </div>
 
-  
+
   );
 };
 
@@ -86,38 +86,38 @@ const Leadership = () => {
   return (
 
 
-  <section className="section-padding">
-  <div className="w-full px-6 lg:px-12">
-    <motion.div className="text-center mb-10">
-      <h2 className="text-5xl font-bold text-black">Leadership Team</h2>
-    </motion.div>
-
-    <div className="flex flex-col gap-10 w-full">
-      {data.map((item, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          viewport={{ once: true }}
-          className="w-full"
-        >
-          <TestimonialCard
-            image={item.img}
-            name={item.name}
-            field={item.field}
-            text1={item.description}
-            text2={item.desc}
-            text3={item.desc1}
-            text4={item.desc2}
-            className="w-full max-w-6xl mx-auto"
-          />
+    <section className="section-padding">
+      <div className="w-full px-6 lg:px-12">
+        <motion.div className="text-center mb-10">
+          <h2 className="text-5xl font-bold text-black">Leadership Team</h2>
         </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
- );
+
+        <div className="flex flex-col gap-10 w-full">
+          {data.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="w-full"
+            >
+              <TestimonialCard
+                image={item.img}
+                name={item.name}
+                field={item.field}
+                text1={item.description}
+                text2={item.desc}
+                text3={item.desc1}
+                text4={item.desc2}
+                className="w-full max-w-6xl mx-auto"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 
 };
 

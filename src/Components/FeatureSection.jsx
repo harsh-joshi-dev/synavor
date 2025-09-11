@@ -29,7 +29,7 @@ const features = [
       "Analytics with KPI dashboard",
       "Transparency, accuracy & speed",
     ],
-    video: ["./assets/Inventory/video1.mp4", "./assets/Inventory/video2.mp4"],
+    video: ["./assets/Inventory/video2.mp4", "./assets/Inventory/video1.mp4"],
   },
   {
     title: "Commodities Risk Management",
@@ -109,6 +109,7 @@ const features = [
 export default function FeatureSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [imgIndex, setImgIndex] = useState(0);
+  const [showCards, setShowCards] = useState(false);
 
   // auto rotate images every 2s
   useEffect(() => {
@@ -126,6 +127,16 @@ export default function FeatureSection() {
 
   useEffect(() => {
     setVideoIndex(0); // reset when activeIndex changes
+  }, [activeIndex]);
+
+  // Show cards after 5 seconds
+  useEffect(() => {
+    setShowCards(false); // Reset when activeIndex changes
+    const timer = setTimeout(() => {
+      setShowCards(true);
+    }, 5000);
+    
+    return () => clearTimeout(timer);
   }, [activeIndex]);
 
   const handleVideoEnd = () => {
@@ -212,7 +223,7 @@ export default function FeatureSection() {
                          to={`/solutions?solution=${feature.solutionIndex}`}
                          className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"
                        >
-                         Learn More
+                         Learn more
                          <ArrowRight className="w-4 h-4 ml-1" />
                        </Link>
                     </motion.div>
@@ -257,14 +268,12 @@ export default function FeatureSection() {
               </div>
 
               {/* 🎥 Video card - bottom left */}
-              {features[activeIndex]?.video && (
+              {features[activeIndex]?.video && showCards && (
                 <motion.div
                   className="absolute -top-2 -left-16 bg-white rounded-lg shadow-lg border border-gray-100 w-64 h-45 z-20 overflow-hidden"
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
                 >
                   <motion.img
                     key={imgIndex}
@@ -273,23 +282,23 @@ export default function FeatureSection() {
                       "/assets/dashboard.jpg"
                     }
                     alt={features[activeIndex]?.title}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-cover"
                     custom={imgIndex}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, x: imgIndex % 2 === 0 ? -150 : 150 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    transition={{ duration: 1.5, ease: "easeInOut" }}
                   />
                 </motion.div>
               )}
 
               {/* 📋 Benefits card - bottom right */}
-              {features[activeIndex]?.benefits?.length > 0 && (
+              {features[activeIndex]?.benefits?.length > 0 && showCards && (
                 <motion.div
                   className="absolute -bottom-24 -right-36 bg-white rounded-lg shadow-lg p-4 border border-gray-100 w-full z-20"
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
                 >
                   <h4 className="font-semibold text-sm text-gray-900 mb-2">
                     {features[activeIndex]?.title}
@@ -310,7 +319,7 @@ export default function FeatureSection() {
                     to={`/solutions?solution=${features[activeIndex].solutionIndex}`}
                     className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"
                   >
-                    Learn More
+                    Learn more
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 </motion.div>

@@ -46,12 +46,12 @@ const Home = () => {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/solutions" className="btn-primary group">
-                  Explore Solutions
+                  Explore solutions
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <HashLink smooth to="/AboutUs#contact" className="btn-secondary group">
                   <Play className="w-4 h-4 mr-2" />
-                  Request Demo
+                  Request a demo
                 </HashLink>
               </div>
             </motion.div>

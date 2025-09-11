@@ -98,24 +98,24 @@ const whoWeHelp = [
         },
         bottomSections: [
             {
-                title: "Supply Continuity & Resilience",
+                title: "Seamless Financial Close Process",
                 description:
-                    "Proactive, agile and flexible practices to support changing needs and demanding working environments",
+                    "Accurate and real time information with efficient process control and transparency",
             },
             {
-                title: "Quality Excellence",
+                title: "Working Capital Advantage",
                 description:
-                    "Process control and seamless transparency / traceability to monitor, control and improve quality performance",
+                    "Optimization of inventory, material-movement and supplier relationship enables full control on targeted financials",
             },
             {
-                title: "Total Cost Advantage",
+                title: "Margin / EBITDA Impact",
                 description:
-                    "Structured cost advantage through optimized processes, scenario and optimization modelling to implement continuous learning strategies",
+                    "Total cost advantage through efficiency gains, proactive cost management with better performance controls and target setting",
             },
             {
-                title: "Efficient Customer Service",
+                title: "Risk Management and Controls",
                 description:
-                    "Best in class frameworks and automation support with transparency and resilience built in improves customer communications and deliverables",
+                    "Streamlined governance with best-in-class risk management and mitigation solutions enabling competitive edge",
             },
         ],
     }
@@ -130,12 +130,12 @@ const WhoWeHelpPage = () => {
     const handleClick = (id) => {
         setActive(id); // Set active immediately
         isProgrammaticScroll.current = true; // Disable scroll listener
-        
+
         sectionRefs.current[id]?.scrollIntoView({
             behavior: "smooth",
             block: "start",
         });
-        
+
         // Re-enable scroll listener after scroll completes
         setTimeout(() => {
             isProgrammaticScroll.current = false;
@@ -155,7 +155,7 @@ const WhoWeHelpPage = () => {
                 if (element) {
                     element.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
-                
+
                 // Re-enable scroll listener after scroll completes
                 setTimeout(() => {
                     isProgrammaticScroll.current = false;
@@ -167,7 +167,7 @@ const WhoWeHelpPage = () => {
     useEffect(() => {
         const handleScroll = () => {
             if (isProgrammaticScroll.current) return; // Skip if we're programmatically scrolling
-            
+
             const scrollPos = window.scrollY + 200; // offset for sticky nav
             whoWeHelp.forEach((section) => {
                 const el = sectionRefs.current[section.id];
@@ -232,7 +232,7 @@ const WhoWeHelpPage = () => {
                     >
                         {/* Supply Chain Fading Background */}
                         {sectionData.id === "supplychain" && (
-                            <div className="absolute -inset-6 bg-gradient-to-tr gradient-bg opacity-40 pointer-events-none rounded-2xl"></div>
+                            <div className="absolute -inset-6 gradient-bg opacity-40 pointer-events-none rounded-2xl"></div>
                         )}
 
                         {/* Top Section */}

@@ -396,7 +396,7 @@ export default function IndustriesPage() {
                     </p>
 
                     {/* Learn More - Centered */}
-                    <div className="mt-auto flex justify-center">
+                    {/* <div className="mt-auto flex justify-center">
                       <a
                         href=""
                         className="inline-flex items-center text-blue-600 font-medium group"
@@ -416,7 +416,7 @@ export default function IndustriesPage() {
                           />
                         </svg>
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </motion.div>
               ))}

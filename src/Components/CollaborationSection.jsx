@@ -139,7 +139,7 @@ export default function CollaborationSection() {
                                         to={`/who-we-help?section=${item.sectionId}`}
                                         className="w-full flex items-center justify-center text-blue-600 hover:text-blue-700 font-medium text-sm py-2 rounded-lg hover:bg-blue-50 transition-all duration-200 group"
                                     >
-                                        <span>Learn More</span>
+                                        <span>Learn more</span>
                                         <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
                                     </Link>
                                 </div>

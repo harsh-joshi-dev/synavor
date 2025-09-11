@@ -25,7 +25,7 @@ import { useLocation } from "react-router-dom";
 const aboutUsData = [
   {
     title: "Best-in-class Industry Solutions",
-    image: "/assets/about/about.1.png",
+    image: "/assets/about/about1.png",
     description:
       "Our built-in frameworks and models empower your functional teams with readily available analytics and information for strategic decision-making and efficient execution.",
     icon: Target,
@@ -214,8 +214,8 @@ const AboutUs = () => {
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                     >
-                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                      <p className="text-sm leading-relaxed">
+                      <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                      <p className="text-base leading-relaxed">
                         {item.description}
                       </p>
                     </motion.div>
@@ -255,7 +255,7 @@ const AboutUs = () => {
                 >
                   {/* Icon + Title */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 shadow-md">
+                    <div className="flex items-center justify-center w-12 h-12">
                       <Icon className="text-blue-600 w-6 h-6" />
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition">
@@ -265,10 +265,12 @@ const AboutUs = () => {
 
                   {/* Description */}
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed cursor-default">
-                    <span className="font-bold text-gray-700 text-sm">
+                    <span className="font-bold text-gray-700 text-base">
                       {item.strong}
                     </span>{" "}
-                    {item.description}
+                    <span className="text-base">
+                      {item.description}
+                    </span>
                   </p>
 
                   {/* Bullets */}

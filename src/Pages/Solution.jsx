@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
- 
+
 const solutionDetail = [
   {
     heading: "Inventory Controls & Management",
@@ -187,12 +187,12 @@ const SolutionsPage = () => {
   const handleClick = (id) => {
     setActive(id); // Set active immediately
     isProgrammaticScroll.current = true; // Disable scroll listener
-    
+
     sectionRefs.current[id]?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-    
+
     // Re-enable scroll listener after scroll completes
     setTimeout(() => {
       isProgrammaticScroll.current = false;
@@ -213,7 +213,7 @@ const SolutionsPage = () => {
         if (element) {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-        
+
         // Re-enable scroll listener after scroll completes
         setTimeout(() => {
           isProgrammaticScroll.current = false;
@@ -225,7 +225,7 @@ const SolutionsPage = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (isProgrammaticScroll.current) return; // Skip if we're programmatically scrolling
-      
+
       const scrollPos = window.scrollY + 200;
       solutionDetail.forEach((section) => {
         const el = sectionRefs.current[section.heading];
@@ -238,7 +238,7 @@ const SolutionsPage = () => {
         }
       });
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -268,11 +268,10 @@ const SolutionsPage = () => {
             <button
               key={section.heading}
               onClick={() => handleClick(section.heading)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${
-                active === section.heading
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.heading
                   ? "bg-blue-600 text-white shadow-lg scale-105"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
-              }`}
+                }`}
             >
               {section.heading}
             </button>
@@ -286,7 +285,7 @@ const SolutionsPage = () => {
           // Decide background: even = default, odd = gradient
           const isGradient = sectionIndex % 2 !== 0;
           const sectionBg = isGradient
-            ? "bg-gradient-to-tr gradient-bg"
+            ? "gradient-bg"
             : "";
 
           const [showExtras, setShowExtras] = useState(false);
@@ -330,7 +329,7 @@ const SolutionsPage = () => {
                     to="/AboutUs#contact"
                     className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-fit"
                   >
-                    Request Demo
+                    Request a demo
                   </HashLink>
                 </motion.div>
 
@@ -385,7 +384,7 @@ const SolutionsPage = () => {
                   {sectionData.features.map((feature, index) => (
                     <motion.div
                       key={index}
-                      className="bg-transparent rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
+                      className="gradient-bg rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
                       // className="bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}

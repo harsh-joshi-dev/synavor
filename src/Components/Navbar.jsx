@@ -11,6 +11,9 @@ import {
   TrendingDown,
   User2,
   FileBarChart,
+  Target,
+  TrendingUp,
+  Handshake,
 } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
@@ -20,6 +23,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [openSolution, setOpenSolution] = useState(false);
+  const [openWhoWeHelp, setOpenWhoWeHelp] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -188,17 +192,107 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-              <NavLink
-                to="/who-we-help"
-                className={({ isActive }) =>
-                  isActive ? activeClass : "text-gray-700 hover:text-blue-600"
-                }
+              <div
+                className="relative"
+                onMouseEnter={() => setOpenWhoWeHelp(true)}
+                onMouseLeave={() => setOpenWhoWeHelp(false)}
               >
-                Who We Help
-              </NavLink>
-              {/* <NavLink to="/about" className={({ isActive }) => isActive ? activeClass : "text-gray-700 hover:text-blue-600"}>
-                                Why Synavor
-                            </NavLink> */}
+                {/* Who We Help Link */}
+                <NavLink
+                  to="/who-we-help"
+                  className={({ isActive }) =>
+                    isActive
+                      ? activeClass
+                      : "cursor-pointer text-gray-700 hover:text-blue-600 font-medium"
+                  }
+                >
+                  Who We Help
+                </NavLink>
+
+                {/* Submenu */}
+                {openWhoWeHelp && (
+                  <div
+                    className="absolute -mb-1 left-[-70px] bg-white shadow-xl rounded-xl py-4 w-64 z-50
+             transition-all duration-300 ease-out opacity-100 scale-100"
+                    style={{ transformOrigin: "top" }}
+                  >
+                    <NavLink
+                      to="/who-we-help?section=procurement"
+                      onClick={() => {
+                        setOpenWhoWeHelp(false);
+                        // Scroll to the section after navigation
+                        setTimeout(() => {
+                          const element = document.querySelector('[data-solution="procurement"]');
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }
+                        }, 100);
+                      }}
+                      className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                    >
+                      <Target className="w-5 h-5 text-blue-600 mt-1" />
+                      <div>
+                        <p className="text-gray-900 font-semibold text-sm">
+                          Procurement & Sourcing
+                        </p>
+                        <p className="text-gray-500 text-xs">
+                          Strategic supplier lifecycle management
+                        </p>
+                      </div>
+                    </NavLink>
+
+                    <NavLink
+                      to="/who-we-help?section=supplychain"
+                      onClick={() => {
+                        setOpenWhoWeHelp(false);
+                        // Scroll to the section after navigation
+                        setTimeout(() => {
+                          const element = document.querySelector('[data-solution="supplychain"]');
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }
+                        }, 100);
+                      }}
+                      className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                    >
+                      <TrendingUp className="w-5 h-5 text-blue-600 mt-1" />
+                      <div>
+                        <p className="text-gray-900 font-semibold text-sm">
+                          Supply Chain & Inventory
+                        </p>
+                        <p className="text-gray-500 text-xs">
+                          Integrated supply chain management solutions
+                        </p>
+                      </div>
+                    </NavLink>
+
+                    <NavLink
+                      to="/who-we-help?section=finance"
+                      onClick={() => {
+                        setOpenWhoWeHelp(false);
+                        // Scroll to the section after navigation
+                        setTimeout(() => {
+                          const element = document.querySelector('[data-solution="finance"]');
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }
+                        }, 100);
+                      }}
+                      className="flex items-start gap-3 px-5 py-3 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                    >
+                      <Handshake className="w-5 h-5 text-blue-600 mt-1" />
+                      <div>
+                        <p className="text-gray-900 font-semibold text-sm">
+                          Finance & Treasury
+                        </p>
+                        <p className="text-gray-500 text-xs">
+                          Seamless connectivity for compliance and savings
+                        </p>
+                      </div>
+                    </NavLink>
+                  </div>
+                )}
+              </div>
               <div
                 className="relative"
                 onMouseEnter={() => setOpenMenu(true)}
@@ -280,7 +374,7 @@ export default function Navbar() {
 
             <div className="flex items-center gap-4">
               <HashLink smooth to="/AboutUs#contact" className="btn-primary">
-                Request Demo
+                Request a demo
               </HashLink>
               {/* <NavLink
                 to="/login"
@@ -368,7 +462,7 @@ export default function Navbar() {
               >
                 Support
               </a>
-              <HashLink smooth to="/AboutUs#contact" className="w-full btn-primary mt-4">Request Demo</HashLink>
+              <HashLink smooth to="/AboutUs#contact" className="w-full btn-primary mt-4">Request a demo</HashLink>
             </div>
           </div>
         </div>
