@@ -10,6 +10,7 @@ import {
   BarChart3, 
   Target,
   CheckCircle,
+  Dot,
   ArrowRight
 } from "lucide-react";
 
@@ -291,22 +292,22 @@ const SolutionsPage = () => {
       <div className="sticky top-[72px] z-40 md:flex hidden justify-center backdrop-blur-md py-3 px-6">
         <div className="flex gap-4 flex-wrap justify-center">
           {solutionDetail.map((section) => (
-            <button
-              key={section.heading}
-              onClick={() => handleClick(section.heading)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.heading
-                  ? "bg-blue-600 text-white shadow-lg scale-105"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
-                }`}
-            >
-              {section.heading}
-            </button>
+           <button
+           key={section.heading}
+           onClick={() => handleClick(section.heading)}
+           className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.heading
+               ? "bg-blue-600 text-white shadow-lg scale-105"
+               : "bg-gray-100 text-blue-500 hover:bg-blue-100 hover:text-blue-700 hover:scale-105"
+             }`}
+         >
+           {section.heading}
+         </button>
           ))}
         </div>
       </div>
 
       {/* Content Sections */}
-      <div className=" mx-auto py-12 space-y-24">
+      <div className=" mx-auto pt-12 space-y-24">
         {solutionDetail.map((sectionData, sectionIndex) => {
           // Decide background: even = default, odd = gradient
           const isGradient = sectionIndex % 2 !== 0;
@@ -418,26 +419,26 @@ const SolutionsPage = () => {
                     >
                       {/* Title with Icon */}
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <div className="w-10 h-10  rounded-lg flex items-center justify-center">
                           {(() => {
                             const IconComponent = feature.icon;
                             return <IconComponent className="w-5 h-5 text-blue-600" />;
                           })()}
                         </div>
-                        <h4 className="text-base text-justify font-semibold text-gray-900">
+                        <h4 className="text-[18px] text-justify font-normal text-gray-900">
                           {feature.title}
                         </h4>
                       </div>
                       
                       {/* Points List */}
-                      <ul className="space-y-3 ml-13">
+                      <ul className="space-y-2 ml-13 ">
                         {feature.points.map((point, i) => (
                           <li
                             key={i}
-                            className="text-justify flex items-start text-gray-700"
+                            className="text-justify flex  items-start text-gray-700"
                           >
-                            <CheckCircle className="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm leading-relaxed">{point}</span>
+                            <Dot className="w-4 h-4 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                            <span className="text-base leading-relaxed">{point}</span>
                           </li>
                         ))}
                       </ul>
