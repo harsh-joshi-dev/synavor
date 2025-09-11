@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
 
 const solutionDetail = [
   {
@@ -167,6 +168,7 @@ const solutionDetail = [
 ]
 
 const SolutionsPage = () => {
+  const [searchParams] = useSearchParams();
   const [active, setActive] = useState(solutionDetail[0].heading);
   const sectionRefs = useRef({});
 
@@ -177,6 +179,23 @@ const SolutionsPage = () => {
     });
     setActive(id);
   };
+
+  // Handle URL parameters for direct navigation to specific sections
+  useEffect(() => {
+    const solutionIndex = searchParams.get('solution');
+    if (solutionIndex !== null && solutionDetail[parseInt(solutionIndex)]) {
+      const targetSection = solutionDetail[parseInt(solutionIndex)];
+      setActive(targetSection.heading);
+      
+      // Scroll to the section after a short delay to ensure the page is loaded
+      setTimeout(() => {
+        const element = sectionRefs.current[targetSection.heading];
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -252,6 +271,7 @@ const SolutionsPage = () => {
               key={sectionIndex}
               className={`${sectionBg} relative scroll-mt-36 px-6 py-12 rounded-3xl`}
               ref={(el) => (sectionRefs.current[sectionData.heading] = el)}
+              data-solution={sectionData.heading.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
             >
               {/* Left-Right Section */}
               <div className="flex flex-col lg:flex-row gap-12 items-center mb-8">
