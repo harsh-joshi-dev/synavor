@@ -18,12 +18,12 @@ const data = [
     name: "Shrijeet Desai",
     field: "Co-founder & Chief Executive Officer",
     description:
-      "Shrijeet is a seasoned global supply chain and procurement executive with over 20 years of experience driving innovation, operational excellence, and profitability across multinational, multicultural environments. Most recently, he served as Vice President of Global Supply Chain & Procurement at Beyond Meat, where he led end-to-end supply chain operations and delivered transformative results through digital and AI-enabled solutions, inventory optimization, and sustainable cost management.",
-    desc: "Prior to that, Shrijeet held key leadership roles at Mondelez, Kerry and Kearney, where he drove multimillion-dollar value creation through strategic sourcing, procurement transformation initiatives, and innovative commercialization strategies. Additionally, he serves as an expert advisor with Bain Consulting.",
+      "Shrijeet is a seasoned global supply chain and procurement executive with over 20 years of experience driving innovation, operational excellence, and profitability across multinational and multicultural organizations. Most recently, as Vice President of Global Supply Chain & Procurement at Beyond Meat, he led end-to-end operations, delivering transformative results through digital and AI-enabled solutions, inventory optimization, and sustainable cost management.",
+    desc: "Shrijeet previously held senior leadership roles at Mondelez, Kerry, and Kearney, where he generated multimillion-dollar value through strategic sourcing, procurement transformation, and commercialization strategies. Recognized as a strategic thinker with an entrepreneurial mindset, he is known for building high-performing teams and fostering cross-functional collaboration to achieve strong business outcomes. His expertise spans commodity risk management, digital supply chain transformation, sustainability, and mergers & acquisitions, and he also serves as an expert advisor with Bain Consulting",
     desc1:
-      "A strategic thinker with an entrepreneurial mindset, Shrijeet is recognized for building high-performing teams and fostering cross-functional collaboration to deliver exceptional business outcomes. His areas of expertise include commodity risk management, digital supply chain transformation, sustainability, and mergers & acquisitions.",
+      "Shrijeet holds an MBA from the University of Chicago Booth School of Business, a master’s degree in civil engineering from Bradley University, and a bachelor’s degree in civil engineering from Gujarat University.",
     desc2:
-      "Shrijeet holds an MBA from the University of Chicago Booth School of Business, as well as a master’s in civil engineering from Bradley University with an undergraduate in Civil Engineering from Gujarat University.",
+      "",
     img: "./assets/leader.jpg",
   },
   {
