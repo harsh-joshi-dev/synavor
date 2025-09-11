@@ -295,7 +295,7 @@ const WhoWeHelpPage = () => {
                                     transition={{ duration: 0.6, delay: index * 0.2 }}
                                 >
                                     <h3 className="text-xl font-semibold mb-3 text-center">{section.title}</h3>
-                                    <p className="text-gray-800 text-sm leading-relaxed">{section.description}</p>
+                                    <p className="text-gray-800 text-sm leading-relaxed text-center">{section.description}</p>
 
                                     {/* Subtle decorative glow */}
                                     <div className="absolute -top-8 -right-8 w-24 h-24 bg-blue-200/20 rounded-full blur-3xl pointer-events-none"></div>
