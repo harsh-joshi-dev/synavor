@@ -297,7 +297,7 @@ const SolutionsPage = () => {
               onClick={() => handleClick(section.heading)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.heading
                   ? "bg-blue-600 text-white shadow-lg scale-105"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105 hover:text-blue-500"
                 }`}
             >
               {section.heading}
