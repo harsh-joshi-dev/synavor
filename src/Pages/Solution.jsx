@@ -182,13 +182,21 @@ const SolutionsPage = () => {
   const [searchParams] = useSearchParams();
   const [active, setActive] = useState(solutionDetail[0].heading);
   const sectionRefs = useRef({});
+  const isProgrammaticScroll = useRef(false);
 
   const handleClick = (id) => {
+    setActive(id); // Set active immediately
+    isProgrammaticScroll.current = true; // Disable scroll listener
+    
     sectionRefs.current[id]?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-    setActive(id);
+    
+    // Re-enable scroll listener after scroll completes
+    setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 1000);
   };
 
   // Handle URL parameters for direct navigation to specific sections
@@ -197,6 +205,7 @@ const SolutionsPage = () => {
     if (solutionIndex !== null && solutionDetail[parseInt(solutionIndex)]) {
       const targetSection = solutionDetail[parseInt(solutionIndex)];
       setActive(targetSection.heading);
+      isProgrammaticScroll.current = true; // Disable scroll listener
 
       // Scroll to the section after a short delay to ensure the page is loaded
       setTimeout(() => {
@@ -204,12 +213,19 @@ const SolutionsPage = () => {
         if (element) {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
+        
+        // Re-enable scroll listener after scroll completes
+        setTimeout(() => {
+          isProgrammaticScroll.current = false;
+        }, 1000);
       }, 100);
     }
   }, [searchParams]);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isProgrammaticScroll.current) return; // Skip if we're programmatically scrolling
+      
       const scrollPos = window.scrollY + 200;
       solutionDetail.forEach((section) => {
         const el = sectionRefs.current[section.heading];
@@ -222,6 +238,7 @@ const SolutionsPage = () => {
         }
       });
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -229,9 +246,9 @@ const SolutionsPage = () => {
   return (
     <div className="min-h-screen cursor-default">
       {/* Hero Section */}
-      <section className="gradient-bg section-padding py-24">
+      <section className="gradient-bg section-padding">
         <div className="max-w-7xl mx-auto text-center px-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2">
             Purpose-built Solutions Engineered for Effortless Efficiencies.
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -269,7 +286,7 @@ const SolutionsPage = () => {
           // Decide background: even = default, odd = gradient
           const isGradient = sectionIndex % 2 !== 0;
           const sectionBg = isGradient
-            ? "bg-gradient-to-tr from-blue-100 via-blue-50 to-gray-100"
+            ? "bg-gradient-to-tr gradient-bg"
             : "";
 
           const [showExtras, setShowExtras] = useState(false);
@@ -302,7 +319,7 @@ const SolutionsPage = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900">
+                  <h2 className="text-3xl md:text-4xl font-semibold mb-3">
                     {sectionData.title}
                   </h2>
                   <p className="text-lg leading-relaxed text-gray-700 mb-6">
@@ -311,7 +328,7 @@ const SolutionsPage = () => {
                   <HashLink
                     smooth
                     to="/AboutUs#contact"
-                    className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-fit"
+                    className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-fit"
                   >
                     Request Demo
                   </HashLink>
@@ -361,14 +378,14 @@ const SolutionsPage = () => {
 
               {/* Features Section */}
               <div className="text-center mt-16">
-                <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">
+                {/* <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">
                   Features
-                </h3>
+                </h3> */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {sectionData.features.map((feature, index) => (
                     <motion.div
                       key={index}
-                      className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
+                      className="bg-transparent rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
                       // className="bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}

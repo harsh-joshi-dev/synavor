@@ -1,5 +1,6 @@
 import React from "react";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { NavLink } from "react-router-dom";
 export default function Footer() {
     return (
         <footer className="bg-gray-900 text-gray-300">
@@ -44,21 +45,44 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold text-white mb-6 tracking-wide">Solutions</h3>
                         <ul className="space-y-3 text-sm">
                             {[
-                                "Inventory Controls & Management",
-                                "Commodities Risk Management",
-                                "Supplier Segmentation & SRM Support",
-                                "Tariff Impact Management",
+                                {
+                                    name: "Inventory Controls & Management",
+                                    path: "/solutions?solution=0",
+                                    selector: '[data-solution="inventory-controls-and-management"]',
+                                },
+                                {
+                                    name: "Commodities Risk Management",
+                                    path: "/solutions?solution=1",
+                                    selector: '[data-solution="commodity-risk-management"]',
+                                },
+                                {
+                                    name: "Supplier Segmentation & SRM Support",
+                                    path: "/solutions?solution=2",
+                                    selector: '[data-solution="supplier-segmentation-and-srm-support"]',
+                                },
+                                {
+                                    name: "Tariff Impact Management",
+                                    path: "/solutions?solution=3",
+                                    selector: '[data-solution="tariff-impact-management"]',
+                                },
                             ].map((item, index) => (
                                 <li key={index}>
-                                    <a
-                                        href="#"
+                                    <NavLink
+                                        to={item.path}
+                                        onClick={() => {
+                                            setTimeout(() => {
+                                                const element = document.querySelector(item.selector);
+                                                if (element) {
+                                                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                                                }
+                                            }, 100);
+                                        }}
                                         className="flex items-center justify-between text-gray-400 hover:text-blue-400 transition-colors duration-300 group"
                                     >
                                         <span className="relative after:block after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
-                                            {item}
+                                            {item.name}
                                         </span>
-                                        {/* <ArrowRight className="w-4 h-4 opacity-0 transform translate-x-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300" /> */}
-                                    </a>
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
@@ -69,9 +93,9 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold text-white mb-6 tracking-wide">Company</h3>
                         <ul className="space-y-3 text-sm">
                             {[
-                                { name: "About Us", link: "/AboutUs" },
-                                { name: "Leadership Team", link: "#" },
-                                { name: "Contact Us", link: "#" },
+                                { name: "About Us", link: "/AboutUs#about" },
+                                { name: "Leadership Team", link: "/AboutUs#leadership" },
+                                { name: "Contact Us", link: "/AboutUs#contact" },
                             ].map((item, index) => (
                                 <li key={index}>
                                     <a

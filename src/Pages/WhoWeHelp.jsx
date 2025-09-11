@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
 
 const whoWeHelp = [
     {
@@ -121,20 +122,52 @@ const whoWeHelp = [
 ];
 
 const WhoWeHelpPage = () => {
-
+    const [searchParams] = useSearchParams();
     const [active, setActive] = useState(whoWeHelp[0].id);
     const sectionRefs = useRef({});
+    const isProgrammaticScroll = useRef(false);
 
     const handleClick = (id) => {
+        setActive(id); // Set active immediately
+        isProgrammaticScroll.current = true; // Disable scroll listener
+        
         sectionRefs.current[id]?.scrollIntoView({
             behavior: "smooth",
             block: "start",
         });
-        setActive(id);
+        
+        // Re-enable scroll listener after scroll completes
+        setTimeout(() => {
+            isProgrammaticScroll.current = false;
+        }, 1000);
     };
+
+    // Handle URL parameters for direct navigation to specific sections
+    useEffect(() => {
+        const sectionParam = searchParams.get("section");
+        if (sectionParam && whoWeHelp.find(section => section.id === sectionParam)) {
+            setActive(sectionParam);
+            isProgrammaticScroll.current = true; // Disable scroll listener
+
+            // Scroll to the section after a short delay to ensure the page is loaded
+            setTimeout(() => {
+                const element = sectionRefs.current[sectionParam];
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+                
+                // Re-enable scroll listener after scroll completes
+                setTimeout(() => {
+                    isProgrammaticScroll.current = false;
+                }, 1000);
+            }, 100);
+        }
+    }, [searchParams]);
 
     useEffect(() => {
         const handleScroll = () => {
+            if (isProgrammaticScroll.current) return; // Skip if we're programmatically scrolling
+            
             const scrollPos = window.scrollY + 200; // offset for sticky nav
             whoWeHelp.forEach((section) => {
                 const el = sectionRefs.current[section.id];
@@ -163,7 +196,7 @@ const WhoWeHelpPage = () => {
                         Who We Help
                     </motion.div> */}
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 mb-6">
                         Empowering <span className="">Teams Worldwide</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -199,7 +232,7 @@ const WhoWeHelpPage = () => {
                     >
                         {/* Supply Chain Fading Background */}
                         {sectionData.id === "supplychain" && (
-                            <div className="absolute -inset-6 bg-gradient-to-tr from-blue-300 via-blue-100 to-purple-200 opacity-40 pointer-events-none rounded-2xl"></div>
+                            <div className="absolute -inset-6 bg-gradient-to-tr gradient-bg opacity-40 pointer-events-none rounded-2xl"></div>
                         )}
 
                         {/* Top Section */}
@@ -227,7 +260,7 @@ const WhoWeHelpPage = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
                             >
-                                <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+                                <h2 className="text-4xl md:text-5xl font-semibold mb-6">
                                     {sectionData.mainSection.title}
                                 </h2>
                                 <p className="text-lg mb-6 leading-relaxed">
@@ -242,7 +275,7 @@ const WhoWeHelpPage = () => {
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                                         >
-                                            <span className="mr-3 text-blue-400 font-bold">•</span>
+                                            <span className="mr-3 text-blue-400 font-semibold">•</span>
                                             <span className="leading-relaxed">{point}</span>
                                         </motion.li>
                                     ))}
@@ -261,7 +294,7 @@ const WhoWeHelpPage = () => {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6, delay: index * 0.2 }}
                                 >
-                                    <h3 className="text-xl font-bold mb-3 text-center">{section.title}</h3>
+                                    <h3 className="text-xl font-semibold mb-3 text-center">{section.title}</h3>
                                     <p className="text-gray-800 text-sm leading-relaxed">{section.description}</p>
 
                                     {/* Subtle decorative glow */}

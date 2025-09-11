@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Users, Handshake, TrendingUp, Target } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const data = [
     {
@@ -9,6 +10,7 @@ const data = [
         img: "./assets/tier1.jpg",
         bg: "bg-blue-50",
         icon: Target,
+        sectionId: "procurement",
         benefits: ["Proactive risk monetization",
             "Life cycle cost advantage",
             "Supply continuity",
@@ -21,6 +23,7 @@ const data = [
        img: "./assets/tier3.jpg",
         bg: "bg-blue-50",
         icon: TrendingUp,
+        sectionId: "supplychain",
         benefits: [
             "Inventory optimization",
             "Portfolio segmentation",
@@ -36,6 +39,7 @@ const data = [
         
         bg: "bg-blue-50",
         icon: Handshake,
+        sectionId: "finance",
         benefits: [
             "Working capital gains",
             "Optimize cycle counts",
@@ -131,10 +135,13 @@ export default function CollaborationSection() {
                                     </div>
 
                                     {/* Action Button */}
-                                    <button className="w-full flex items-center justify-center text-blue-600 hover:text-blue-700 font-medium text-sm py-2 rounded-lg hover:bg-blue-50 transition-all duration-200 group">
+                                    <Link 
+                                        to={`/who-we-help?section=${item.sectionId}`}
+                                        className="w-full flex items-center justify-center text-blue-600 hover:text-blue-700 font-medium text-sm py-2 rounded-lg hover:bg-blue-50 transition-all duration-200 group"
+                                    >
                                         <span>Learn More</span>
                                         <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-                                    </button>
+                                    </Link>
                                 </div>
 
                                 {/* Bottom Label */}

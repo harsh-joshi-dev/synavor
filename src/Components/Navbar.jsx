@@ -77,7 +77,7 @@ export default function Navbar() {
                       : "cursor-pointer text-gray-700 hover:text-blue-600 font-medium"
                   }
                 >
-                  Solution
+                  Solutions
                 </NavLink>
 
                 {/* Submenu */}
