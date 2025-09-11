@@ -119,9 +119,9 @@ const solutionDetail = [
       }
     ],
     "image": [
-      "./assets/Commodity/Picture1.png",
-      "./assets/Commodity/Picture2.png",
-      "./assets/Commodity/Picture3.png",
+      "./assets/Supplier/Picture1.png",
+      "./assets/Supplier/Picture2.png",
+      "./assets/Supplier/Picture3.png",
     ]
   },
   {
@@ -186,7 +186,7 @@ const SolutionsPage = () => {
     if (solutionIndex !== null && solutionDetail[parseInt(solutionIndex)]) {
       const targetSection = solutionDetail[parseInt(solutionIndex)];
       setActive(targetSection.heading);
-      
+
       // Scroll to the section after a short delay to ensure the page is loaded
       setTimeout(() => {
         const element = sectionRefs.current[targetSection.heading];
@@ -344,7 +344,8 @@ const SolutionsPage = () => {
                   {sectionData.features.map((feature, index) => (
                     <motion.div
                       key={index}
-                      className="bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
+                      className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
+                      // className="bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
