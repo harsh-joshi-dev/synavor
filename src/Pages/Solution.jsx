@@ -1,171 +1,182 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
-
+import { HashLink } from "react-router-hash-link";
+ 
 const solutionDetail = [
   {
-    "heading": "Inventory Controls & Management",
-    "title": "Measure, Control and Optimize Inventory for savings, efficiencies and resilience",
-    "description": "Enable smarter, data-driven decisions with enterprise-grade controls, cutting edge algorithms, and AI/ML powered workflow solutions",
-    "features": [
+    heading: "Inventory Controls & Management",
+    title:
+      "Measure, Control and Optimize Inventory for savings, efficiencies and resilience",
+    description:
+      "Enable smarter, data-driven decisions with enterprise-grade controls, cutting edge algorithms, and AI/ML powered workflow solutions",
+    features: [
       {
-        "title": "Robust data integration across company’s information ecosystem",
-        "points": [
+        title: "Robust data integration across company’s information ecosystem",
+        points: [
           "Agnostic to source, format and input source",
-          "Real time updates with accuracy validation"
-        ]
+          "Real time updates with accuracy validation",
+        ],
       },
       {
-        "title": "Layers of built-in capabilities for best-in-class inventory controls and optimization",
-        "points": [
+        title:
+          "Layers of built-in capabilities for best-in-class inventory controls and optimization",
+        points: [
           "Intuitive dashboards for timely execution",
           "Advanced analytics for data driven decision making and boost performance",
-          "Optimization / Modelling capabilities for scenario simulation and cost improvement"
-        ]
+          "Optimization / Modelling capabilities for scenario simulation and cost improvement",
+        ],
       },
       {
-        "title": "Turn daily actions and numbers into knowledge and power using AI/ML solutions",
-        "points": [
+        title:
+          "Turn daily actions and numbers into knowledge and power using AI/ML solutions",
+        points: [
           "Work-flow optimization with Human in the loop (HITL) approach and automation",
-          "Descriptive analytics and efficient user interface to enable expert led execution"
-        ]
+          "Descriptive analytics and efficient user interface to enable expert led execution",
+        ],
       },
       {
-        "title": "Mitigate risk and improve resilience",
-        "points": [
+        title: "Mitigate risk and improve resilience",
+        points: [
           "Batching, micro-batching and real streams of data with provides timely and complete data for better decision making",
-          "Advanced analytics and optimization modeling proactively mitigates risks"
-        ]
-      }
+          "Advanced analytics and optimization modeling proactively mitigates risks",
+        ],
+      },
     ],
-    "image": [
+    image: [
       "./assets/Inventory/Picture1.png",
       "./assets/Inventory/Picture2.png",
       "./assets/Inventory/Picture3.png",
-    ]
+    ],
   },
   {
-    "heading": "Commodity Risk Management",
-    "title": "Commodity Daily Positioning Management Platform for Procurement and Finance teams",
-    "description": "Empower your teams with integrated, smarter, & nimble solutions that are powered by complex analytics, AI/ML led predictive modeling & industry tested workflows",
-    "features": [
+    heading: "Commodity Risk Management",
+    title:
+      "Commodity Daily Positioning Management Platform for Procurement and Finance teams",
+    description:
+      "Empower your teams with integrated, smarter, & nimble solutions that are powered by complex analytics, AI/ML led predictive modeling & industry tested workflows",
+    features: [
       {
-        "title": "Foundational integrated source architecture",
-        "points": [
+        title: "Foundational integrated source architecture",
+        points: [
           "Intelligent agentic AI leveraged mapping to develop coverage / exposure monitoring",
-          "Flexible rule definition per company policy"
-        ]
+          "Flexible rule definition per company policy",
+        ],
       },
       {
-        "title": "Fuel critical decisions efficiently by supercharging your data with right analytics",
-        "points": [
+        title:
+          "Fuel critical decisions efficiently by supercharging your data with right analytics",
+        points: [
           "Exhaustive and structured analytics to maximize value of daily commodity hedges",
-          "Scenario modelling and commodity price tracking for effective governance"
-        ]
+          "Scenario modelling and commodity price tracking for effective governance",
+        ],
       },
       {
-        "title": "Seamless two-way integration with existing system landscape",
-        "points": [
+        title: "Seamless two-way integration with existing system landscape",
+        points: [
           "Work-flow actions and ability to transfer information in reports supports decision making and compliance tasks",
-          "Consumes and feeds ERP to support finance processes"
-        ]
+          "Consumes and feeds ERP to support finance processes",
+        ],
       },
       {
-        "title": "Control risks and opportunities with confidence",
-        "points": [
+        title: "Control risks and opportunities with confidence",
+        points: [
           "Commodity risk management governance support",
-          "Advanced analytics and predictive modelling to enable coverage decisions"
-        ]
-      }
+          "Advanced analytics and predictive modelling to enable coverage decisions",
+        ],
+      },
     ],
-    "image": [
+    image: [
       "./assets/Commodity/Picture1.png",
       "./assets/Commodity/Picture2.png",
       "./assets/Commodity/Picture3.png",
-    ]
+    ],
   },
   {
-    "heading": "Supplier Segmentation & SRM Support",
-    "title": "Unlock Competitive Advantage by effectively managing suppliers through the full life cycle",
-    "description": "Monetize longest phase of supplier’s relationship, and drive value aligned with business objective through comprehensive end-to-end supplier management solution",
-    "features": [
+    heading: "Supplier Segmentation & SRM Support",
+    title:
+      "Unlock Competitive Advantage by effectively managing suppliers through the full life cycle",
+    description:
+      "Monetize longest phase of supplier’s relationship, and drive value aligned with business objective through comprehensive end-to-end supplier management solution",
+    features: [
       {
-        "title": "Spend analytics and segmentation",
-        "points": [
+        title: "Spend analytics and segmentation",
+        points: [
           "AI powered spend analytics and categorization with actionable insights",
-          "Best in class segmentation framework powered by agentic AI solutions"
-        ]
+          "Best in class segmentation framework powered by agentic AI solutions",
+        ],
       },
       {
-        "title": "Autonomous loop for performance management",
-        "points": [
+        title: "Autonomous loop for performance management",
+        points: [
           "Analytics and modelling engine to feed performance tracking and reporting",
-          "Built in frameworks for supplier positioning & profiling using AI enabled search algorithms"
-        ]
+          "Built in frameworks for supplier positioning & profiling using AI enabled search algorithms",
+        ],
       },
       {
-        "title": "Risk profiling for resilience and risk management",
-        "points": [
+        title: "Risk profiling for resilience and risk management",
+        points: [
           "Real-time alerts and proactive mitigation support",
-          "Flexible drill-down user interfaces to empower teams for more control"
-        ]
+          "Flexible drill-down user interfaces to empower teams for more control",
+        ],
       },
       {
-        "title": "Supplier Relationship Management (SRM) excellence",
-        "points": [
+        title: "Supplier Relationship Management (SRM) excellence",
+        points: [
           "Portfolio management, interaction models and SRM governance models and workflows",
-          "Enable communication, change management and tracking using actionable features"
-        ]
-      }
+          "Enable communication, change management and tracking using actionable features",
+        ],
+      },
     ],
-    "image": [
+    image: [
       "./assets/Supplier/Picture1.png",
       "./assets/Supplier/Picture2.png",
       "./assets/Supplier/Picture3.png",
-    ]
+    ],
   },
   {
-    "heading": "Tariff Impact Management",
-    "title": "Monitor, Evaluate and Mitigate Tariff impact",
-    "description": "Effortlessly manage tariff risk seamlessly with impact overview, scenario based 'What-if' analysis and mitigate using trade options through AI enabled solutions",
-    "cta": "Request a Demo",
-    "features": [
+    heading: "Tariff Impact Management",
+    title: "Monitor, Evaluate and Mitigate Tariff impact",
+    description:
+      "Effortlessly manage tariff risk seamlessly with impact overview, scenario based 'What-if' analysis and mitigate using trade options through AI enabled solutions",
+    cta: "Request a Demo",
+    features: [
       {
-        "title": "Informative tariff impact monitoring",
-        "points": [
+        title: "Informative tariff impact monitoring",
+        points: [
           "Description based tariff impact analysis for given spend powered by AI enabled search",
-          "Industry news, predictive spend review and categorized tariff impact dashboard"
-        ]
+          "Industry news, predictive spend review and categorized tariff impact dashboard",
+        ],
       },
       {
-        "title": "Scenario analysis",
-        "points": [
+        title: "Scenario analysis",
+        points: [
           "Flexible scenario analysis using multiple variable inputs to estimate potential impact",
-          "Seamless information and communication enablement through exportable and built in reports"
-        ]
+          "Seamless information and communication enablement through exportable and built in reports",
+        ],
       },
       {
-        "title": "Options analysis",
-        "points": [
+        title: "Options analysis",
+        points: [
           "Best alternative to existing impact available through import data analytics",
-          "Full visibility to control and determine optional benefits with visibility and control on calculation methodologies"
-        ]
+          "Full visibility to control and determine optional benefits with visibility and control on calculation methodologies",
+        ],
       },
       {
-        "title": "Enhance resilience proactively",
-        "points": [
+        title: "Enhance resilience proactively",
+        points: [
           "Actionable workflows and an ability to export and report analytics for impact management",
-          "Executive reporting for leadership and risk committees built in"
-        ]
-      }
+          "Executive reporting for leadership and risk committees built in",
+        ],
+      },
     ],
-    "image": [
+    image: [
       "./assets/Tariff/Picture1.png",
       "./assets/Tariff/Picture2.png",
       "./assets/Tariff/Picture3.png",
-    ]
-  }
-]
+    ],
+  },
+];
 
 const SolutionsPage = () => {
   const [searchParams] = useSearchParams();
@@ -182,7 +193,7 @@ const SolutionsPage = () => {
 
   // Handle URL parameters for direct navigation to specific sections
   useEffect(() => {
-    const solutionIndex = searchParams.get('solution');
+    const solutionIndex = searchParams.get("solution");
     if (solutionIndex !== null && solutionDetail[parseInt(solutionIndex)]) {
       const targetSection = solutionDetail[parseInt(solutionIndex)];
       setActive(targetSection.heading);
@@ -202,7 +213,11 @@ const SolutionsPage = () => {
       const scrollPos = window.scrollY + 200;
       solutionDetail.forEach((section) => {
         const el = sectionRefs.current[section.heading];
-        if (el && el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos) {
+        if (
+          el &&
+          el.offsetTop <= scrollPos &&
+          el.offsetTop + el.offsetHeight > scrollPos
+        ) {
           setActive(section.heading);
         }
       });
@@ -220,10 +235,11 @@ const SolutionsPage = () => {
             Purpose-built Solutions Engineered for Effortless Efficiencies.
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Integrated value chain solutions designed to build a transparent, cohesive, and data-driven
-            operational ecosystem. With actionable analytics, industry-leading frameworks, and tailored
-            performance metrics, we enable organizations to enhance efficiency, reduce costs, and
-            make agile, informed decisions.
+            Integrated value chain solutions designed to build a transparent,
+            cohesive, and data-driven operational ecosystem. With actionable
+            analytics, industry-leading frameworks, and tailored performance
+            metrics, we enable organizations to enhance efficiency, reduce
+            costs, and make agile, informed decisions.
           </p>
         </div>
       </section>
@@ -235,10 +251,11 @@ const SolutionsPage = () => {
             <button
               key={section.heading}
               onClick={() => handleClick(section.heading)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.heading
-                ? "bg-blue-600 text-white shadow-lg scale-105"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
-                }`}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${
+                active === section.heading
+                  ? "bg-blue-600 text-white shadow-lg scale-105"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
+              }`}
             >
               {section.heading}
             </button>
@@ -271,7 +288,10 @@ const SolutionsPage = () => {
               key={sectionIndex}
               className={`${sectionBg} relative scroll-mt-36 px-6 py-12 rounded-3xl`}
               ref={(el) => (sectionRefs.current[sectionData.heading] = el)}
-              data-solution={sectionData.heading.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}
+              data-solution={sectionData.heading
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/&/g, "and")}
             >
               {/* Left-Right Section */}
               <div className="flex flex-col lg:flex-row gap-12 items-center mb-8">
@@ -288,9 +308,13 @@ const SolutionsPage = () => {
                   <p className="text-lg leading-relaxed text-gray-700 mb-6">
                     {sectionData.description}
                   </p>
-                  <button className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-fit">
+                  <HashLink
+                    smooth
+                    to="/AboutUs#contact"
+                    className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-fit"
+                  >
                     Request Demo
-                  </button>
+                  </HashLink>
                 </motion.div>
 
                 {/* Right: Image */}
@@ -333,13 +357,13 @@ const SolutionsPage = () => {
                     )}
                   </div>
                 </motion.div>
-
-
               </div>
 
               {/* Features Section */}
               <div className="text-center mt-16">
-                <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">Features</h3>
+                <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">
+                  Features
+                </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {sectionData.features.map((feature, index) => (
                     <motion.div
@@ -351,10 +375,15 @@ const SolutionsPage = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                      <h4 className="text-lg font-semibold mb-4 text-black">{feature.title}</h4>
+                      <h4 className="text-lg font-semibold mb-4 text-black">
+                        {feature.title}
+                      </h4>
                       <ul className="space-y-2">
                         {feature.points.map((point, i) => (
-                          <li key={i} className="flex items-start text-gray-700 text-sm">
+                          <li
+                            key={i}
+                            className="flex items-start text-gray-700 text-sm"
+                          >
                             <span className="mr-2 text-blue-400">•</span>
                             {point}
                           </li>
@@ -371,6 +400,5 @@ const SolutionsPage = () => {
     </div>
   );
 };
-
 
 export default SolutionsPage;

@@ -398,7 +398,7 @@ export default function IndustriesPage() {
                     {/* Learn More - Centered */}
                     <div className="mt-auto flex justify-center">
                       <a
-                        href="/solution"
+                        href=""
                         className="inline-flex items-center text-blue-600 font-medium group"
                       >
                         Learn More

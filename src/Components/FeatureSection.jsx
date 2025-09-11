@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ChevronDown, CheckCircle, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const features = [
   {
     title: "Inventory Controls & Management",
+    solutionIndex: 0,
     description: (
       <>
         Leverage digital{" "}
@@ -31,6 +33,7 @@ const features = [
   },
   {
     title: "Commodities Risk Management",
+    solutionIndex: 1,
     description: (
       <>
         Robust{" "}
@@ -61,6 +64,7 @@ const features = [
   },
   {
     title: "Supplier Segmentation & SRM Support",
+    solutionIndex: 2,
     description: (
       <>
         Best-in-class <strong>supplier lifecycle management solution</strong>{" "}
@@ -81,6 +85,7 @@ const features = [
   },
   {
     title: "Tariff Impact Management",
+    solutionIndex: 3,
     description: (
       <>
         Comprehensive and adaptable{" "}
@@ -124,8 +129,10 @@ export default function FeatureSection() {
   }, [activeIndex]);
 
   const handleVideoEnd = () => {
-    const videos = features[activeIndex].video;
-    setVideoIndex((prev) => (prev + 1) % videos.length);
+    const videos = features[activeIndex]?.video;
+    if (videos && videos.length > 0) {
+      setVideoIndex((prev) => (prev + 1) % videos.length);
+    }
   };
 
   return (
@@ -158,17 +165,19 @@ export default function FeatureSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <button
-                  onClick={() =>
-                    setActiveIndex(activeIndex === index ? null : index)
-                  }
-                  className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
+                <div
+                  className={`w-full p-6 rounded-2xl border-2 transition-all duration-300 ${
                     activeIndex === index
                       ? "border-blue-200 bg-blue-50 shadow-medium"
-                      : "border-gray-200 hover:border-blue-200 hover:bg-gray-50"
+                      : "border-gray-200"
                   }`}
                 >
-                  <div className="flex items-center justify-between">
+                  <div 
+                    className="flex items-center justify-between cursor-pointer"
+                    onClick={() =>
+                      setActiveIndex(activeIndex === index ? null : index)
+                    }
+                  >
                     <h3
                       className={`text-xl font-semibold transition-colors ${
                         activeIndex === index
@@ -199,16 +208,16 @@ export default function FeatureSection() {
                         {feature.description}
                       </p>
 
-                      <a
-                        href="#"
-                        className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"
-                      >
-                        Learn More
-                        <ArrowRight className="w-4 h-4 ml-1" />
-                      </a>
+                       <Link
+                         to={`/solutions?solution=${feature.solutionIndex}`}
+                         className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"
+                       >
+                         Learn More
+                         <ArrowRight className="w-4 h-4 ml-1" />
+                       </Link>
                     </motion.div>
                   )}
-                </button>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -229,19 +238,21 @@ export default function FeatureSection() {
               {/* Main image */}
               <div className="hidden md:block top-12 relative w-[550px] h-[450px] overflow-hidden rounded-2xl">
                 <AnimatePresence mode="wait">
-                  <motion.video
-                    key={videoIndex} // animate when video changes
-                    src={features[activeIndex].video[videoIndex]}
-                    autoPlay
-                    muted
-                    playsInline
-                    onEnded={handleVideoEnd}
-                    className="w-full h-full object-cover rounded-3xl"
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                  />
+                  {features[activeIndex]?.video?.[videoIndex] && (
+                    <motion.video
+                      key={videoIndex} // animate when video changes
+                      src={features[activeIndex].video[videoIndex]}
+                      autoPlay
+                      muted
+                      playsInline
+                      onEnded={handleVideoEnd}
+                      className="w-full h-full object-cover rounded-3xl"
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.8, ease: "easeInOut" }}
+                    />
+                  )}
                 </AnimatePresence>
               </div>
 
@@ -295,13 +306,13 @@ export default function FeatureSection() {
                     ))}
                   </div>
 
-                  <a
-                    href="#"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200 "
+                  <Link
+                    to={`/solutions?solution=${features[activeIndex].solutionIndex}`}
+                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-1" />
-                  </a>
+                  </Link>
                 </motion.div>
               )}
             </motion.div>
