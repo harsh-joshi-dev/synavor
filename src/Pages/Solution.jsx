@@ -2,6 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { 
+  Database, 
+  TrendingUp, 
+  Users, 
+  Shield, 
+  BarChart3, 
+  Target,
+  CheckCircle,
+  ArrowRight
+} from "lucide-react";
 
 const solutionDetail = [
   {
@@ -12,7 +22,8 @@ const solutionDetail = [
       "Enable smarter, data-driven decisions with enterprise-grade controls, cutting edge algorithms, and AI/ML powered workflow solutions",
     features: [
       {
-        title: "Robust data integration across company’s information ecosystem",
+        title: "Robust data integration across company's information ecosystem",
+        icon: Database,
         points: [
           "Agnostic to source, format and input source",
           "Real time updates with accuracy validation",
@@ -21,6 +32,7 @@ const solutionDetail = [
       {
         title:
           "Layers of built-in capabilities for best-in-class inventory controls and optimization",
+        icon: BarChart3,
         points: [
           "Intuitive dashboards for timely execution",
           "Advanced analytics for data driven decision making and boost performance",
@@ -30,6 +42,7 @@ const solutionDetail = [
       {
         title:
           "Turn daily actions and numbers into knowledge and power using AI/ML solutions",
+        icon: Target,
         points: [
           "Work-flow optimization with Human in the loop (HITL) approach and automation",
           "Descriptive analytics and efficient user interface to enable expert led execution",
@@ -37,6 +50,7 @@ const solutionDetail = [
       },
       {
         title: "Mitigate risk and improve resilience",
+        icon: Shield,
         points: [
           "Batching, micro-batching and real streams of data with provides timely and complete data for better decision making",
           "Advanced analytics and optimization modeling proactively mitigates risks",
@@ -58,6 +72,7 @@ const solutionDetail = [
     features: [
       {
         title: "Foundational integrated source architecture",
+        icon: Database,
         points: [
           "Intelligent agentic AI leveraged mapping to develop coverage / exposure monitoring",
           "Flexible rule definition per company policy",
@@ -66,6 +81,7 @@ const solutionDetail = [
       {
         title:
           "Fuel critical decisions efficiently by supercharging your data with right analytics",
+        icon: TrendingUp,
         points: [
           "Exhaustive and structured analytics to maximize value of daily commodity hedges",
           "Scenario modelling and commodity price tracking for effective governance",
@@ -73,6 +89,7 @@ const solutionDetail = [
       },
       {
         title: "Seamless two-way integration with existing system landscape",
+        icon: ArrowRight,
         points: [
           "Work-flow actions and ability to transfer information in reports supports decision making and compliance tasks",
           "Consumes and feeds ERP to support finance processes",
@@ -80,6 +97,7 @@ const solutionDetail = [
       },
       {
         title: "Control risks and opportunities with confidence",
+        icon: Shield,
         points: [
           "Commodity risk management governance support",
           "Advanced analytics and predictive modelling to enable coverage decisions",
@@ -101,6 +119,7 @@ const solutionDetail = [
     features: [
       {
         title: "Spend analytics and segmentation",
+        icon: BarChart3,
         points: [
           "AI powered spend analytics and categorization with actionable insights",
           "Best in class segmentation framework powered by agentic AI solutions",
@@ -108,6 +127,7 @@ const solutionDetail = [
       },
       {
         title: "Autonomous loop for performance management",
+        icon: Target,
         points: [
           "Analytics and modelling engine to feed performance tracking and reporting",
           "Built in frameworks for supplier positioning & profiling using AI enabled search algorithms",
@@ -115,6 +135,7 @@ const solutionDetail = [
       },
       {
         title: "Risk profiling for resilience and risk management",
+        icon: Shield,
         points: [
           "Real-time alerts and proactive mitigation support",
           "Flexible drill-down user interfaces to empower teams for more control",
@@ -122,6 +143,7 @@ const solutionDetail = [
       },
       {
         title: "Supplier Relationship Management (SRM) excellence",
+        icon: Users,
         points: [
           "Portfolio management, interaction models and SRM governance models and workflows",
           "Enable communication, change management and tracking using actionable features",
@@ -143,6 +165,7 @@ const solutionDetail = [
     features: [
       {
         title: "Informative tariff impact monitoring",
+        icon: BarChart3,
         points: [
           "Description based tariff impact analysis for given spend powered by AI enabled search",
           "Industry news, predictive spend review and categorized tariff impact dashboard",
@@ -150,6 +173,7 @@ const solutionDetail = [
       },
       {
         title: "Scenario analysis",
+        icon: Target,
         points: [
           "Flexible scenario analysis using multiple variable inputs to estimate potential impact",
           "Seamless information and communication enablement through exportable and built in reports",
@@ -157,6 +181,7 @@ const solutionDetail = [
       },
       {
         title: "Options analysis",
+        icon: TrendingUp,
         points: [
           "Best alternative to existing impact available through import data analytics",
           "Full visibility to control and determine optional benefits with visibility and control on calculation methodologies",
@@ -164,6 +189,7 @@ const solutionDetail = [
       },
       {
         title: "Enhance resilience proactively",
+        icon: Shield,
         points: [
           "Actionable workflows and an ability to export and report analytics for impact management",
           "Executive reporting for leadership and risk committees built in",
@@ -380,28 +406,38 @@ const SolutionsPage = () => {
                 {/* <h3 className="text-2xl md:text-3xl font-bold mb-12 text-gray-900">
                   Features
                 </h3> */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {sectionData.features.map((feature, index) => (
                     <motion.div
                       key={index}
-                      className="gradient-bg rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
-                      // className="bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all"
+                      className="space-y-4"
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                      <h4 className="text-lg font-semibold mb-4 text-black">
-                        {feature.title}
-                      </h4>
-                      <ul className="space-y-2">
+                      {/* Title with Icon */}
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                          {(() => {
+                            const IconComponent = feature.icon;
+                            return <IconComponent className="w-5 h-5 text-blue-600" />;
+                          })()}
+                        </div>
+                        <h4 className="text-base text-justify font-semibold text-gray-900">
+                          {feature.title}
+                        </h4>
+                      </div>
+                      
+                      {/* Points List */}
+                      <ul className="space-y-3 ml-13">
                         {feature.points.map((point, i) => (
                           <li
                             key={i}
-                            className="flex items-start text-gray-700 text-sm"
+                            className="text-justify flex items-start text-gray-700"
                           >
-                            <span className="mr-2 text-blue-400">•</span>
-                            {point}
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm leading-relaxed">{point}</span>
                           </li>
                         ))}
                       </ul>

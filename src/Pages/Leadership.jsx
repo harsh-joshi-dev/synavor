@@ -55,7 +55,7 @@ const TestimonialCard = ({
     <div className={`bg-gradient-to-r from-blue-50 via-white to-blue-50
      p-10 rounded-2xl flex flex-col lg:flex-row items-start 
      gap-20 w-full ${className} border border-gray-200 
-     hover:shadow-2xl transition-all duration-300 hover:border-blue-400 cursor-pointer 
+     hover:shadow-2xl transition-all duration-300 hover:border-blue-400
      min-h-[500px] group`}>
 
       {/* Left Section - Image + Name + Role */}
@@ -63,7 +63,7 @@ const TestimonialCard = ({
         <div className="w-40 h-40 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-md group-hover:scale-105 transition-transform duration-300">
           <img src={image} alt={name} className="w-full h-full object-cover" />
         </div>
-        <h3 className="text-2xl font-semibold text-gray-800 mt-4 group-hover:text-blue-700 transition-colors duration-300">
+        <h3 className="text-2xl font-semibold text-gray-800 mt-4 transition-colors duration-300">
           {name}
         </h3>
         <p className="text-gray-600 text-base font-semibold">{field}</p>
@@ -71,10 +71,10 @@ const TestimonialCard = ({
 
       {/* Right Section - Bio/Description */}
       <div className="flex-1 text-left w-full lg:w-3/4">
-        <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text1}</p>
-        <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text2}</p>
-        <p className="text-gray-700 font-medium mb-4 text-base leading-relaxed text-justify">{text3}</p>
-        <p className="text-gray-700 font-medium text-base  leading-relaxed text-justify">{text4}</p>
+        <p className="text-gray-700 font-medium mb-4 text-[17px] leading-relaxed text-justify">{text1}</p>
+        <p className="text-gray-700 font-medium mb-4 text-[17px] leading-relaxed text-justify">{text2}</p>
+        <p className="text-gray-700 font-medium mb-4 text-[17px] leading-relaxed text-justify">{text3}</p>
+        <p className="text-gray-700 font-medium text-[17px] leading-relaxed text-justify">{text4}</p>
       </div>
     </div>
 

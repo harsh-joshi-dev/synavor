@@ -274,7 +274,7 @@ const AboutUs = () => {
                   </p>
 
                   {/* Bullets */}
-                  <ul className="space-y-3 text-gray-800 text-sm cursor-default">
+                  <ul className="space-y-3 text-gray-800 text-[16px] cursor-default">
                     {item.bullets.map((point, i) => (
                       <li key={i} className="flex items-start">
                         <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-blue-600 text-xs mt-0.5">
