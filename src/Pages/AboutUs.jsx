@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Users,
@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import Leadership from "./Leadership";
 import ContactUs from "./ContactUs";
+import { useLocation } from "react-router-dom";
 
 const aboutUsData = [
   {
@@ -140,6 +141,20 @@ const solutionDetails = [
 ];
 
 const AboutUs = () => {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100); // wait for DOM render
+      }
+    }
+  }, [location]);
 
   return (
     <div className="min-h-screen scroll-mt-20 bg-gray-50 cursor-default" id="about">

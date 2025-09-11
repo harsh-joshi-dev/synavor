@@ -5,6 +5,7 @@ import { ArrowRight, Play, Shield, Zap, TrendingUp, Users } from "lucide-react";
 import FeatureSection from "../Components/FeatureSection";
 import CollaborationSection from "../Components/CollaborationSection";
 import IndustriesPage from "../Components/IndustriesPage";
+import { HashLink } from "react-router-hash-link";
 
 const Home = () => {
   return (
@@ -42,10 +43,10 @@ const Home = () => {
                   Explore Solutions
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <button className="btn-secondary group">
+                <HashLink smooth to="/AboutUs#contact" className="btn-secondary group">
                   <Play className="w-4 h-4 mr-2" />
                   Request Demo
-                </button>
+                </HashLink>
               </div>
 
               {/* <div className="flex items-center space-x-8 pt-4">
@@ -67,7 +68,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="relative">
-               
+
                 {/* <motion.img
                   src="/assets/business.jpg"
                   alt="AI/ML Procurement Dashboard"
@@ -80,8 +81,8 @@ const Home = () => {
                   loop
                   muted
                   playsInline
-                //   className="w-full h-full object-cover"
-                className="relative w-full max-w-full mx-auto rounded-3xl shadow-inner-2xl shadow-white"
+                  //   className="w-full h-full object-cover"
+                  className="relative w-full max-w-full mx-auto rounded-3xl shadow-inner-2xl shadow-white"
 
                 />
               </div>

@@ -8,13 +8,13 @@ export default function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-12">
                     {/* Column 1 - Company Info */}
                     <div className="lg:col-span-2">
-                        <div className="flex items-center mb-6">
+                        <div className="flex items-center">
                             <img
-                                src="/WHITE.png"
+                                src="/footerlogo.svg"
                                 alt="Synavor"
-                                className="h-12 w-auto mr-2"
+                                className="h-20 w-auto -ml-5 transition-transform duration-300 hover:scale-105"
                             />
-                            <span className="text-2xl font-bold text-white">Synavor</span>
+                            {/* <span className="text-2xl font-bold text-white">Synavor</span> */}
                         </div>
                         <p className="text-base leading-relaxed text-gray-400 mb-6 max-w-md">
                             We empower businesses with innovative AI/ML technology solutions,
