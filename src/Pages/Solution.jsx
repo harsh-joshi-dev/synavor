@@ -292,16 +292,16 @@ const SolutionsPage = () => {
       <div className="sticky top-[72px] z-40 md:flex hidden justify-center backdrop-blur-md py-3 px-6">
         <div className="flex gap-4 flex-wrap justify-center">
           {solutionDetail.map((section) => (
-           <button
-           key={section.heading}
-           onClick={() => handleClick(section.heading)}
-           className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.heading
-               ? "bg-blue-600 text-white shadow-lg scale-105"
-               : "bg-gray-100 text-blue-500 hover:bg-blue-100 hover:text-blue-700 hover:scale-105"
-             }`}
-         >
-           {section.heading}
-         </button>
+            <button
+              key={section.heading}
+              onClick={() => handleClick(section.heading)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.heading
+                  ? "bg-blue-600 text-white shadow-lg scale-105"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
+                }`}
+            >
+              {section.heading}
+            </button>
           ))}
         </div>
       </div>
@@ -425,17 +425,17 @@ const SolutionsPage = () => {
                             return <IconComponent className="w-5 h-5 text-blue-600" />;
                           })()}
                         </div>
-                        <h4 className="text-[18px] text-justify font-normal text-gray-900">
+                        <h4 className="text-lg text-justify font-medium text-gray-900">
                           {feature.title}
                         </h4>
                       </div>
                       
                       {/* Points List */}
-                      <ul className="space-y-2 ml-13 ">
+                      <ul className="space-y-2 ml-13">
                         {feature.points.map((point, i) => (
                           <li
                             key={i}
-                            className="text-justify flex  items-start text-gray-700"
+                            className="text-justify flex items-start text-gray-700"
                           >
                             <Dot className="w-4 h-4 text-blue-500 mr-3 mt-1 flex-shrink-0" />
                             <span className="text-base leading-relaxed">{point}</span>
