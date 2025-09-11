@@ -27,7 +27,7 @@ const features = [
       "Analytics with KPI dashboard",
       "Transparency, accuracy & speed",
     ],
-    video: ["./assets/Inventory/video.mp4"],
+    video: ["./assets/Inventory/video1.mp4", "./assets/Inventory/video2.mp4"],
   },
   {
     title: "Commodities Risk Management",
@@ -57,7 +57,7 @@ const features = [
       "Built-in Mark-to-Market and Hedge P&L reports",
       "Commodity risk management governance support",
     ],
-    video: ["./assets/Commodity/video.mp4"],
+    video: ["./assets/Commodity/video1.mp4", "./assets/Commodity/video2.mp4"],
   },
   {
     title: "Supplier Segmentation & SRM Support",
@@ -70,18 +70,14 @@ const features = [
         optimize relationships, and deliver incremental value.
       </>
     ),
-    image: [
-      "./assets/Supplier/Picture1.png",
-      // "./assets/Supplier/Picture2.png",
-      // "./assets/Supplier/Picture3.png",
-    ],
+    image: ["./assets/Supplier/Picture1.png"],
     benefits: [
       "Supplier segmentation & positioning models",
       "Performance score cards",
       "Risk profiles and heat maps",
       "SRM activity management workflows",
     ],
-    video: ["./assets/Supplier/video.mp4"],
+    video: ["/assets/Supplier/video1.mp4", "/assets/Supplier/video2.mp4"],
   },
   {
     title: "Tariff Impact Management",
@@ -94,17 +90,14 @@ const features = [
         powered source discovery and analytics.
       </>
     ),
-    image: [
-      "./assets/Tariff/Picture1.png",
-      // "./assets/Tariff/Picture2.png",
-      // "./assets/Tariff/Picture3.png",
-    ],
+    image: ["./assets/Tariff/Picture1.png"],
     benefits: [
       "What-if analysis tools",
       "Alternate tariff optimization sources",
       "Predictive spend analytics",
       "Real time tariff news and impact dashboards",
     ],
+    video: ["./assets/Tariff/video1.mp4", "./assets/Tariff/video2.mp4"],
   },
 ];
 
@@ -124,6 +117,17 @@ export default function FeatureSection() {
     return () => clearInterval(interval);
   }, [activeIndex]);
 
+  const [videoIndex, setVideoIndex] = useState(0);
+
+  useEffect(() => {
+    setVideoIndex(0); // reset when activeIndex changes
+  }, [activeIndex]);
+
+  const handleVideoEnd = () => {
+    const videos = features[activeIndex].video;
+    setVideoIndex((prev) => (prev + 1) % videos.length);
+  };
+
   return (
     <section className="bg-white section-padding">
       <div className="max-w-7xl mx-auto container-padding">
@@ -139,14 +143,6 @@ export default function FeatureSection() {
             <CheckCircle className="w-4 h-4 mr-2" />
             Core Solutions
           </motion.div>
-          {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Transform Your <span className="">Procurement & Supply Chain </span>{" "}
-            Operations
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Leverage advanced AI/ML technologies to optimize core supply chain
-            and procurement processes.
-          </p> */}
         </div>
 
         {/* Content */}
@@ -203,19 +199,6 @@ export default function FeatureSection() {
                         {feature.description}
                       </p>
 
-                      {/* <div className="grid grid-cols-2 gap-2 ">
-                        {feature.benefits.map((benefit, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center space-x-2"
-                          >
-                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                            <span className="text-sm text-gray-700 leading-[17px]">
-                              {benefit}
-                            </span>
-                          </div>
-                        ))}
-                      </div> */}
                       <a
                         href="#"
                         className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"
@@ -231,71 +214,6 @@ export default function FeatureSection() {
           </div>
 
           {/* Right side - Image Preview (always fixed position) */}
-          {/* <div className="relative flex justify-center md:sticky md:top-24">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-3xl blur-2xl"></div>
-              <img
-                src={features[activeIndex]?.image || "/assets/dashboard.jpg"}
-                alt={features[activeIndex]?.title}
-                className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl border border-gray-100 transition-all duration-500 ease-in-out"
-              />
-
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-large p-6 border border-gray-100 max-w-xs">
-                <h4 className="font-semibold text-gray-900 mb-2">
-                  {features[activeIndex]?.title || "Smart Supply Chain Transformation"}
-                </h4>
-                <p className="text-sm text-gray-600 mb-3">
-                  {features[activeIndex]?.description.substring(0, 100) || "Harness AI-driven insights to streamline procurement, cut costs, and boost efficiency across your supply chain."}...
-                </p>
-                <div className="flex items-center text-blue-600 text-sm font-medium">
-                  <span>Explore Feature</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </div>
-            </motion.div>
-          </div> */}
-
-          {/* <div className="relative flex justify-center md:sticky md:top-24 flex-1">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative w-full h-full"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-3xl blur-2xl"></div>
-              <div className="hidden md:block relative w-full h-[500px] overflow-hidden rounded-3xl shadow-2xl border border-gray-100">
-                <AnimatePresence mode="wait" custom={imgIndex}>
-                  <motion.img
-                    key={imgIndex}
-                    src={
-                      features[activeIndex]?.image?.[imgIndex] || "/assets/dashboard.jpg"
-                    }
-                    alt={features[activeIndex]?.title}
-                    className="absolute inset-0 w-full h-full object-fill"
-                    custom={imgIndex}
-                    initial={{
-                      opacity: 0,
-                      x: imgIndex % 2 === 0 ? 150 : -150, // 👈 even = right, odd = left
-                    }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{
-                      opacity: 0,
-                      x: imgIndex % 2 === 0 ? -150 : 150, // 👈 leave opposite side
-                    }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                  />
-                </AnimatePresence>
-
-              </div>
-            </motion.div>
-          </div> */}
 
           <div className="relative md:flex justify-center md:sticky md:top-28 flex-1 mb-20 hidden">
             <motion.div
@@ -309,15 +227,20 @@ export default function FeatureSection() {
               <div className="absolute inset-0 rounded-2xl blur-xl"></div>
 
               {/* Main image */}
-              <div className="hidden md:block top-12 relative w-full h-[450px] overflow-hidden rounded-2xl">
-                <AnimatePresence mode="wait" custom={imgIndex}>
-                  <video
-                    src={features[activeIndex].video}
+              <div className="hidden md:block top-12 relative w-[550px] h-[450px] overflow-hidden rounded-2xl">
+                <AnimatePresence mode="wait">
+                  <motion.video
+                    key={videoIndex} // animate when video changes
+                    src={features[activeIndex].video[videoIndex]}
                     autoPlay
-                    loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    onEnded={handleVideoEnd}
+                    className="w-full h-full object-cover rounded-3xl bg-red-500"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
                   />
                 </AnimatePresence>
               </div>
@@ -326,7 +249,6 @@ export default function FeatureSection() {
               {features[activeIndex]?.video && (
                 <motion.div
                   className="absolute -top-2 -left-16 bg-white rounded-lg shadow-lg border border-gray-100 w-64 h-45 z-20 overflow-hidden"
-                  // animate={{ y: [0, -10, 0, 10, 0] }} // Up-down motion
                   transition={{
                     duration: 4,
                     repeat: Infinity,
@@ -342,8 +264,6 @@ export default function FeatureSection() {
                     alt={features[activeIndex]?.title}
                     className="absolute inset-0 w-full h-full object-contain"
                     custom={imgIndex}
-                    // initial={{ opacity: 0, x: imgIndex % 2 === 0 ? 150 : -150 }}
-                    // animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: imgIndex % 2 === 0 ? -150 : 150 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                   />
@@ -354,7 +274,6 @@ export default function FeatureSection() {
               {features[activeIndex]?.benefits?.length > 0 && (
                 <motion.div
                   className="absolute -bottom-24 -right-36 bg-white rounded-lg shadow-lg p-4 border border-gray-100 w-full z-20"
-                  // animate={{ y: [0, -10, 0, 10, 0] }} // Up-down motion
                   transition={{
                     duration: 4,
                     repeat: Infinity,
@@ -365,14 +284,6 @@ export default function FeatureSection() {
                     {features[activeIndex]?.title}
                   </h4>
 
-                  {/* <ul className="space-y-1 text-xs text-gray-700 mb-3">
-                    { => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-blue-600 mr-1">✔</span>
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul> */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-3">
                     {features[activeIndex].benefits.map((benefit, i) => (
                       <div key={i} className="flex items-center space-x-2">
