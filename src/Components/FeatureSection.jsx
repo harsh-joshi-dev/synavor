@@ -219,6 +219,20 @@ export default function FeatureSection() {
                         {feature.description}
                       </p>
 
+                      {/* Mobile-only benefits */}
+                      {feature.benefits && feature.benefits.length > 0 && (
+                        <div className="block sm:hidden space-y-2">
+                          {feature.benefits.map((benefit, i) => (
+                            <div key={i} className="flex items-center space-x-2">
+                              <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                              <span className="text-sm text-gray-700 leading-[17px]">
+                                {benefit}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
                        <Link
                          to={`/solutions?solution=${feature.solutionIndex}`}
                          className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"

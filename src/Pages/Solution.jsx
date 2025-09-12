@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { 
-  Database, 
-  TrendingUp, 
-  Users, 
-  Shield, 
-  BarChart3, 
+import {
+  Database,
+  TrendingUp,
+  Users,
+  Shield,
+  BarChart3,
   Target,
   CheckCircle,
   Dot,
@@ -275,7 +275,7 @@ const SolutionsPage = () => {
       {/* Hero Section */}
       <section className="gradient-bg section-padding">
         <div className="max-w-7xl mx-auto text-center px-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 leading-[70px]">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-semibold mb-2 leading-[60px]">
             Purpose-built Solutions Engineered for Effortless Efficiencies
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -289,15 +289,15 @@ const SolutionsPage = () => {
       </section>
 
       {/* Sticky Navigation */}
-      <div className="sticky top-[72px] z-40 md:flex hidden justify-center backdrop-blur-md py-3 px-6">
-        <div className="flex gap-4 flex-wrap justify-center">
+      <div className="sticky top-[72px] z-40 flex justify-center backdrop-blur-md py-3 px-6">
+        <div className="flex gap-2 flex-wrap justify-center grid grid-cols-2 md:grid-cols-none md:flex">
           {solutionDetail.map((section) => (
             <button
               key={section.heading}
               onClick={() => handleClick(section.heading)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.heading
-                  ? "bg-blue-600 text-white shadow-lg scale-105"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105 hover:text-blue-500"
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 mt-1 md:px-5 md:py-2 md:text-sm md:mt-2 ${active === section.heading
+                ? "bg-blue-600 text-white shadow-lg scale-105"
+                : "bg-gray-100 text-gray-500 cursor-pointer hover:bg-blue-100 hover:text-blue-700 hover:scale-105"
                 }`}
             >
               {section.heading}
@@ -307,7 +307,7 @@ const SolutionsPage = () => {
       </div>
 
       {/* Content Sections */}
-      <div className=" mx-auto pt-12 space-y-24">
+      <div className=" mx-auto pt-12">
         {solutionDetail.map((sectionData, sectionIndex) => {
           // Decide background: even = default, odd = gradient
           const isGradient = sectionIndex % 2 !== 0;
@@ -425,20 +425,20 @@ const SolutionsPage = () => {
                             return <IconComponent className="w-5 h-5 text-blue-600" />;
                           })()}
                         </div>
-                        <h4 className="text-lg text-justify font-medium text-gray-900">
+                        <h4 className="text-base text-justify md:text-justify text-left text-gray-900">
                           {feature.title}
                         </h4>
                       </div>
-                      
+
                       {/* Points List */}
-                      <ul className="space-y-2 ml-13">
+                      <ul className="space-y-3 ml-6 md:ml-14">
                         {feature.points.map((point, i) => (
                           <li
                             key={i}
-                            className="text-justify flex items-start text-gray-700"
+                            className="flex items-start text-gray-700"
                           >
                             <Dot className="w-4 h-4 text-blue-500 mr-3 mt-1 flex-shrink-0" />
-                            <span className="text-base leading-relaxed">{point}</span>
+                            <span className="text-[15px] leading-relaxed text-left md:text-justify">{point}</span>
                           </li>
                         ))}
                       </ul>

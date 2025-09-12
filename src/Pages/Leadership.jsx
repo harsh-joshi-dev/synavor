@@ -54,7 +54,7 @@ const TestimonialCard = ({
 
     <div className={`bg-gradient-to-r from-blue-50 via-white to-blue-50
      p-10 rounded-2xl flex flex-col lg:flex-row items-start 
-     gap-20 w-full ${className} border border-gray-200 
+     gap-4 lg:gap-20 w-full ${className} border border-gray-200 
      hover:shadow-2xl transition-all duration-300 hover:border-blue-400
      min-h-[500px] group`}>
 
@@ -70,7 +70,7 @@ const TestimonialCard = ({
       </div>
 
       {/* Right Section - Bio/Description */}
-      <div className="flex-1 text-left w-full lg:w-3/4">
+      <div className="flex-1 text-left w-full lg:w-3/4 mt-0 lg:mt-0">
         <p className="text-gray-700 font-medium mb-4 text-[17px] leading-relaxed text-justify">{text1}</p>
         <p className="text-gray-700 font-medium mb-4 text-[17px] leading-relaxed text-justify">{text2}</p>
         <p className="text-gray-700 font-medium mb-4 text-[17px] leading-relaxed text-justify">{text3}</p>

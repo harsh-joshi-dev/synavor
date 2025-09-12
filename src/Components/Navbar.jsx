@@ -433,13 +433,13 @@ export default function Navbar() {
             >
               Who We Help
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/AboutUs"
               className="block py-2 text-gray-700 hover:text-blue-600"
               onClick={() => setIsOpen(false)}
             >
               Why Synavor
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/AboutUs"
               className="block py-2 text-gray-700 hover:text-blue-600"
@@ -449,7 +449,7 @@ export default function Navbar() {
             </NavLink>
 
             <div className="pt-4 border-t border-gray-200 space-y-3">
-              <NavLink
+              {/* <NavLink
                 to="/login"
                 className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
                 onClick={() => setIsOpen(false)}
@@ -461,7 +461,7 @@ export default function Navbar() {
                 className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
               >
                 Support
-              </a>
+              </a> */}
               <HashLink smooth to="/AboutUs#contact" className="w-full btn-primary mt-4">Request a demo</HashLink>
             </div>
           </div>

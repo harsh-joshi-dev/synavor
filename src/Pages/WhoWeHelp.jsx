@@ -205,13 +205,13 @@ const WhoWeHelpPage = () => {
                 </div>
             </section>
 
-            <div className="sticky  top-[72px] z-40 flex justify-center backdrop-blur-md py-3 px-6">
-                <div className="flex gap-4">
+            <div className="sticky top-[72px] z-40 flex justify-center backdrop-blur-md py-3 px-6">
+                <div className="flex gap-1 md:gap-4 flex-wrap justify-center">
                     {whoWeHelp.map((section) => (
                         <button
                             key={section.id}
                             onClick={() => handleClick(section.id)}
-                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 mt-2 ${active === section.id
+                            className={`px-3 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 mt-1 md:mt-2 flex-shrink-0 ${active === section.id
                                 ? "bg-blue-600 text-white shadow-lg scale-105"
                                 : "bg-gray-100 text-gray-500 cursor-pointer hover:bg-blue-100 hover:text-blue-700 hover:scale-105"
                                 }`}
@@ -223,7 +223,7 @@ const WhoWeHelpPage = () => {
             </div>
 
 
-            <div className=" mx-auto py-12">
+            <div className="mx-auto py-12 overflow-x-hidden">
                 {whoWeHelp.map((sectionData, sectionIndex) => (
                     <div
                         key={sectionIndex}
@@ -232,7 +232,7 @@ const WhoWeHelpPage = () => {
                     >
                         {/* Supply Chain Fading Background */}
                         {sectionData.id === "supplychain" && (
-                            <div className="absolute -inset-6 gradient-bg  pointer-events-none rounded-2xl"></div>
+                            <div className="absolute inset-0 gradient-bg  pointer-events-none rounded-2xl"></div>
                         )}
 
                         {/* Top Section */}
@@ -298,8 +298,8 @@ const WhoWeHelpPage = () => {
                                     <p className="text-gray-800 text-sm leading-relaxed text-center">{section.description}</p>
 
                                     {/* Subtle decorative glow */}
-                                    <div className="absolute -top-8 -right-8 w-24 h-24 bg-blue-200/20 rounded-full blur-3xl pointer-events-none"></div>
-                                    <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-blue-200/10 rounded-full blur-2xl pointer-events-none"></div>
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-blue-200/20 rounded-full blur-3xl pointer-events-none overflow-hidden"></div>
+                                    <div className="absolute bottom-0 left-0 w-20 h-20 bg-blue-200/10 rounded-full blur-2xl pointer-events-none overflow-hidden"></div>
                                 </motion.div>
                             ))}
                         </div>

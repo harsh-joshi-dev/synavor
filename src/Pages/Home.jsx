@@ -31,7 +31,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight">
                 Transform your{" "}
                 <span className="">Procurement & Supply Chain</span> through
                 Advanced Digital and AI/ML Solutions
