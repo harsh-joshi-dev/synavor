@@ -93,20 +93,28 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold text-white mb-6 tracking-wide">Company</h3>
                         <ul className="space-y-3 text-sm">
                             {[
-                                { name: "About Us", link: "/AboutUs#about" },
-                                { name: "Leadership Team", link: "/AboutUs#leadership" },
-                                { name: "Contact Us", link: "/AboutUs#contact" },
+                                { name: "About Us", path: "/AboutUs", hash: "about" },
+                                { name: "Leadership Team", path: "/AboutUs", hash: "leadership" },
+                                { name: "Contact Us", path: "/AboutUs", hash: "contact" },
                             ].map((item, index) => (
                                 <li key={index}>
-                                    <a
-                                        href={item.link}
+                                    <NavLink
+                                        to={item.path}
+                                        onClick={() => {
+                                            setTimeout(() => {
+                                                const element = document.getElementById(item.hash);
+                                                if (element) {
+                                                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                                                }
+                                            }, 100);
+                                        }}
                                         className="flex items-center justify-between text-gray-400 hover:text-blue-400 transition-colors duration-300 group"
                                     >
                                         <span className="relative after:block after:h-[1px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">
                                             {item.name}
                                         </span>
                                         {/* <ArrowRight className="w-4 h-4 opacity-0 transform translate-x-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300" /> */}
-                                    </a>
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
